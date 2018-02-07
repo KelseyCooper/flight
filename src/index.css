@@ -7,3 +7,7 @@ body {
 .navbar {
   border-radius: 0px;;
 }
+
+.slick-slider {
+  text-align: center;
+}

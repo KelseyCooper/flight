@@ -20,8 +20,8 @@ const NavComponent = () => {
               </NavItem>
             </Nav>
           </Navbar.Collapse>
-        </Navbar>;
-      </div>;
+        </Navbar>
+      </div>
 };
 
 export default NavComponent;

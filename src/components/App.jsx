@@ -1,7 +1,14 @@
 import React, { Component } from 'react';
 import Nav from './Nav'
+import Slider from './Slider'
 
 class App extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      someInfo: ''
+    }
+  }
 
   componentDidMount() {
     fetch("http://localhost:3001/users", {
@@ -12,15 +19,18 @@ class App extends Component {
     })
       .then(response => response.json())
       .then(json => {
-        console.log(json);
+        console.log(json)
+        this.setState({someInfo: json.title})
       })
-      .catch(error => console.log(error));
+      .catch(error => console.log(error))
   }
   
 
   render() {
     return <div>
-      <Nav />
+        <Nav />
+        <div className="container">{this.state.someInfo}</div>
+        <Slider />
       </div>;
   }
 }
