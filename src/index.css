@@ -11,3 +11,8 @@ body {
 .slick-slider {
   text-align: center;
 }
+
+.slick-slider img {
+  max-width: 300px;
+  margin: auto;
+}
