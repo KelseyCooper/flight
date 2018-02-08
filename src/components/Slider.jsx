@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Slider from 'react-slick';
-import ColorChart from './ColorChart'
+import ColorChart from '../containers/ColorChart'
 
 class SliderComponent extends Component {
     render () {

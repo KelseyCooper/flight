@@ -9,21 +9,6 @@ class App extends Component {
       someInfo: ''
     }
   }
-
-  componentDidMount() {
-    fetch("http://localhost:3001/users", {
-      method: "GET",
-      headers: {
-        Accept: "application/json"
-      }
-    })
-      .then(response => response.json())
-      .then(json => {
-        console.log(json)
-        this.setState({someInfo: json.title})
-      })
-      .catch(error => console.log(error))
-  }
   
 
   render() {

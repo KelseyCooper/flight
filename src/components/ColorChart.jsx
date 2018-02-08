@@ -37,6 +37,10 @@ const renderCustomizedLabel = ({
 };
 
 class ColorChartComponent extends Component {
+  componentDidMount() {
+    this.props.fetchCustomers();
+  }
+  
     render() {
         return <div>
             <PieChart width={1000} height={500} onMouseEnter={this.onPieEnter}>
@@ -46,6 +50,7 @@ class ColorChartComponent extends Component {
                 ))}
               </Pie>
             </PieChart>
+            {this.props.customers.length}
           </div>;
     }
 }
