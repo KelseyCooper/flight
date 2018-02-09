@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import Nav from './Nav'
-import Slider from './Slider'
+import Nav from './Nav';
+import Main from './Main';
 
 class App extends Component {
   constructor(props) {
@@ -15,7 +15,7 @@ class App extends Component {
     return <div>
         <Nav />
         <div className="container">{this.state.someInfo}</div>
-        <Slider />
+        <Main />
       </div>;
   }
 }
