@@ -14,7 +14,6 @@ export function fetchCustomers() {
     )
       .then(response => response.json())
       .then(json => {
-        console.log(json);
         dispatch(loadCustomers(json));
       })
       .catch(error => console.log(error));

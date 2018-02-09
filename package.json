@@ -10,6 +10,7 @@
     "react-redux": "^5.0.6",
     "react-scripts": "1.1.0",
     "react-slick": "^0.18.0",
+    "react-vis": "^1.8.2",
     "recharts": "^1.0.0-beta.10",
     "redux": "^3.7.2",
     "redux-thunk": "^2.2.0"

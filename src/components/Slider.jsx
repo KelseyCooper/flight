@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Slider from 'react-slick';
 import ColorChart from '../containers/ColorChart'
+import GenderChart from '../containers/GenderChart'
 
 class SliderComponent extends Component {
     render () {
@@ -14,7 +15,7 @@ class SliderComponent extends Component {
         return (
         <Slider {...settings}>
             <div><h3><ColorChart /></h3></div>
-            <div><h3>2</h3></div>
+            <div><h3><GenderChart /></h3></div>
             <div><h3>3</h3></div>
         </Slider>
         );

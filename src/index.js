@@ -7,7 +7,7 @@ import { Provider } from "react-redux";
 import { createStore, applyMiddleware } from "redux";
 import thunk from "redux-thunk";
 import rootReducer from "./reducers";
-
+import "../node_modules/react-vis/dist/style.css";
 import "./index.css";
 import App from "./components/App";
 require("dotenv").config();

@@ -16,3 +16,7 @@ body {
   max-width: 300px;
   margin: auto;
 }
+
+.rv-xy-plot {
+  margin: 0 auto;
+}
