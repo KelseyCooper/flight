@@ -1,16 +1,16 @@
 import { connect } from "react-redux";
 import ColorChartComponent from "../components/ColorChart";
-import { fetchCustomers } from "../actions/actions_customers"
+import { fetchCustomerColorData } from "../actions/actions_customerColorData";
 
 const mapStateToProps = state => {
   return {
-    customers: state.customers
+    data: state.customersColorData
   };
 };
 
 const mapDispatchToProps = (dispatch, ownProps) => {
-    return { fetchCustomers: () => {
-        dispatch(fetchCustomers());
+    return { fetchCustomerColorData: () => {
+        dispatch(fetchCustomerColorData());
       } };
 }
 
