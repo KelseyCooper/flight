@@ -1,31 +1,39 @@
-import setAuthorizationToken from '../utils/setAuthorizationToken';
-import jwt from 'jsonwebtoken';
+import setAuthorizationToken from "../utils/setAuthorizationToken";
+import jwt from "jsonwebtoken";
 export const SET_CURRENT_USER = "SET_CURRENT_USER";
 
 export function setCurrentUser(user) {
   return {
     type: SET_CURRENT_USER,
     user
+  };
+}
+
+export function logout() {
+  return dispatch => {
+    localStorage.removeItem('jwtToken');
+    setAuthorizationToken(false);
+    dispatch(setCurrentUser({}));
   }
 }
 
 export function authenticateUser(auth) {
-    let config = {
-        method: 'POST',
-        headers: { 'Content-Type':'application/x-www-form-urlencoded' },
-        body: `email=${auth.email}&password=${auth.password}`
-    }
-    
-         return dispatch => {
-           return fetch("http://localhost:3001/users", config)
-             .then(response => response.json())
-             .then(json => {      
-                 console.log(json);
-                 
-                localStorage.setItem("jwtToken", json.token);
-                setAuthorizationToken(json.token);
-                dispatch(setCurrentUser(jwt.decode(json.token)));
-             })
-             .catch(error => console.log(error));
-         };
-       }
+  let config = {
+    method: "POST",
+    headers: { "Content-Type": "application/x-www-form-urlencoded" },
+    body: `email=${auth.email}&password=${auth.password}`
+  };
+
+  return dispatch => {
+    return fetch("http://localhost:3001/users", config)
+      .then(response => response.json())
+      .then(json => {
+        console.log(json);
+
+        localStorage.setItem("jwtToken", json.token);
+        setAuthorizationToken(json.token);
+        dispatch(setCurrentUser(jwt.decode(json.token)));
+      })
+      .catch(error => console.log(error));
+  };
+}

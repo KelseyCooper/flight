@@ -2,8 +2,47 @@ import React from 'react';
 import { Navbar, Nav, NavItem } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { LinkContainer } from "react-router-bootstrap";
+import { connect } from 'react-redux';
+import { logout } from '../actions/actions_authenticate';
 
-const NavComponent = () => {
+class NavComponent extends React.Component {
+
+    logout(e) {
+      e.preventDefault();
+      this.props.logout();
+      
+    }
+
+  render() {
+    const userLinks = <Navbar.Collapse>
+        <Nav pullRight>
+          <LinkContainer exact to="/">
+            <NavItem eventKey={1}>Home</NavItem>
+          </LinkContainer>
+          <LinkContainer to="/new-data">
+            <NavItem eventKey={5}>New Data</NavItem>
+          </LinkContainer>
+          <LinkContainer to="/all-data">
+            <NavItem eventKey={4}>All Data</NavItem>
+          </LinkContainer>
+          <LinkContainer to="/logout">
+            <NavItem eventKey={3.1} onClick={this.logout.bind(this)}>Logout</NavItem>
+          </LinkContainer>
+        </Nav>
+      </Navbar.Collapse>;
+    const guestLinks = (
+      <Navbar.Collapse>
+        <Nav pullRight>
+          <LinkContainer exact to="/">
+            <NavItem eventKey={1}>Home</NavItem>
+          </LinkContainer>
+          <LinkContainer to="/login">
+            <NavItem eventKey={2}>Login</NavItem>
+          </LinkContainer>
+        </Nav>
+      </Navbar.Collapse>
+    );
+
   return <div>
       <Navbar inverse collapseOnSelect>
         <Navbar.Header>
@@ -12,27 +51,17 @@ const NavComponent = () => {
           </Navbar.Brand>
           <Navbar.Toggle />
         </Navbar.Header>
-        <Navbar.Collapse>
-          <Nav pullRight>
-            <LinkContainer exact to="/">
-              <NavItem eventKey={1}>Home</NavItem>
-            </LinkContainer>
-            <LinkContainer to="/login">
-              <NavItem eventKey={2}>Login</NavItem>
-            </LinkContainer>
-            <LinkContainer to="/logout">
-              <NavItem eventKey={3}>Logout</NavItem>
-            </LinkContainer>
-            <LinkContainer to="/all-data">
-              <NavItem eventKey={4}>All Data</NavItem>
-            </LinkContainer>
-            <LinkContainer to="/new-data">
-              <NavItem eventKey={5}>New Data</NavItem>
-            </LinkContainer>
-          </Nav>
-        </Navbar.Collapse>
+        {this.props.auth.isAuthenticated ? userLinks : guestLinks}
+        {console.log(this.props.auth)}
       </Navbar>
     </div>;
+}
 };
 
-export default NavComponent;
+function mapStateToProps(state) {
+  return {
+    auth: state.auth
+  };
+}
+
+export default connect(mapStateToProps,{ logout } )(NavComponent);
