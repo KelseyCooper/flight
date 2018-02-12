@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Switch, Route } from "react-router-dom";
 import Slider from './Slider';
-import Login from './Login';
+import Login from "../containers/Login";
 
 class Main extends Component {
     render() {

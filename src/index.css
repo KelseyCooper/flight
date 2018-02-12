@@ -20,3 +20,7 @@ body {
 .rv-xy-plot {
   margin: 0 auto;
 }
+
+.red-border {
+  border: tomato 1px solid;
+}
