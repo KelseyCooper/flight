@@ -1,4 +1,13 @@
-export const AUTHENTICATE_USER = "AUTHENTICATE_USER";
+import setAuthorizationToken from '../utils/setAuthorizationToken';
+import jwt from 'jsonwebtoken';
+export const SET_CURRENT_USER = "SET_CURRENT_USER";
+
+export function setCurrentUser(user) {
+  return {
+    type: SET_CURRENT_USER,
+    user
+  }
+}
 
 export function authenticateUser(auth) {
     let config = {
@@ -12,11 +21,10 @@ export function authenticateUser(auth) {
              .then(response => response.json())
              .then(json => {      
                  console.log(json);
-                            
-               return dispatch({
-                 type: AUTHENTICATE_USER,
-                 payload: json
-               });
+                 
+                localStorage.setItem("jwtToken", json.token);
+                setAuthorizationToken(json.token);
+                dispatch(setCurrentUser(jwt.decode(json.token)));
              })
              .catch(error => console.log(error));
          };

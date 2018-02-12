@@ -1,9 +1,18 @@
-import { AUTHENTICATE_USER } from "../actions/actions_authenticate";
+import { SET_CURRENT_USER } from "../actions/actions_authenticate";
+import isEmpty from 'lodash/isEmpty';
 
-const authenticate = (state = [], action) => {
+const initialState = {
+  isAuthenticated: false,
+  user: {}
+}
+
+const authenticate = (state = initialState, action) => {
   switch (action.type) {
-    case AUTHENTICATE_USER:
-      return action.payload;
+    case SET_CURRENT_USER:
+      return {
+        isAuthenticated: !isEmpty(action.user),
+        user: action.user
+      }
     default:
       return state;
   }
