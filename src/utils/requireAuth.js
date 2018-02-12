@@ -1,0 +1,36 @@
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+
+export default function(ComposedComponent) {
+    class Autheticate extends Component {
+        
+        componentWillMount() {
+            if(!this.props.isAuthenticated) {
+                this.props.history.push("/login");
+            }
+        }
+        
+        componentWillUpdate(nextProps, nextState) {
+            if (!nextProps.isAuthenticated) {
+                this.props.history.push("/");
+            }
+        }
+        
+
+        render() {
+            return (
+                <div>
+                    <ComposedComponent {...this.props} />
+                </div>
+            );
+        }
+    }
+
+    function mapStateToProps(state) {
+        return {
+            isAuthenticated: state.auth.isAuthenticated
+        }
+    }
+
+    return connect(mapStateToProps)(Autheticate);
+}

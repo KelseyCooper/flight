@@ -23,6 +23,8 @@ let store = createStore(
 );
 
 if (localStorage.jwtToken) {
+  console.log(localStorage);
+  
   setAuthorizationToken(localStorage.jwtToken);
   store.dispatch(setCurrentUser(jwt.decode(localStorage.jwtToken)));
 }

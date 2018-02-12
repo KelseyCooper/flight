@@ -19,8 +19,8 @@ class NavComponent extends React.Component {
           <LinkContainer exact to="/">
             <NavItem eventKey={1}>Home</NavItem>
           </LinkContainer>
-          <LinkContainer to="/new-data">
-            <NavItem eventKey={5}>New Data</NavItem>
+          <LinkContainer to="/new-customer">
+            <NavItem eventKey={5}>New Entry</NavItem>
           </LinkContainer>
           <LinkContainer to="/all-data">
             <NavItem eventKey={4}>All Data</NavItem>

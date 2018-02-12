@@ -1,3 +1,4 @@
+import axios from 'axios';
 export const CUSTOMERS_FETCHED = "CUSTOMERS_FETCHED";
 export const NEW_CUSTOMER = "NEW_CUSTOMER";
 export const EDIT_CUSTOMER = "EDIT_CUSTOMER";
@@ -19,6 +20,23 @@ export function fetchCustomers() {
       .catch(error => console.log(error));
   };
 }
+
+export function addCustomer(data) {
+  let config = {
+    method: "POST",
+    body: `size=${data.size}&color=${data.color}`
+  };
+  return dispatch => {
+    return axios.post("http://localhost:3001/new-customer", data)
+      .then(response => response.json())
+      .then(json => {
+        dispatch(loadCustomers(json));
+      })
+      .catch(error => console.log(error));
+  };
+}
+
+
 
 export function loadCustomers(results) {
   return {

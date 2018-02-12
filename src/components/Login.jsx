@@ -34,7 +34,7 @@ class LoginComponent extends Component {
       this.setState({errors: {}})
       return this.props.authenticateUser(this.state.userInfo).then(
         () => {
-        // this.props.history.push("/");
+        this.props.history.push("/");
         },
         ({ data }) => this.setState({errors: data})
       )
