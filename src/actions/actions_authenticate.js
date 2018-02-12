@@ -10,16 +10,14 @@ export function authenticateUser(auth) {
          return dispatch => {
            return fetch("http://localhost:3001/users", config)
              .then(response => response.json())
-             .then(json => {
-               dispatch(loadCustomers(json));
+             .then(json => {      
+                 console.log(json);
+                            
+               return dispatch({
+                 type: AUTHENTICATE_USER,
+                 payload: json
+               });
              })
              .catch(error => console.log(error));
          };
        }
-
-export function loadCustomers(results) {
-  return {
-    type: AUTHENTICATE_USER,
-    payload: results
-  };
-}

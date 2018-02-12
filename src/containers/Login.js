@@ -6,7 +6,7 @@ import { authenticateUser } from "../actions/actions_authenticate";
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
     authenticateUser: (auth) => {
-      dispatch(authenticateUser(auth));
+      return dispatch(authenticateUser(auth));
     }
   };
 };

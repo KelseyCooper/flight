@@ -11,7 +11,8 @@ class LoginComponent extends Component {
             email: "",
             password: ""
         },
-        error: false
+        error: false,
+        errors: {}
     };
   }
 
@@ -30,7 +31,13 @@ class LoginComponent extends Component {
       }
     });
     if (!error) {
-      this.props.authenticateUser(this.state.userInfo);
+      this.setState({errors: {}})
+      return this.props.authenticateUser(this.state.userInfo).then(
+        () => {
+        // this.props.history.push("/");
+        },
+        ({ data }) => this.setState({errors: data})
+      )
     }
     this.setState({ error });
   }
