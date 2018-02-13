@@ -1,9 +1,21 @@
 import React from "react";
 import { Field, reduxForm } from "redux-form";
+import { connect } from "react-redux";
 
-const SimpleForm = props => {
-  const { handleSubmit, pristine, submitting } = props;
-  return <form onSubmit={handleSubmit}>
+let user = {};
+
+let SimpleEditForm = (props, ownProps) => {
+  const { handleSubmit, pristine, submitting, name, email, gender, age, color, size, notes } = props;
+  user.name = name;
+  user.email = email;
+  user.gender = gender;
+  user.age = age;
+  user.color = color;
+  user.size = size;
+  user.notes = notes;
+  
+  return (
+    <form onSubmit={handleSubmit}>
       <div>
         <label>First Name</label>
         <div>
@@ -14,7 +26,12 @@ const SimpleForm = props => {
         <label>Email</label>
 
         <div>
-          <Field name="email" component="input" type="text" placeholder="Email" />
+          <Field
+            name="email"
+            component="input"
+            type="text"
+            placeholder="Email"
+          />
         </div>
       </div>
       <div>
@@ -78,9 +95,20 @@ const SimpleForm = props => {
           Submit
         </button>
       </div>
-    </form>;
+    </form>
+  );
 };
 
-export default reduxForm({
-  form: "simple" // a unique identifier for this form
-})(SimpleForm);
+// Decorate with reduxForm(). It will read the initialValues prop provided by connect()
+SimpleEditForm = reduxForm({
+  form: "SimpleEditForm" // a unique identifier for this form
+})(SimpleEditForm);
+
+// You have to connect() to any reducers that you wish to connect to yourself
+SimpleEditForm = connect(
+  state => ({
+    initialValues: user // pull initial values from account reducer
+  })             // bind account loading action creator
+)(SimpleEditForm)
+
+export default SimpleEditForm; 

@@ -1,11 +1,4 @@
 import React, { Component } from "react";
-import {
-  FormGroup,
-  ControlLabel,
-  FormControl,
-  InputGroup,
-  Button
-} from "react-bootstrap";
 import NewCustomerForm from "./NewCustomerForm";
 
 class NewCustomerComponent extends Component {

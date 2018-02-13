@@ -22,7 +22,7 @@ class AllDataComponent extends Component {
             </tr>
           </thead>
           <tbody>
-            {this.props.customers.map(item => <tr key={item.id}>
+            {[...this.props.customers].reverse().map(item => <tr key={item.id}>
                 <td> {item.name} </td>
                 <td> {item.email} </td>
                 <td> {item.gender} </td>
@@ -37,7 +37,7 @@ class AllDataComponent extends Component {
                 </td>
               </tr>)}
           </tbody>
-        </Table>;
+        </Table>
       </div>;
   }
 }

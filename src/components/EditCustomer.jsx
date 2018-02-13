@@ -1,27 +1,7 @@
 import React, { Component } from 'react';
-import {
-  FormGroup,
-  ControlLabel,
-  FormControl,
-  InputGroup,
-  Button
-} from "react-bootstrap";
+import EditCustomerForm from './EditCustomerForm';
 
 class EditCustomerComponent extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      hello: "hi"
-    };
-  }
-
-  updateValue(type, event) {
-    const customerCopy = JSON.parse(JSON.stringify(this.state.customerInfo));
-    customerCopy[type] = event.target.value;
-    this.setState({ customerInfo: customerCopy });
-  }
-
   sendForm() {
     if (!this.state.error) {
       this.setState({ errors: {} });
@@ -34,85 +14,29 @@ class EditCustomerComponent extends Component {
     }
   }
 
+  submitEdit = values => {
+    values.id = this.props.customer[0].id;
+  return this.props.editCustomer(values).then(
+      () => {
+        this.props.history.push("/all-data");
+      },
+      ({ data }) => this.setState({ errors: data })
+    );
+  };
+
   render() {
     return (
       <div className="container">
-        <form>
-          <FormGroup controlId="formBasicText">
-            <ControlLabel>Name</ControlLabel>
-            <FormControl
-              type="text"
-              value={this.state.value}
-              placeholder="Enter text"
-              onChange={this.updateValue.bind(this, "name")}
-            />
-            <ControlLabel>Email</ControlLabel>
-            <InputGroup>
-              <InputGroup.Addon>@</InputGroup.Addon>
-              <FormControl
-                type="text"
-                value={this.state.value}
-                placeholder="Enter text"
-                onChange={this.updateValue.bind(this, "email")}
-              />
-            </InputGroup>
-            <ControlLabel>Gender</ControlLabel>
-            <FormControl
-              componentClass="select"
-              placeholder="select"
-              onChange={this.updateValue.bind(this, "gender")}
-            >
-              <option value="male">Male</option>
-              <option value="female">Female</option>
-              <option value="other">Other</option>
-            </FormControl>
-            <ControlLabel>Age</ControlLabel>
-            <FormControl
-              componentClass="select"
-              placeholder="select"
-              onChange={this.updateValue.bind(this, "age")}
-            >
-              <option value="11-20">11-20</option>
-              <option value="21-30">21-30</option>
-              <option value="31-40">31-40</option>
-              <option value="41-50">41-50</option>
-              <option value="51-60">51-60</option>
-              <option value="61-70">61-70</option>
-              <option value="71-80">71-80+</option>
-            </FormControl>
-            <ControlLabel>Color</ControlLabel>
-            <FormControl
-              componentClass="select"
-              placeholder="select"
-              onChange={this.updateValue.bind(this, "color")}
-            >
-              <option value="black">Black</option>
-              <option value="blue">Blue</option>
-              <option value="red">Red</option>
-              <option value="grey">Grey</option>
-            </FormControl>
-            <ControlLabel>Size</ControlLabel>
-            <FormControl
-              componentClass="select"
-              placeholder="select"
-              onChange={this.updateValue.bind(this, "size")}
-            >
-              <option value="small">Small</option>
-              <option value="medium">Medium</option>
-              <option value="large">Large</option>
-              <option value="x-large">X-Large</option>
-            </FormControl>
-            <ControlLabel>Purchase Reason / Aditional Notes</ControlLabel>
-            <FormControl
-              componentClass="textarea"
-              placeholder="textarea"
-              onChange={this.updateValue.bind(this, "reason")}
-            />
-          </FormGroup>
-          <Button bsStyle="info" onClick={this.sendForm.bind(this)}>
-            onClick
-          </Button>
-        </form>
+        <EditCustomerForm
+          onSubmit={this.submitEdit}
+          name={this.props.customer[0].name}
+          email={this.props.customer[0].email}
+          gender={this.props.customer[0].gender}
+          age={this.props.customer[0].age}
+          size={this.props.customer[0].size}
+          color={this.props.customer[0].color}
+          notes={this.props.customer[0].notes}
+        />
       </div>
     );
   }
