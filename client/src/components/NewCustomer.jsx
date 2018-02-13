@@ -10,20 +10,19 @@ class NewCustomerComponent extends Component {
     };
   }
 
-  submit = (values) => {
-   if (!this.state.error) {
-     this.setState({ errors: {} });
-     return this.props.addCustomer(values).then(() => {
-         // this.props.history.push("/");
-       }, ({ data }) => this.setState({ errors: data }));
-   }
-  }
-
+  submit = values => {
+    return this.props.addCustomer(values).then(
+      () => {
+        this.props.history.push("/all-data");
+      },
+      ({ data }) => this.setState({ errors: data })
+    );
+  };
 
   render() {
     return (
       <div className="container">
-        <NewCustomerForm onSubmit={this.submit}/>
+        <NewCustomerForm onSubmit={this.submit} />
       </div>
     );
   }

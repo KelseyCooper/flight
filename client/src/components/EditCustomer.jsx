@@ -6,19 +6,6 @@ class EditCustomerComponent extends Component {
   componentDidMount() {
     this.props.fetchCustomer();
   }
-  
-
-  sendForm() {
-    if (!this.state.error) {
-      this.setState({ errors: {} });
-      return this.props.addCustomer(this.state.customerInfo).then(
-        () => {
-          this.props.history.push("/all-data");
-        },
-        ({ data }) => this.setState({ errors: data })
-      );
-    }
-  }
 
   submitEdit = values => {
     values.id = this.props.customer.id;

@@ -17,11 +17,6 @@ function addUser(data) {
       color: data.color,
       size: data.size,
       reason_to_buy: data.notes
-    })
-    .then(users => {
-      console.log(users);
-
-      return true;
     });
 }
 
@@ -37,6 +32,7 @@ authenticate = (req, res, next) => {
         res.status(401).json({ error: "Failed to authenticate" });
       } else {
         addUser(req.body);
+        res.status(200).json({ success: true });
       }
     });
   } else {

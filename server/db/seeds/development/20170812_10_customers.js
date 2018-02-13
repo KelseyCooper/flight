@@ -1,14 +1,45 @@
 exports.seed = function(knex, Promise) {
-  return knex("customers")
+  return knex("customers");
+
+  return knex("purchased")
     .del() // Deletes ALL existing entries
+    .then(function() {
+      // Inserts seed entries one by one in series
+      return knex("purchased").insert({
+        color: "Black",
+        size: "Small",
+        user_id: 1
+      });
+    })
+    .then(function() {
+      return knex("purchased").insert({
+        color: "Black",
+        size: "Small",
+        user_id: 2
+      });
+    })
+    .then(function() {
+      return knex("purchased").insert({
+        color: "Black",
+        size: "Small",
+        user_id: 1
+      });
+    })
+    .then(function() {
+      return knex("purchased").insert({
+        color: "Black",
+        size: "Small",
+        user_id: 3
+      });
+    })
+    .del() // Cannot delete current entries because of foreign key..
     .then(function() {
       return knex("customers").insert({
         name: "Bruce",
         email: "dunlop@live.ca",
         gender: "male",
         age: 51,
-        size: "large",
-        color: "red",
+        amount_purchased: 1,
         reason_to_buy: "present"
       });
     })
@@ -18,8 +49,7 @@ exports.seed = function(knex, Promise) {
         email: "marth@live.ca",
         gender: "female",
         age: 14,
-        size: "small",
-        color: "grey",
+        amount_purchased: 2,
         reason_to_buy: "for husband"
       });
     })
@@ -29,8 +59,7 @@ exports.seed = function(knex, Promise) {
         email: "john@hell.com",
         gender: "male",
         age: 50,
-        size: "large",
-        color: "red",
+        amount_purchased: 1,
         reason_to_buy: "gift"
       });
     })
@@ -40,8 +69,7 @@ exports.seed = function(knex, Promise) {
         email: "lyn@live.ca",
         gender: "female",
         age: 21,
-        size: "Small",
-        color: "grey",
+        amount_purchased: 3,
         reason_to_buy: "for child"
       });
     })
@@ -51,8 +79,7 @@ exports.seed = function(knex, Promise) {
         email: "pray@ray.com",
         gender: "male",
         age: 34,
-        size: "medium",
-        color: "Black",
+        amount_purchased: 1,
         reason_to_buy: "gift"
       });
     })
@@ -62,8 +89,7 @@ exports.seed = function(knex, Promise) {
         email: "George@g.com",
         gender: "male",
         age: 60,
-        size: "large",
-        color: "red",
+        amount_purchased: 2,
         reason_to_buy: "gift"
       });
     })
@@ -73,8 +99,7 @@ exports.seed = function(knex, Promise) {
         email: "h@h.com",
         gender: "female",
         age: 31,
-        size: "medium",
-        color: "blue",
+        amount_purchased: 3,
         reason_to_buy: "self"
       });
     })
@@ -84,8 +109,7 @@ exports.seed = function(knex, Promise) {
         email: "gr@grac.com",
         gender: "female",
         age: 29,
-        size: "medium",
-        color: "red",
+        amount_purchased: 2,
         reason_to_buy: "self"
       });
     })
@@ -95,8 +119,7 @@ exports.seed = function(knex, Promise) {
         email: "p@p.com",
         gender: "male",
         age: 54,
-        size: "small",
-        color: "black",
+        amount_purchased: 1,
         reason_to_buy: "self"
       });
     })
@@ -106,8 +129,7 @@ exports.seed = function(knex, Promise) {
         email: "wau@l.com",
         gender: "male",
         age: 21,
-        size: "medium",
-        color: "black",
+        amount_purchased: 1,
         reason_to_buy: "self"
       });
     })
@@ -117,8 +139,7 @@ exports.seed = function(knex, Promise) {
         email: "paula@paul.com ",
         gender: "female",
         age: 25,
-        size: "medium",
-        color: "grey",
+        amount_purchased: 1,
         reason_to_buy: "gift"
       });
     })
@@ -128,8 +149,7 @@ exports.seed = function(knex, Promise) {
         email: "harry@dong.com",
         gender: "male",
         age: 32,
-        size: "medium",
-        color: "red",
+        amount_purchased: 1,
         reason_to_buy: "self"
       });
     })
@@ -139,8 +159,7 @@ exports.seed = function(knex, Promise) {
         email: "i@moan.com",
         gender: "female",
         age: 26,
-        size: "large",
-        color: "black",
+        amount_purchased: 1,
         reason_to_buy: "self"
       });
     })
@@ -150,8 +169,7 @@ exports.seed = function(knex, Promise) {
         email: "h@moan.com",
         gender: "other",
         age: 26,
-        size: "large",
-        color: "blue",
+        amount_purchased: 1,
         reason_to_buy: "self"
       });
     });
