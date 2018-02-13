@@ -92,7 +92,7 @@ let SimpleEditForm = (props, ownProps) => {
       </div>
       <div>
         <button type="submit" disabled={pristine || submitting}>
-          Submit
+          Update
         </button>
       </div>
     </form>
