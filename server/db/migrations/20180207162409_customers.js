@@ -22,6 +22,8 @@ exports.up = function(knex, Promise) {
 };
 
 exports.down = function(knex, Promise) {
-  return knex.schema.dropTable("customers");
-  return knex.schema.dropTable('purchased');
+  return Promise.all([
+    knex.schema.dropTable('purchased'),
+    knex.schema.dropTable("customers")
+  ]);
 };

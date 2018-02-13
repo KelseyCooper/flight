@@ -7,8 +7,8 @@ const knex = require("knex")(knexConfig[ENV]);
 function getRedCustomerColorData() {
   return knex
     .select("*")
-    .from("customers")
-    .where({ color: "red" })
+    .from("purchased")
+    .where({ color: "Red" })
     .then(results => {
   return results.length
   })
@@ -17,8 +17,8 @@ function getRedCustomerColorData() {
 function getGreyCustomerColorData() {
   return knex
     .select("*")
-    .from("customers")
-    .where({ color: "grey" })
+    .from("purchased")
+    .where({ color: "Grey" })
     .then(results => {
       return results.length;
     });
@@ -27,8 +27,8 @@ function getGreyCustomerColorData() {
 function getBlueCustomerColorData() {
   return knex
     .select("*")
-    .from("customers")
-    .where({ color: "blue" })
+    .from("purchased")
+    .where({ color: "Blue" })
     .then(results => {
       return results.length;
     });
@@ -37,8 +37,8 @@ function getBlueCustomerColorData() {
 function getBlackCustomerColorData() {
   return knex
     .select("*")
-    .from("customers")
-    .where({ color: "black" })
+    .from("purchased")
+    .where({ color: "Black" })
     .then(results => {
       return results.length;
     });
