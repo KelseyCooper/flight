@@ -1,8 +1,10 @@
-exports.seed = function(knex, Promise) {
-  return Promise.all([
-    knex("purchased").del(),
-    knex("customers").del(),
-    knex("customers")
+exports.seed = async function(knex, Promise) {
+    await knex("purchased").del()
+    await knex("customers").del()
+    await knex.raw('ALTER SEQUENCE customers_id_seq RESTART WITH 1')
+    await knex.raw('ALTER SEQUENCE purchased_id_seq RESTART WITH 1')
+    await knex.raw('ALTER SEQUENCE users_id_seq RESTART WITH 1')
+    await knex("customers")
       .then(function() {
         return knex("customers").insert({
           name: "Bruce",
@@ -142,8 +144,8 @@ exports.seed = function(knex, Promise) {
           amount_purchased: 1,
           reason_to_buy: "self"
         });
-      }),
-    knex("purchased")
+      })
+    await knex("purchased")
       .then(() => {
         return knex("purchased").insert({
           color: "Blue",
@@ -172,5 +174,4 @@ exports.seed = function(knex, Promise) {
           user_id: 1
         });
       })
-  ]);
 };
