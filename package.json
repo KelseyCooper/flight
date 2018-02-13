@@ -17,6 +17,7 @@
     "react-vis": "^1.8.2",
     "recharts": "^1.0.0-beta.10",
     "redux": "^3.7.2",
+    "redux-form": "^7.2.3",
     "redux-thunk": "^2.2.0"
   },
   "scripts": {

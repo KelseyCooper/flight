@@ -22,17 +22,8 @@ export function fetchCustomers() {
 }
 
 export function addCustomer(data) {
-  let config = {
-    method: "POST",
-    body: `size=${data.size}&color=${data.color}`
-  };
   return dispatch => {
     return axios.post("http://localhost:3001/new-customer", data)
-      .then(response => response.json())
-      .then(json => {
-        dispatch(loadCustomers(json));
-      })
-      .catch(error => console.log(error));
   };
 }
 

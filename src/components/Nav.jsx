@@ -10,7 +10,6 @@ class NavComponent extends React.Component {
     logout(e) {
       e.preventDefault();
       this.props.logout();
-      
     }
 
   render() {
@@ -52,7 +51,6 @@ class NavComponent extends React.Component {
           <Navbar.Toggle />
         </Navbar.Header>
         {this.props.auth.isAuthenticated ? userLinks : guestLinks}
-        {console.log(this.props.auth)}
       </Navbar>
     </div>;
 }

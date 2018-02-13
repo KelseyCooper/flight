@@ -28,7 +28,7 @@ export function authenticateUser(auth) {
     return fetch("http://localhost:3001/users", config)
       .then(response => response.json())
       .then(json => {
-        console.log(json);
+        // console.log(json);
 
         localStorage.setItem("jwtToken", json.token);
         setAuthorizationToken(json.token);
