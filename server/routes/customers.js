@@ -5,26 +5,6 @@ const knexConfig = require("../knexfile");
 const knex = require("knex")(knexConfig[ENV]);
 var _ = require("underscore");
 
-function getPurchasedInfo(results) {
-  results.map(item => {
-    knex("purchased")
-      .where("user_id", item.id)
-      .then(results => {
-        let obj = [];
-        obj.push({
-          name: item.name,
-          email: item.email,
-          gender: item.gender,
-          age: item.age,
-          reason_to_buy: item.reason_to_buy,
-          purchased_amount: results
-        });
-        return obj;
-      });
-    return true;
-  });
-}
-
 function getAllCustomersInfo() {
   return knex
     .select()
@@ -70,8 +50,3 @@ router.get("/", function(req, res, next) {
 });
 
 module.exports = router;
-
-// .innerJoin("purchased", "customers.id", "purchased.user_id")
-// .then(results => {
-//   return results;
-// })

@@ -174,4 +174,109 @@ exports.seed = async function(knex, Promise) {
           user_id: 1
         });
       })
+      .then(() => {
+        return knex("purchased").insert({
+          color: "Grey",
+          size: "Medium",
+          user_id: 1
+        });
+      })
+      .then(() => {
+        return knex("purchased").insert({
+          color: "Grey",
+          size: "Medium",
+          user_id: 2
+        });
+      })
+      .then(() => {
+        return knex("purchased").insert({
+          color: "Grey",
+          size: "Medium",
+          user_id: 3
+        });
+      })
+      .then(() => {
+        return knex("purchased").insert({
+          color: "Grey",
+          size: "Medium",
+          user_id: 4
+        });
+      })
+      .then(() => {
+        return knex("purchased").insert({
+          color: "Grey",
+          size: "Medium",
+          user_id: 5
+        });
+      })
+      .then(() => {
+        return knex("purchased").insert({
+          color: "Grey",
+          size: "Medium",
+          user_id: 6
+        });
+      })
+      .then(() => {
+        return knex("purchased").insert({
+          color: "Grey",
+          size: "Medium",
+          user_id: 7
+        });
+      })      
+      .then(() => {
+        return knex("purchased").insert({
+          color: "Grey",
+          size: "Medium",
+          user_id: 8
+        });
+      })
+      .then(() => {
+        return knex("purchased").insert({
+          color: "Grey",
+          size: "Medium",
+          user_id: 9
+        });
+      })
+      .then(() => {
+        return knex("purchased").insert({
+          color: "Grey",
+          size: "Medium",
+          user_id: 10
+        });
+      })
+      .then(() => {
+        return knex("purchased").insert({
+          color: "Grey",
+          size: "Medium",
+          user_id: 11
+        });
+      })
+      .then(() => {
+        return knex("purchased").insert({
+          color: "Grey",
+          size: "Medium",
+          user_id: 12
+        });
+      })
+      .then(() => {
+        return knex("purchased").insert({
+          color: "Grey",
+          size: "Medium",
+          user_id: 13
+        });
+      })
+      .then(() => {
+        return knex("purchased").insert({
+          color: "Grey",
+          size: "Medium",
+          user_id: 14
+        });
+      })
+      .then(() => {
+        return knex("purchased").insert({
+          color: "Grey",
+          size: "Medium",
+          user_id: 12
+        });
+      })                                                                              
 };

@@ -4,27 +4,6 @@ export const NEW_CUSTOMER = "NEW_CUSTOMER";
 export const EDIT_CUSTOMER = "EDIT_CUSTOMER";
 export const CUSTOMER_FETCHED = "CUSTOMER_FETCHED";
 
-axios.defaults.headers["Content-Type"] = "application/json";
-axios.defaults.headers["Accept"] = "application/json";
-
-// export function fetchCustomers() {
-//   return dispatch => {
-//     return fetch(
-//         "http://localhost:3001/customers", {
-//             method: "GET",
-//             headers: {
-//                 Accept: "application/json"
-//             }
-//         }
-//     )
-//       .then(response => response.json())
-//       .then(json => {
-//         dispatch(loadCustomers(json));
-//       })
-//       .catch(error => console.log(error));
-//   };
-// }
-
 export function fetchCustomers() {
   const headers = { "Content-Type": "application/json" };
   return dispatch => {
