@@ -7,19 +7,31 @@ export const CUSTOMER_FETCHED = "CUSTOMER_FETCHED";
 axios.defaults.headers["Content-Type"] = "application/json";
 axios.defaults.headers["Accept"] = "application/json";
 
+// export function fetchCustomers() {
+//   return dispatch => {
+//     return fetch(
+//         "http://localhost:3001/customers", {
+//             method: "GET",
+//             headers: {
+//                 Accept: "application/json"
+//             }
+//         }
+//     )
+//       .then(response => response.json())
+//       .then(json => {
+//         dispatch(loadCustomers(json));
+//       })
+//       .catch(error => console.log(error));
+//   };
+// }
+
 export function fetchCustomers() {
+  const headers = { "Content-Type": "application/json" };
   return dispatch => {
-    return fetch(
-        "http://localhost:3001/customers", {
-            method: "GET",
-            headers: {
-                Accept: "application/json"
-            }
-        }
-    )
-      .then(response => response.json())
-      .then(json => {
-        dispatch(loadCustomers(json));
+    return axios
+      .get("http://localhost:3001/customers", headers)
+      .then(res => {
+        dispatch(loadCustomers(res.data));
       })
       .catch(error => console.log(error));
   };
@@ -31,7 +43,6 @@ export function fetchCustomer(id) {
     return axios
       .post("http://localhost:3001/fetch-customer", id, headers)
       .then(res => {
-        console.log("RESPONSE RECEIVED: ", res.data[0]);
         dispatch(loadCustomer(res.data[0]));
       })
       .catch(error => console.log(error));
