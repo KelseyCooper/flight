@@ -1,8 +1,47 @@
 import React from "react";
 import { Field, reduxForm } from "redux-form";
 
-const SimpleForm = props => {
-  const { handleSubmit, pristine, submitting } = props;
+let NewCustomerFormComponent = (props, ownProps) => {
+  const { handleSubmit, pristine, submitting, quantity } = props;
+
+  function changeQuantity(e) {
+    console.log(e.target.value);
+    
+    props.ChangeOrderNum(e.target.value);
+  }
+  let order = null;
+  
+  if (quantity === '1') {
+    order = <div>
+        <div>
+          <label>Color</label>
+          <div>
+            <Field name="color" component="select">
+              <option />
+              <option value="black">Black</option>
+              <option value="blue">Blue</option>
+              <option value="red">Red</option>
+              <option value="grey">Grey</option>
+            </Field>
+          </div>
+        </div>
+        <div>
+          <label>Size</label>
+          <div>
+            <Field name="size" component="select">
+              <option />
+              <option value="small">Small</option>
+              <option value="medium">Medium</option>
+              <option value="large">Large</option>
+              <option value="x-large">X-Large</option>
+            </Field>
+          </div>
+        </div>
+      </div>;
+  } else if (quantity === "2") {
+           order = <div>fuck</div>;
+         }
+
   return <form onSubmit={handleSubmit}>
       <div>
         <label>First Name</label>
@@ -44,29 +83,18 @@ const SimpleForm = props => {
         </div>
       </div>
       <div>
-        <label>Color</label>
+        <label>Quantity</label>
         <div>
-          <Field name="color" component="select">
-            <option />
-            <option value="black">Black</option>
-            <option value="blue">Blue</option>
-            <option value="red">Red</option>
-            <option value="grey">Grey</option>
+          <Field name="quantity" component="select" onChange={e => changeQuantity(e)}>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
           </Field>
         </div>
       </div>
-      <div>
-        <label>Size</label>
-        <div>
-          <Field name="size" component="select">
-            <option />
-            <option value="small">Small</option>
-            <option value="medium">Medium</option>
-            <option value="large">Large</option>
-            <option value="x-large">X-Large</option>
-          </Field>
-        </div>
-      </div>
+      {order}
       <div>
         <label>Notes</label>
         <div>
@@ -82,5 +110,5 @@ const SimpleForm = props => {
 };
 
 export default reduxForm({
-  form: "simple" // a unique identifier for this form
-})(SimpleForm);
+  form: "NewCustomerFormComponent" // a unique identifier for this form
+})(NewCustomerFormComponent);

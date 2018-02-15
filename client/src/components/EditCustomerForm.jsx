@@ -71,7 +71,6 @@ let SimpleEditForm = (props, ownProps) => {
         </div>
       </div>
       <div>
-        
         <label>Color</label>
         <div>
           <Field name="color" component="select">

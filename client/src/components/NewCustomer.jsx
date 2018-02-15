@@ -4,7 +4,6 @@ import NewCustomerForm from "./NewCustomerForm";
 class NewCustomerComponent extends Component {
   constructor(props, context) {
     super(props, context);
-
     this.state = {
       error: false
     };
@@ -20,9 +19,15 @@ class NewCustomerComponent extends Component {
   };
 
   render() {
+    console.log(this.props);
+    
     return (
       <div className="container">
-        <NewCustomerForm onSubmit={this.submit} />
+        <NewCustomerForm 
+        onSubmit={this.submit} 
+        quantity={this.props.purchasing}
+        ChangeOrderNum={this.props.ChangeOrderNum}
+        />
       </div>
     );
   }

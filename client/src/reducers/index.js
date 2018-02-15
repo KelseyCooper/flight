@@ -6,6 +6,7 @@ import customer from "./reducers_customer";
 import customerPurchases from './reducers_customer_purchases'
 import customersColorData from './reducers_customerColorData'
 import auth from './reducers_authenticate'
+import orderNum from './reducers_ordernum'
 
 const rootReducers = combineReducers({
   customers,
@@ -13,7 +14,8 @@ const rootReducers = combineReducers({
   customerPurchases,
   customersColorData,
   auth,
-  form: formReducer
+  form: formReducer,
+  orderNum
 });
 
 export default rootReducers;
