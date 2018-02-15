@@ -33,13 +33,13 @@ const SimpleForm = props => {
         <div>
           <Field name="age" component="select">
             <option />
-            <option value="11-20">11-20</option>
-            <option value="21-30">21-30</option>
-            <option value="31-40">31-40</option>
-            <option value="41-50">41-50</option>
-            <option value="51-60">51-60</option>
-            <option value="61-70">61-70</option>
-            <option value="71-80">71-80+</option>
+            <option value="11">11-20</option>
+            <option value="21">21-30</option>
+            <option value="31">31-40</option>
+            <option value="41">41-50</option>
+            <option value="51">51-60</option>
+            <option value="61">61-70</option>
+            <option value="71">71-80+</option>
           </Field>
         </div>
       </div>

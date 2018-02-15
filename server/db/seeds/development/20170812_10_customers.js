@@ -11,7 +11,6 @@ exports.seed = async function(knex, Promise) {
           email: "dunlop@live.ca",
           gender: "male",
           age: 51,
-          amount_purchased: 1,
           reason_to_buy: "present"
         });
       })
@@ -21,7 +20,6 @@ exports.seed = async function(knex, Promise) {
           email: "marth@live.ca",
           gender: "female",
           age: 14,
-          amount_purchased: 2,
           reason_to_buy: "for husband"
         });
       })
@@ -31,7 +29,6 @@ exports.seed = async function(knex, Promise) {
           email: "john@hell.com",
           gender: "male",
           age: 50,
-          amount_purchased: 1,
           reason_to_buy: "gift"
         });
       })
@@ -41,7 +38,6 @@ exports.seed = async function(knex, Promise) {
           email: "lyn@live.ca",
           gender: "female",
           age: 21,
-          amount_purchased: 3,
           reason_to_buy: "for child"
         });
       })
@@ -51,7 +47,6 @@ exports.seed = async function(knex, Promise) {
           email: "pray@ray.com",
           gender: "male",
           age: 34,
-          amount_purchased: 1,
           reason_to_buy: "gift"
         });
       })
@@ -61,7 +56,6 @@ exports.seed = async function(knex, Promise) {
           email: "George@g.com",
           gender: "male",
           age: 60,
-          amount_purchased: 2,
           reason_to_buy: "gift"
         });
       })
@@ -71,7 +65,6 @@ exports.seed = async function(knex, Promise) {
           email: "h@h.com",
           gender: "female",
           age: 31,
-          amount_purchased: 3,
           reason_to_buy: "self"
         });
       })
@@ -81,7 +74,6 @@ exports.seed = async function(knex, Promise) {
           email: "gr@grac.com",
           gender: "female",
           age: 29,
-          amount_purchased: 2,
           reason_to_buy: "self"
         });
       })
@@ -91,7 +83,6 @@ exports.seed = async function(knex, Promise) {
           email: "p@p.com",
           gender: "male",
           age: 54,
-          amount_purchased: 1,
           reason_to_buy: "self"
         });
       })
@@ -101,7 +92,6 @@ exports.seed = async function(knex, Promise) {
           email: "wau@l.com",
           gender: "male",
           age: 21,
-          amount_purchased: 1,
           reason_to_buy: "self"
         });
       })
@@ -111,7 +101,6 @@ exports.seed = async function(knex, Promise) {
           email: "paula@paul.com ",
           gender: "female",
           age: 25,
-          amount_purchased: 1,
           reason_to_buy: "gift"
         });
       })
@@ -121,7 +110,6 @@ exports.seed = async function(knex, Promise) {
           email: "harry@dong.com",
           gender: "male",
           age: 32,
-          amount_purchased: 1,
           reason_to_buy: "self"
         });
       })
@@ -131,7 +119,6 @@ exports.seed = async function(knex, Promise) {
           email: "i@moan.com",
           gender: "female",
           age: 26,
-          amount_purchased: 1,
           reason_to_buy: "self"
         });
       })
@@ -141,7 +128,6 @@ exports.seed = async function(knex, Promise) {
           email: "h@moan.com",
           gender: "other",
           age: 26,
-          amount_purchased: 1,
           reason_to_buy: "self"
         });
       })

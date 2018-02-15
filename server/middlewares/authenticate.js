@@ -6,7 +6,6 @@ const knexConfig = require("../knexfile");
 const knex = require("knex")(knexConfig[ENV]);
 
 function addUser(data) {
-    console.log(data);
     
   return knex("customers")
     .insert({

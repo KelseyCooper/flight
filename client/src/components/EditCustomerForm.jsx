@@ -5,7 +5,7 @@ import { connect } from "react-redux";
 let user = {};
 
 let SimpleEditForm = (props, ownProps) => {
-  const { handleSubmit, pristine, submitting, name, email, gender, age, color, size, notes } = props;
+  const { handleSubmit, pristine, submitting, name, email, gender, age, color, size, notes, quanitity } = props;
   user.name = name;
   user.email = email;
   user.gender = gender;
@@ -13,9 +13,11 @@ let SimpleEditForm = (props, ownProps) => {
   user.color = color;
   user.size = size;
   user.notes = notes;
+  user.quanitity = quanitity;
+  console.log(props);
   
-  return (
-    <form onSubmit={handleSubmit}>
+  
+  return <form onSubmit={handleSubmit}>
       <div>
         <label>First Name</label>
         <div>
@@ -26,12 +28,7 @@ let SimpleEditForm = (props, ownProps) => {
         <label>Email</label>
 
         <div>
-          <Field
-            name="email"
-            component="input"
-            type="text"
-            placeholder="Email"
-          />
+          <Field name="email" component="input" type="text" placeholder="Email" />
         </div>
       </div>
       <div>
@@ -50,17 +47,31 @@ let SimpleEditForm = (props, ownProps) => {
         <div>
           <Field name="age" component="select">
             <option />
-            <option value="11-20">11-20</option>
-            <option value="21-30">21-30</option>
-            <option value="31-40">31-40</option>
-            <option value="41-50">41-50</option>
-            <option value="51-60">51-60</option>
-            <option value="61-70">61-70</option>
-            <option value="71-80">71-80+</option>
+            <option value="11">11-20</option>
+            <option value="21">21-30</option>
+            <option value="31">31-40</option>
+            <option value="41">41-50</option>
+            <option value="51">51-60</option>
+            <option value="61">61-70</option>
+            <option value="71">71-80+</option>
           </Field>
         </div>
       </div>
       <div>
+        <label>Pairs Purchased</label>
+        <div>
+          <Field name="quantity" component="select">
+            <option />
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+          </Field>
+        </div>
+      </div>
+      <div>
+        
         <label>Color</label>
         <div>
           <Field name="color" component="select">
@@ -95,8 +106,7 @@ let SimpleEditForm = (props, ownProps) => {
           Update
         </button>
       </div>
-    </form>
-  );
+    </form>;
 };
 
 // Decorate with reduxForm(). It will read the initialValues prop provided by connect()

@@ -7,7 +7,6 @@ exports.up = function(knex, Promise) {
       table.string("email");
       table.string("gender");
       table.integer("age");
-      table.integer('amount_purchased');
       table.string("reason_to_buy");
     }),
 

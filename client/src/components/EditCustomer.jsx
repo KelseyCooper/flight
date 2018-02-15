@@ -3,8 +3,10 @@ import EditCustomerForm from './EditCustomerForm';
 
 class EditCustomerComponent extends Component {
 
-  componentDidMount() {
-    this.props.fetchCustomer();
+  componentWillMount() {
+      this.props.fetchCustomer().then(data => {
+        return data;
+      })
   }
 
   submitEdit = values => {
@@ -18,7 +20,7 @@ class EditCustomerComponent extends Component {
   };
 
   render() {
-    console.log(this.props);
+    let quanitity = this.props.customorPurchases || [];
     
     return (
       <div className="container">
@@ -31,6 +33,8 @@ class EditCustomerComponent extends Component {
           size={this.props.customer.size}
           color={this.props.customer.color}
           notes={this.props.customer.reason_to_buy}
+          quanitity={quanitity.length}
+          purchases={quanitity}
         />
       </div>
     );

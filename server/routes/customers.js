@@ -18,7 +18,7 @@ function getAllCustomersInfo() {
         .map(function(users) {
           var user = _.chain(users)
             .first()
-            .pick("id", "name", "email", "age", "gender", "reason_to_buy" );
+            .pick("id", "name", "email", "age", "gender", "reason_to_buy");
           var purchased = _.map(users, function(u) {
             return { id: u.id, size: u.size, color: u.color };
           });
@@ -32,20 +32,19 @@ function getAllCustomersInfo() {
 /* GET home page. */
 router.get("/", function(req, res, next) {
   getAllCustomersInfo().then(data => {
-    let customerObject = [];
+    let customersObject = [];
     data.map(item => {
-      console.log(item._wrapped.name);
-      customerObject.push({
+      customersObject.push({
         id: item._wrapped.id,
         name: item._wrapped.name,
         email: item._wrapped.email,
         gender: item._wrapped.gender,
         age: item._wrapped.age,
         reason_to_buy: item._wrapped.reason_to_buy,
-        purchased: { item: item.purchased }
+        purchased: item.purchased
       });
-    })
-    res.json(customerObject);
+    });
+    res.json(customersObject);
   });
 });
 

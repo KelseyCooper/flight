@@ -15,8 +15,7 @@ class AllDataComponent extends Component {
               <th>Email</th>
               <th>Gender</th>
               <th>Age</th>
-              <th>Size</th>
-              <th>Color</th>
+              <th>Bought</th>
               <th>Note</th>
               <th>Edit</th>
             </tr>
@@ -27,11 +26,11 @@ class AllDataComponent extends Component {
                 <td> {item.email} </td>
                 <td> {item.gender} </td>
                 <td> {item.age} </td>
-                <td> {item.size} </td>
+                <td> {item.purchased.length} </td>
                 <td> {item.color} </td>
                 <td> {item.reason_to_buy} </td>
                 <td>
-                  <Link to={{ pathname: `/customer/${item.id}`, state: { fudge: "true" } }}>
+                  <Link to={{ pathname: `/customer/${item.id}` }}>
                     Edit
                   </Link>
                 </td>

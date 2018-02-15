@@ -14,7 +14,6 @@ function checkEmailInDB(emailres) {
     .where({ email: emailres })
     .returning('*')
     .then(users => {
-      console.log(users);
 
       return users.length !== 0;
     });
@@ -38,7 +37,6 @@ function checkLogin(emailreq, password) {
 router.post("/", function(req, res, next) {
   const email = req.body.email;
   const password = req.body.password;
-  console.log(req.body);
   
   checkEmailInDB(email, password).then(exists => {
     if (exists) {
