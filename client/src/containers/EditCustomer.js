@@ -4,8 +4,7 @@ import { editCustomer, fetchCustomer } from "../actions/actions_customers";
 
 const mapStateToProps = (state, ownProps) => {
   return {
-    customer: state.customer,
-    customerPurchases: state.customerPurchases
+    customer: state.customer
   };
 };
 

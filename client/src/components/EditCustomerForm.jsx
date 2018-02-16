@@ -1,22 +1,59 @@
 import React from "react";
 import { Field, reduxForm } from "redux-form";
 import { connect } from "react-redux";
+import EditOrderForm1 from "./EditOrderForm1";
+import EditOrderForm2 from "./EditOrderForm2";
+import EditOrderForm3 from "./EditOrderForm3";
+import EditOrderForm4 from "./EditOrderForm5";
+import EditOrderForm5 from "./EditOrderForm5";
 
-let user = {};
+let user1 = {};
 
 let SimpleEditForm = (props, ownProps) => {
-  const { handleSubmit, pristine, submitting, name, email, gender, age, color, size, notes, quanitity } = props;
-  user.name = name;
-  user.email = email;
-  user.gender = gender;
-  user.age = age;
-  user.color = color;
-  user.size = size;
-  user.notes = notes;
-  user.quanitity = quanitity;
-  console.log(props);
+  const { handleSubmit, pristine, submitting, name, email, gender, age, color, size, notes, order, orderLength } = props;
+  user1.name = name;
+  user1.email = email;
+  user1.gender = gender;
+  user1.age = age;
+  user1.quantity = orderLength;
+  user1.color = color;
+  user1.size = size;
+  user1.notes = notes;
+
+  // console.log(order[1]);
   
-  
+  let orderComponent = null;
+
+  if (order.length === 1) {
+    orderComponent = <EditOrderForm1 order={order[0].order_number} size={order[0].size} color={order[0].color} />;
+  } else if (order.length === 2) {
+    orderComponent = <div>
+        <EditOrderForm1 order={order[0].order_number} size={order[0].size} color={order[0].color} />
+        <EditOrderForm2 order={order[1].order_number} size={order[1].size} color={order[1].color} />
+      </div>;
+  } else if (order.length === 3) {
+    orderComponent = <div>
+        <EditOrderForm1 order={order[0].order_number} size={order[0].size} color={order[0].color} />
+        <EditOrderForm2 order={order[1].order_number} size={"large"} color={"red"} />
+        <EditOrderForm3 order={order[2].order_number} size={order[2].size} color={order[2].color} />
+      </div>;
+  } else if (order.length === 4) {
+    orderComponent = <div>
+        <EditOrderForm1 order={order[0].order_number} size={order[0].size} color={order[0].color} />
+        <EditOrderForm2 order={order[1].order_number} size={order[1].size} color={order[1].color} />
+        <EditOrderForm3 order={order[2].order_number} size={order[2].size} color={order[2].color} />
+        <EditOrderForm4 order={order[3].order_number} size={order[3].size} color={order[3].color} />
+      </div>;
+  } else if (order.length === 5) {
+    orderComponent = <div>
+        <EditOrderForm1 order={order[0].order_number} size={order[0].size} color={order[0].color} />
+        <EditOrderForm2 order={order[1].order_number} size={order[1].size} color={order[1].color} />
+        <EditOrderForm3 order={order[2].order_number} size={order[2].size} color={order[2].color} />
+        <EditOrderForm4 order={order[3].order_number} size={order[3].size} color={order[3].color} />
+        <EditOrderForm5 order={order[4].order_number} size={order[4].size} color={order[4].color} />
+      </div>;
+  }
+
   return <form onSubmit={handleSubmit}>
       <div>
         <label>First Name</label>
@@ -61,7 +98,6 @@ let SimpleEditForm = (props, ownProps) => {
         <label>Pairs Purchased</label>
         <div>
           <Field name="quantity" component="select">
-            <option />
             <option value="1">1</option>
             <option value="2">2</option>
             <option value="3">3</option>
@@ -70,30 +106,7 @@ let SimpleEditForm = (props, ownProps) => {
           </Field>
         </div>
       </div>
-      <div>
-        <label>Color</label>
-        <div>
-          <Field name="color" component="select">
-            <option />
-            <option value="black">Black</option>
-            <option value="blue">Blue</option>
-            <option value="red">Red</option>
-            <option value="grey">Grey</option>
-          </Field>
-        </div>
-      </div>
-      <div>
-        <label>Size</label>
-        <div>
-          <Field name="size" component="select">
-            <option />
-            <option value="small">Small</option>
-            <option value="medium">Medium</option>
-            <option value="large">Large</option>
-            <option value="x-large">X-Large</option>
-          </Field>
-        </div>
-      </div>
+      {orderComponent}
       <div>
         <label>Notes</label>
         <div>
@@ -116,8 +129,8 @@ SimpleEditForm = reduxForm({
 // You have to connect() to any reducers that you wish to connect to yourself
 SimpleEditForm = connect(
   state => ({
-    initialValues: user // pull initial values from account reducer
-  })             // bind account loading action creator
-)(SimpleEditForm)
+    initialValues: user1 // pull initial values from account reducer
+  }) // bind account loading action creator
+)(SimpleEditForm);
 
-export default SimpleEditForm; 
+export default SimpleEditForm;

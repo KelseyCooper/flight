@@ -27,7 +27,6 @@ class AllDataComponent extends Component {
                 <td> {item.gender} </td>
                 <td> {item.age} </td>
                 <td> {item.purchased.length} </td>
-                <td> {item.color} </td>
                 <td> {item.reason_to_buy} </td>
                 <td>
                   <Link to={{ pathname: `/customer/${item.id}` }}>

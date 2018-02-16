@@ -12,7 +12,7 @@ exports.up = function(knex, Promise) {
 
     knex.schema.createTable('purchased', (table) => {
       table.increments('id');
-      table.integer('ordernum');
+      table.integer('order_number');
       table.string('color');
       table.string('size');
       table.integer('user_id').unsigned()

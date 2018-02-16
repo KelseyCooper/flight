@@ -21,7 +21,7 @@ function getCustomerInfo(data) {
             .first()
             .pick("id", "name", "email", "age", "gender", "reason_to_buy");
           var purchased = _.map(users, function(u) {
-            return { id: u.id, size: u.size, color: u.color };
+            return { id: u.id, size: u.size, color: u.color, order_number: u.order_number };
           });
           user.purchased = purchased;
           return user;

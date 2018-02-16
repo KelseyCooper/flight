@@ -20,7 +20,7 @@ class EditCustomerComponent extends Component {
   };
 
   render() {
-    let quanitity = this.props.customorPurchases || [];
+    let quantity = this.props.customer.purchased || [];
     
     return (
       <div className="container">
@@ -33,8 +33,9 @@ class EditCustomerComponent extends Component {
           size={this.props.customer.size}
           color={this.props.customer.color}
           notes={this.props.customer.reason_to_buy}
-          quanitity={quanitity.length}
-          purchases={quanitity}
+          orderLength={quantity.length}
+          order={quantity}
+
         />
       </div>
     );
