@@ -3,7 +3,7 @@ var router = express.Router();
 var authenticate = require('../middlewares/authenticate')
 
 router.post("/", authenticate, (req, res) => {
-  res.json({ success: true });
+  res.json({ success: false });
 });
 
 module.exports = router;

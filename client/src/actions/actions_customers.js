@@ -31,8 +31,23 @@ export function fetchCustomer(id) {
 }
 
 export function addCustomer(data) {
+  
+  let bought = [];
+  let finalData = {};
+  
+  finalData.name = data.name || null;
+  finalData.email = data.email || null;
+  finalData.gender = data.gender || null;
+  finalData.age = data.age || null;
+  finalData.notes = data.notes || null;
+  finalData.bought = bought;
+  
+  for (let x = 1; x <= data.quantity; x++) {
+    bought.push({ color: data.color[x], size: data.size[x] });
+  }
+
   return dispatch => {
-    return axios.post("http://localhost:3001/new-customer", data)
+    return axios.post("http://localhost:3001/new-customer", finalData);
   };
 }
 

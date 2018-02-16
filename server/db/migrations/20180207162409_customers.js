@@ -2,7 +2,7 @@
 exports.up = function(knex, Promise) {
   return Promise.all([
     knex.schema.createTable("customers", function(table) {
-      table.increments('id').primary();
+      table.increments('id');
       table.string("name");
       table.string("email");
       table.string("gender");
@@ -11,7 +11,7 @@ exports.up = function(knex, Promise) {
     }),
 
     knex.schema.createTable('purchased', (table) => {
-      table.increments('id').primary();
+      table.increments('id');
       table.string('color');
       table.string('size');
       table.integer('user_id').unsigned()

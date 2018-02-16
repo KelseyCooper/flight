@@ -13,10 +13,23 @@ function addUser(data) {
       email: data.email,
       gender: data.gender,
       age: data.age,
-      color: data.color,
-      size: data.size,
       reason_to_buy: data.notes
-    });
+    })
+    .returning('*')
+    .then(user => {      
+      data.bought.map(item => {
+        return knex("purchased")
+          .insert({
+            color: item.color,
+            size: item.size,
+            user_id: user[0].id
+          })
+          .then(() => {
+            return true;
+          });
+      });
+      return true;
+    })
 }
 
 authenticate = (req, res, next) => {
@@ -31,6 +44,7 @@ authenticate = (req, res, next) => {
         res.status(401).json({ error: "Failed to authenticate" });
       } else {
         addUser(req.body);
+
         res.status(200).json({ success: true });
       }
     });

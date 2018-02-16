@@ -1,13 +1,15 @@
 import React from "react";
 import { Field, reduxForm } from "redux-form";
 import OrderForm from "./OrderForm";
+import { connect } from "react-redux";
 
-let NewCustomerFormComponent = (props, ownProps) => {
+let user = {};
+
+let NewCustomerForm = (props, ownProps) => {
   const { handleSubmit, pristine, submitting, quantity } = props;
+  user.quantity = quantity
 
   function changeQuantity(e) {
-    console.log(e.target.value);
-
     props.ChangeOrderNum(e.target.value);
   }
   let order = null;
@@ -128,6 +130,16 @@ let NewCustomerFormComponent = (props, ownProps) => {
   );
 };
 
-export default reduxForm({
-  form: "NewCustomerFormComponent" // a unique identifier for this form
-})(NewCustomerFormComponent);
+// Decorate with reduxForm(). It will read the initialValues prop provided by connect()
+NewCustomerForm = reduxForm({
+  form: "NewCustomerForm" // a unique identifier for this form
+})(NewCustomerForm);
+
+// You have to connect() to any reducers that you wish to connect to yourself
+NewCustomerForm = connect(
+  state => ({
+    initialValues: user // pull initial values from account reducer
+  })             // bind account loading action creator
+)(NewCustomerForm)
+
+export default NewCustomerForm; 
