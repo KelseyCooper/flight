@@ -18,11 +18,14 @@ function addUser(data) {
     .returning('*')
     .then(user => {      
       data.bought.map(item => {
+        console.log(item);
+        
         return knex("purchased")
           .insert({
             color: item.color,
             size: item.size,
-            user_id: user[0].id
+            user_id: user[0].id,
+            order_number: item.ordernum
           })
           .then(() => {
             return true;

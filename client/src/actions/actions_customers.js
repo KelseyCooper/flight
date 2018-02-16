@@ -43,7 +43,7 @@ export function addCustomer(data) {
   finalData.bought = bought;
   
   for (let x = 1; x <= data.quantity; x++) {
-    bought.push({ color: data.color[x], size: data.size[x] });
+    bought.push({ color: data.color[x], size: data.size[x], ordernum: x });
   }
 
   return dispatch => {
