@@ -52,6 +52,8 @@ export function addCustomer(data) {
 }
 
 export function editCustomer(data) {
+  console.log(data);
+  
   return dispatch => {
     return axios.post("http://localhost:3001/edit-customer", data)
   };

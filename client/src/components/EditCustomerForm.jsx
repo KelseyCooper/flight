@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import EditOrderForm1 from "./EditOrderForm1";
 import EditOrderForm2 from "./EditOrderForm2";
 import EditOrderForm3 from "./EditOrderForm3";
-import EditOrderForm4 from "./EditOrderForm5";
+import EditOrderForm4 from "./EditOrderForm4";
 import EditOrderForm5 from "./EditOrderForm5";
 
 let user1 = {};
@@ -16,11 +16,7 @@ let SimpleEditForm = (props, ownProps) => {
   user1.gender = gender;
   user1.age = age;
   user1.quantity = orderLength;
-  user1.color = color;
-  user1.size = size;
   user1.notes = notes;
-
-  // console.log(order[1]);
   
   let orderComponent = null;
 
@@ -34,7 +30,7 @@ let SimpleEditForm = (props, ownProps) => {
   } else if (order.length === 3) {
     orderComponent = <div>
         <EditOrderForm1 order={order[0].order_number} size={order[0].size} color={order[0].color} />
-        <EditOrderForm2 order={order[1].order_number} size={"large"} color={"red"} />
+        <EditOrderForm2 order={order[1].order_number} size={order[1].size} color={order[1].size} />
         <EditOrderForm3 order={order[2].order_number} size={order[2].size} color={order[2].color} />
       </div>;
   } else if (order.length === 4) {

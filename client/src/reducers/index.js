@@ -6,7 +6,7 @@ import customer from "./reducers_customer";
 import customerPurchases from './reducers_customer_purchases'
 import customersColorData from './reducers_customerColorData'
 import auth from './reducers_authenticate'
-import orderNum from './reducers_ordernum'
+import orderNum from './reducers_orderNum'
 
 const rootReducers = combineReducers({
   customers,
