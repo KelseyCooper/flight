@@ -22,12 +22,13 @@ class EditCustomerComponent extends Component {
   };
 
   render() {
-    let quantity = this.props.customer.purchased || [];
+    let quantity = this.props.customer.purchased || [0, 1, 2];
     
     return (
       <div className="container">
         <EditCustomerForm
           onSubmit={this.submitEdit}
+          initialValues={{name: this.props.customer.name, email: this.props.customer.email, gender: this.props.customer.gender, age: this.props.customer.age, notes: this.props.customer.reason_to_buy, quantity: quantity.length }}
           name={this.props.customer.name}
           email={this.props.customer.email}
           gender={this.props.customer.gender}
@@ -35,7 +36,6 @@ class EditCustomerComponent extends Component {
           notes={this.props.customer.reason_to_buy}
           orderLength={quantity.length}
           order={quantity}
-
         />
       </div>
     );

@@ -1,56 +1,500 @@
 import React from "react";
 import { Field, reduxForm } from "redux-form";
 import { connect } from "react-redux";
-import EditOrderForm1 from "./EditOrderForm1";
-import EditOrderForm2 from "./EditOrderForm2";
-import EditOrderForm3 from "./EditOrderForm3";
-import EditOrderForm4 from "./EditOrderForm4";
-import EditOrderForm5 from "./EditOrderForm5";
 
-let user1 = {};
+let user = {};
 
 let SimpleEditForm = (props, ownProps) => {
-  const { handleSubmit, pristine, submitting, name, email, gender, age, color, size, notes, order, orderLength } = props;
-  user1.name = name;
-  user1.email = email;
-  user1.gender = gender;
-  user1.age = age;
-  user1.quantity = orderLength;
-  user1.notes = notes;
-  
+  const {
+    handleSubmit,
+    pristine,
+    submitting,
+    order,
+    orderLength,
+    email,
+    gender,
+    age,
+    notes,
+    name
+  } = props;
+  user.name = name;
+  user.email = email;
+  user.gender = gender;
+  user.age = age;
+  user.quantity = orderLength;
+  user.notes = notes;
+
   let orderComponent = null;
 
   if (order.length === 1) {
-    orderComponent = <EditOrderForm1 order={order[0].order_number} size={order[0].size} color={order[0].color} />;
+    user.size0 = order[0].size;
+    user.color0 = order[0].color;
+    orderComponent = (
+      <div>
+        <div>
+          <label>Order #{order.length}:</label>
+        </div>
+        <div>
+          <label>Color</label>
+          <div>
+            <Field name={"size0"} component="select">
+              <option value="small">Small</option>
+              <option value="medium">Medium</option>
+              <option value="large">Large</option>
+              <option value="x-large">X-Large</option>
+            </Field>
+          </div>
+        </div>
+        <div>
+          <label>Size</label>
+          <div>
+            {" "}
+            <Field name={"color0"} component="select">
+              <option value="black">Black</option>
+              <option value="blue">Blue</option>
+              <option value="red">Red</option>
+              <option value="grey">Grey</option>
+            </Field>
+          </div>
+        </div>
+      </div>
+    );
   } else if (order.length === 2) {
+    user.size0 = order[0].size;
+    user.color0 = order[0].color;
+    user.size1 = order[1].size;
+    user.color1 = order[1].color;
     orderComponent = <div>
-        <EditOrderForm1 order={order[0].order_number} size={order[0].size} color={order[0].color} />
-        <EditOrderForm2 order={order[1].order_number} size={order[1].size} color={order[1].color} />
+        <div>
+          <div>
+            <label>Order #{order.length - 1}:</label>
+          </div>
+          <div>
+            <label>Color</label>
+            <div>
+              <Field name={"size0"} component="select">
+                <option value="small">Small</option>
+                <option value="medium">Medium</option>
+                <option value="large">Large</option>
+                <option value="x-large">X-Large</option>
+              </Field>
+            </div>
+          </div>
+          <div>
+            <label>Size</label>
+            <div>
+              {" "}
+              <Field name={"color0"} component="select">
+                <option value="black">Black</option>
+                <option value="blue">Blue</option>
+                <option value="red">Red</option>
+                <option value="grey">Grey</option>
+              </Field>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div>
+            <label>Order #{order.length}:</label>
+          </div>
+          <div>
+            <label>Color</label>
+            <div>
+              <Field name={"size1"} component="select">
+                <option value="small">Small</option>
+                <option value="medium">Medium</option>
+                <option value="large">Large</option>
+                <option value="x-large">X-Large</option>
+              </Field>
+            </div>
+          </div>
+          <div>
+            <label>Size</label>
+            <div>
+              {" "}
+              <Field name={"color1"} component="select">
+                <option value="black">Black</option>
+                <option value="blue">Blue</option>
+                <option value="red">Red</option>
+                <option value="grey">Grey</option>
+              </Field>
+            </div>
+          </div>
+        </div>
       </div>;
   } else if (order.length === 3) {
+     user.size0 = order[0].size;
+     user.color0 = order[0].color;
+     user.size1 = order[1].size;
+     user.color1 = order[1].color;
+     user.size2 = order[2].size;
+     user.color2 = order[2].color;
     orderComponent = <div>
-        <EditOrderForm1 order={order[0].order_number} size={order[0].size} color={order[0].color} />
-        <EditOrderForm2 order={order[1].order_number} size={order[1].size} color={order[1].size} />
-        <EditOrderForm3 order={order[2].order_number} size={order[2].size} color={order[2].color} />
+        <div>
+          <div>
+            <label>Order #{order.length - 2}:</label>
+          </div>
+          <div>
+            <label>Color</label>
+            <div>
+              <Field name={"size0"} component="select">
+                <option value="small">Small</option>
+                <option value="medium">Medium</option>
+                <option value="large">Large</option>
+                <option value="x-large">X-Large</option>
+              </Field>
+            </div>
+          </div>
+          <div>
+            <label>Size</label>
+            <div>
+              {" "}
+              <Field name={"color0"} component="select">
+                <option value="black">Black</option>
+                <option value="blue">Blue</option>
+                <option value="red">Red</option>
+                <option value="grey">Grey</option>
+              </Field>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div>
+            <label>Order #{order.length - 1}:</label>
+          </div>
+          <div>
+            <label>Color</label>
+            <div>
+              <Field name={"size1"} component="select">
+                <option value="small">Small</option>
+                <option value="medium">Medium</option>
+                <option value="large">Large</option>
+                <option value="x-large">X-Large</option>
+              </Field>
+            </div>
+          </div>
+          <div>
+            <label>Size</label>
+            <div>
+              {" "}
+              <Field name={"color1"} component="select">
+                <option value="black">Black</option>
+                <option value="blue">Blue</option>
+                <option value="red">Red</option>
+                <option value="grey">Grey</option>
+              </Field>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div>
+            <label>Order #{order.length}:</label>
+          </div>
+          <div>
+            <label>Color</label>
+            <div>
+              <Field name={"size2"} component="select">
+                <option value="small">Small</option>
+                <option value="medium">Medium</option>
+                <option value="large">Large</option>
+                <option value="x-large">X-Large</option>
+              </Field>
+            </div>
+          </div>
+          <div>
+            <label>Size</label>
+            <div>
+              {" "}
+              <Field name={"color2"} component="select">
+                <option value="black">Black</option>
+                <option value="blue">Blue</option>
+                <option value="red">Red</option>
+                <option value="grey">Grey</option>
+              </Field>
+            </div>
+          </div>
+        </div>
       </div>;
   } else if (order.length === 4) {
+         user.size0 = order[0].size;
+         user.color0 = order[0].color;
+         user.size1 = order[1].size;
+         user.color1 = order[1].color;
+         user.size2 = order[2].size;
+         user.color2 = order[2].color;
+                  user.size3 = order[3].size;
+                  user.color3 = order[3].color;
     orderComponent = <div>
-        <EditOrderForm1 order={order[0].order_number} size={order[0].size} color={order[0].color} />
-        <EditOrderForm2 order={order[1].order_number} size={order[1].size} color={order[1].color} />
-        <EditOrderForm3 order={order[2].order_number} size={order[2].size} color={order[2].color} />
-        <EditOrderForm4 order={order[3].order_number} size={order[3].size} color={order[3].color} />
+        <div>
+          <div>
+            <label>Order #{order.length - 3}:</label>
+          </div>
+          <div>
+            <label>Color</label>
+            <div>
+              <Field name={"size0"} component="select">
+                <option value="small">Small</option>
+                <option value="medium">Medium</option>
+                <option value="large">Large</option>
+                <option value="x-large">X-Large</option>
+              </Field>
+            </div>
+          </div>
+          <div>
+            <label>Size</label>
+            <div>
+              {" "}
+              <Field name={"color0"} component="select">
+                <option value="black">Black</option>
+                <option value="blue">Blue</option>
+                <option value="red">Red</option>
+                <option value="grey">Grey</option>
+              </Field>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div>
+            <label>Order #{order.length - 2}:</label>
+          </div>
+          <div>
+            <label>Color</label>
+            <div>
+              <Field name={"size1"} component="select">
+                <option value="small">Small</option>
+                <option value="medium">Medium</option>
+                <option value="large">Large</option>
+                <option value="x-large">X-Large</option>
+              </Field>
+            </div>
+          </div>
+          <div>
+            <label>Size</label>
+            <div>
+              {" "}
+              <Field name={"color1"} component="select">
+                <option value="black">Black</option>
+                <option value="blue">Blue</option>
+                <option value="red">Red</option>
+                <option value="grey">Grey</option>
+              </Field>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div>
+            <label>Order #{order.length - 1}:</label>
+          </div>
+          <div>
+            <label>Color</label>
+            <div>
+              <Field name={"size2"} component="select">
+                <option value="small">Small</option>
+                <option value="medium">Medium</option>
+                <option value="large">Large</option>
+                <option value="x-large">X-Large</option>
+              </Field>
+            </div>
+          </div>
+          <div>
+            <label>Size</label>
+            <div>
+              {" "}
+              <Field name={"color2"} component="select">
+                <option value="black">Black</option>
+                <option value="blue">Blue</option>
+                <option value="red">Red</option>
+                <option value="grey">Grey</option>
+              </Field>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div>
+            <label>Order #{order.length}:</label>
+          </div>
+          <div>
+            <label>Color</label>
+            <div>
+              <Field name={"size3"} component="select">
+                <option value="small">Small</option>
+                <option value="medium">Medium</option>
+                <option value="large">Large</option>
+                <option value="x-large">X-Large</option>
+              </Field>
+            </div>
+          </div>
+          <div>
+            <label>Size</label>
+            <div>
+              {" "}
+              <Field name={"color3"} component="select">
+                <option value="black">Black</option>
+                <option value="blue">Blue</option>
+                <option value="red">Red</option>
+                <option value="grey">Grey</option>
+              </Field>
+            </div>
+          </div>
+        </div>
       </div>;
   } else if (order.length === 5) {
+             user.size0 = order[0].size;
+             user.color0 = order[0].color;
+             user.size1 = order[1].size;
+             user.color1 = order[1].color;
+             user.size2 = order[2].size;
+             user.color2 = order[2].color;
+             user.size3 = order[3].size;
+             user.color3 = order[3].color;
+                          user.size4 = order[4].size;
+                          user.color4 = order[4].color;
     orderComponent = <div>
-        <EditOrderForm1 order={order[0].order_number} size={order[0].size} color={order[0].color} />
-        <EditOrderForm2 order={order[1].order_number} size={order[1].size} color={order[1].color} />
-        <EditOrderForm3 order={order[2].order_number} size={order[2].size} color={order[2].color} />
-        <EditOrderForm4 order={order[3].order_number} size={order[3].size} color={order[3].color} />
-        <EditOrderForm5 order={order[4].order_number} size={order[4].size} color={order[4].color} />
+        <div>
+          <div>
+            <label>Order #{order.length - 4}:</label>
+          </div>
+          <div>
+            <label>Color</label>
+            <div>
+              <Field name={"size0"} component="select">
+                <option value="small">Small</option>
+                <option value="medium">Medium</option>
+                <option value="large">Large</option>
+                <option value="x-large">X-Large</option>
+              </Field>
+            </div>
+          </div>
+          <div>
+            <label>Size</label>
+            <div>
+              {" "}
+              <Field name={"color0"} component="select">
+                <option value="black">Black</option>
+                <option value="blue">Blue</option>
+                <option value="red">Red</option>
+                <option value="grey">Grey</option>
+              </Field>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div>
+            <label>Order #{order.length - 3}:</label>
+          </div>
+          <div>
+            <label>Color</label>
+            <div>
+              <Field name={"size1"} component="select">
+                <option value="small">Small</option>
+                <option value="medium">Medium</option>
+                <option value="large">Large</option>
+                <option value="x-large">X-Large</option>
+              </Field>
+            </div>
+          </div>
+          <div>
+            <label>Size</label>
+            <div>
+              {" "}
+              <Field name={"color1"} component="select">
+                <option value="black">Black</option>
+                <option value="blue">Blue</option>
+                <option value="red">Red</option>
+                <option value="grey">Grey</option>
+              </Field>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div>
+            <label>Order #{order.length - 2}:</label>
+          </div>
+          <div>
+            <label>Color</label>
+            <div>
+              <Field name={"size2"} component="select">
+                <option value="small">Small</option>
+                <option value="medium">Medium</option>
+                <option value="large">Large</option>
+                <option value="x-large">X-Large</option>
+              </Field>
+            </div>
+          </div>
+          <div>
+            <label>Size</label>
+            <div>
+              {" "}
+              <Field name={"color2"} component="select">
+                <option value="black">Black</option>
+                <option value="blue">Blue</option>
+                <option value="red">Red</option>
+                <option value="grey">Grey</option>
+              </Field>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div>
+            <label>Order #{order.length - 1}:</label>
+          </div>
+          <div>
+            <label>Color</label>
+            <div>
+              <Field name={"size3"} component="select">
+                <option value="small">Small</option>
+                <option value="medium">Medium</option>
+                <option value="large">Large</option>
+                <option value="x-large">X-Large</option>
+              </Field>
+            </div>
+          </div>
+          <div>
+            <label>Size</label>
+            <div>
+              {" "}
+              <Field name={"color3"} component="select">
+                <option value="black">Black</option>
+                <option value="blue">Blue</option>
+                <option value="red">Red</option>
+                <option value="grey">Grey</option>
+              </Field>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div>
+            <label>Order #{order.length}:</label>
+          </div>
+          <div>
+            <label>Color</label>
+            <div>
+              <Field name={"size4"} component="select">
+                <option value="small">Small</option>
+                <option value="medium">Medium</option>
+                <option value="large">Large</option>
+                <option value="x-large">X-Large</option>
+              </Field>
+            </div>
+          </div>
+          <div>
+            <label>Size</label>
+            <div>
+              {" "}
+              <Field name={"color4"} component="select">
+                <option value="black">Black</option>
+                <option value="blue">Blue</option>
+                <option value="red">Red</option>
+                <option value="grey">Grey</option>
+              </Field>
+            </div>
+          </div>
+        </div>
       </div>;
   }
 
-  return <form onSubmit={handleSubmit}>
+  return (
+    <form onSubmit={handleSubmit}>
       <div>
         <label>First Name</label>
         <div>
@@ -61,7 +505,12 @@ let SimpleEditForm = (props, ownProps) => {
         <label>Email</label>
 
         <div>
-          <Field name="email" component="input" type="text" placeholder="Email" />
+          <Field
+            name="email"
+            component="input"
+            type="text"
+            placeholder="Email"
+          />
         </div>
       </div>
       <div>
@@ -94,27 +543,29 @@ let SimpleEditForm = (props, ownProps) => {
         <label>Pairs Purchased</label>
         <div>
           <Field name="quantity" component="select">
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
+            <option value={1}>1</option>
+            <option value={2}>2</option>
+            <option value={3}>3</option>
+            <option value={4}>4</option>
+            <option value={5}>5</option>
           </Field>
         </div>
       </div>
-      {orderComponent}
+
       <div>
         <label>Notes</label>
         <div>
           <Field name="notes" component="textarea" />
         </div>
       </div>
+      {orderComponent}
       <div>
         <button type="submit" disabled={pristine || submitting}>
           Update
         </button>
       </div>
-    </form>;
+    </form>
+  );
 };
 
 // Decorate with reduxForm(). It will read the initialValues prop provided by connect()
@@ -125,7 +576,7 @@ SimpleEditForm = reduxForm({
 // You have to connect() to any reducers that you wish to connect to yourself
 SimpleEditForm = connect(
   state => ({
-    initialValues: user1 // pull initial values from account reducer
+    initialValues: user // pull initial values from account reducer
   }) // bind account loading action creator
 )(SimpleEditForm);
 
