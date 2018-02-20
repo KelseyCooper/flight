@@ -30,7 +30,7 @@ function editUser(data) {
           color: item.color,
           size: item.size,
           user_id: data.id,
-          order_number: item.order_number
+          order_number: item.ordernum
         })
         .then(() => {
           return true;

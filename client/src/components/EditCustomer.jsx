@@ -13,20 +13,33 @@ class EditCustomerComponent extends Component {
   
 
   submitEdit = values => {
+    let error = false;
     values.id = this.props.customer.id;
+    for (let x = 0; x < Number(values.quantity); x++) {
+      if (values.size[x] === undefined || values.color[x] === undefined || values.size[x] === "" || values.color[x] === "") {
+        console.log(values.size[x]);
+        error = true;
+      }
+    }
+    if (values.size.length !== values.color.length) {
+      error = true;
+    }
     console.log(values);
-    
-  return this.props.editCustomer(values).then(
-      () => {
-        this.props.history.push("/all-data");
-      },
-      ({ data }) => this.setState({ errors: data })
-    );
-  };
+    if (!error) {
+      console.log(error);
+      
+      return this.props.editCustomer(values).then(
+          () => {
+            this.props.history.push("/all-data");
+          },
+          ({ data }) => this.setState({ errors: data })
+        );
+      };
+    }
 
   render() {
     let quantity = this.props.customer.purchased || [0, 1, 2, 4, 5];
-    console.log(this.props.amount);
+    console.log(this.props.error);
     
     return (
       <div className="container">

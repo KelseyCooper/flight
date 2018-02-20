@@ -19,7 +19,7 @@ exports.seed = async function(knex, Promise) {
           name: "Martha",
           email: "marth@live.ca",
           gender: "female",
-          age: 14,
+          age: 41,
           reason_to_buy: "for husband"
         });
       })
@@ -28,7 +28,7 @@ exports.seed = async function(knex, Promise) {
           name: "John",
           email: "john@hell.com",
           gender: "male",
-          age: 50,
+          age: 31,
           reason_to_buy: "gift"
         });
       })
@@ -46,7 +46,7 @@ exports.seed = async function(knex, Promise) {
           name: "Parker",
           email: "pray@ray.com",
           gender: "male",
-          age: 34,
+          age: 31,
           reason_to_buy: "gift"
         });
       })
@@ -55,7 +55,7 @@ exports.seed = async function(knex, Promise) {
           name: "George",
           email: "George@g.com",
           gender: "male",
-          age: 60,
+          age: 61,
           reason_to_buy: "gift"
         });
       })
@@ -73,7 +73,7 @@ exports.seed = async function(knex, Promise) {
           name: "Grace",
           email: "gr@grac.com",
           gender: "female",
-          age: 29,
+          age: 21,
           reason_to_buy: "self"
         });
       })
@@ -82,7 +82,7 @@ exports.seed = async function(knex, Promise) {
           name: "Peter",
           email: "p@p.com",
           gender: "male",
-          age: 54,
+          age: 51,
           reason_to_buy: "self"
         });
       })
@@ -100,7 +100,7 @@ exports.seed = async function(knex, Promise) {
           name: "Paula",
           email: "paula@paul.com ",
           gender: "female",
-          age: 25,
+          age: 21,
           reason_to_buy: "gift"
         });
       })
@@ -109,7 +109,7 @@ exports.seed = async function(knex, Promise) {
           name: "Harry",
           email: "harry@dong.com",
           gender: "male",
-          age: 32,
+          age: 31,
           reason_to_buy: "self"
         });
       })
@@ -118,7 +118,7 @@ exports.seed = async function(knex, Promise) {
           name: "Naomi",
           email: "i@moan.com",
           gender: "female",
-          age: 26,
+          age: 21,
           reason_to_buy: "self"
         });
       })
@@ -127,7 +127,7 @@ exports.seed = async function(knex, Promise) {
           name: "Helen",
           email: "h@moan.com",
           gender: "other",
-          age: 26,
+          age: 21,
           reason_to_buy: "self"
         });
       })
