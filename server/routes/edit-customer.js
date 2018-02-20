@@ -14,15 +14,30 @@ function editUser(data) {
       email: data.email,
       gender: data.gender,
       age: data.age,
-      color: data.color,
-      size: data.size,
       reason_to_buy: data.notes
     })
     .then(users => {
-    //   console.log(users);
-
+      console.log(data);
+      return knex("purchased")
+      .where('user_id', data.id)
+      .del()
       return true;
-    });
+    })
+    .then(user => {
+      data.bought.map(item => {
+        return knex("purchased")
+        .insert({
+          color: item.color,
+          size: item.size,
+          user_id: data.id,
+          order_number: item.order_number
+        })
+        .then(() => {
+          return true;
+        });
+      });
+      return true;
+    })
 }
 
 router.post("/", (req, res) => {
@@ -31,3 +46,4 @@ router.post("/", (req, res) => {
 });
 
 module.exports = router;
+

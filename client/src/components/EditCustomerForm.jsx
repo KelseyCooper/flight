@@ -23,12 +23,19 @@ let SimpleEditForm = (props, ownProps) => {
   user.age = age;
   user.quantity = orderLength;
   user.notes = notes;
+  user.size = [];
+  user.color = [];
+
+  for (let x = 0; x < order.length; x++) {
+    user.size[x] = null;
+    user.color[x] = null;
+    user.size[x] = order[x].size;
+    user.color[x] = order[x].color;
+  }
 
   let orderComponent = null;
 
   if (order.length === 1) {
-    user.size0 = order[0].size;
-    user.color0 = order[0].color;
     orderComponent = (
       <div>
         <div>
@@ -37,7 +44,7 @@ let SimpleEditForm = (props, ownProps) => {
         <div>
           <label>Color</label>
           <div>
-            <Field name={"size0"} component="select">
+            <Field name={"size[0]"} component="select">
               <option value="small">Small</option>
               <option value="medium">Medium</option>
               <option value="large">Large</option>
@@ -49,7 +56,7 @@ let SimpleEditForm = (props, ownProps) => {
           <label>Size</label>
           <div>
             {" "}
-            <Field name={"color0"} component="select">
+            <Field name={"color[0]"} component="select">
               <option value="black">Black</option>
               <option value="blue">Blue</option>
               <option value="red">Red</option>
@@ -60,11 +67,8 @@ let SimpleEditForm = (props, ownProps) => {
       </div>
     );
   } else if (order.length === 2) {
-    user.size0 = order[0].size;
-    user.color0 = order[0].color;
-    user.size1 = order[1].size;
-    user.color1 = order[1].color;
-    orderComponent = <div>
+    orderComponent = (
+      <div>
         <div>
           <div>
             <label>Order #{order.length - 1}:</label>
@@ -72,7 +76,7 @@ let SimpleEditForm = (props, ownProps) => {
           <div>
             <label>Color</label>
             <div>
-              <Field name={"size0"} component="select">
+              <Field name={"size[0]"} component="select">
                 <option value="small">Small</option>
                 <option value="medium">Medium</option>
                 <option value="large">Large</option>
@@ -84,7 +88,7 @@ let SimpleEditForm = (props, ownProps) => {
             <label>Size</label>
             <div>
               {" "}
-              <Field name={"color0"} component="select">
+              <Field name={"color[0]"} component="select">
                 <option value="black">Black</option>
                 <option value="blue">Blue</option>
                 <option value="red">Red</option>
@@ -100,7 +104,7 @@ let SimpleEditForm = (props, ownProps) => {
           <div>
             <label>Color</label>
             <div>
-              <Field name={"size1"} component="select">
+              <Field name={"size[1]"} component="select">
                 <option value="small">Small</option>
                 <option value="medium">Medium</option>
                 <option value="large">Large</option>
@@ -112,7 +116,7 @@ let SimpleEditForm = (props, ownProps) => {
             <label>Size</label>
             <div>
               {" "}
-              <Field name={"color1"} component="select">
+              <Field name={"color[1]"} component="select">
                 <option value="black">Black</option>
                 <option value="blue">Blue</option>
                 <option value="red">Red</option>
@@ -121,15 +125,11 @@ let SimpleEditForm = (props, ownProps) => {
             </div>
           </div>
         </div>
-      </div>;
+      </div>
+    );
   } else if (order.length === 3) {
-     user.size0 = order[0].size;
-     user.color0 = order[0].color;
-     user.size1 = order[1].size;
-     user.color1 = order[1].color;
-     user.size2 = order[2].size;
-     user.color2 = order[2].color;
-    orderComponent = <div>
+    orderComponent = (
+      <div>
         <div>
           <div>
             <label>Order #{order.length - 2}:</label>
@@ -137,7 +137,7 @@ let SimpleEditForm = (props, ownProps) => {
           <div>
             <label>Color</label>
             <div>
-              <Field name={"size0"} component="select">
+              <Field name={"size[0]"} component="select">
                 <option value="small">Small</option>
                 <option value="medium">Medium</option>
                 <option value="large">Large</option>
@@ -149,7 +149,7 @@ let SimpleEditForm = (props, ownProps) => {
             <label>Size</label>
             <div>
               {" "}
-              <Field name={"color0"} component="select">
+              <Field name={"color[0]"} component="select">
                 <option value="black">Black</option>
                 <option value="blue">Blue</option>
                 <option value="red">Red</option>
@@ -165,7 +165,7 @@ let SimpleEditForm = (props, ownProps) => {
           <div>
             <label>Color</label>
             <div>
-              <Field name={"size1"} component="select">
+              <Field name={"size[1]"} component="select">
                 <option value="small">Small</option>
                 <option value="medium">Medium</option>
                 <option value="large">Large</option>
@@ -177,7 +177,7 @@ let SimpleEditForm = (props, ownProps) => {
             <label>Size</label>
             <div>
               {" "}
-              <Field name={"color1"} component="select">
+              <Field name={"color[1]"} component="select">
                 <option value="black">Black</option>
                 <option value="blue">Blue</option>
                 <option value="red">Red</option>
@@ -193,7 +193,7 @@ let SimpleEditForm = (props, ownProps) => {
           <div>
             <label>Color</label>
             <div>
-              <Field name={"size2"} component="select">
+              <Field name={"size[2]"} component="select">
                 <option value="small">Small</option>
                 <option value="medium">Medium</option>
                 <option value="large">Large</option>
@@ -205,7 +205,7 @@ let SimpleEditForm = (props, ownProps) => {
             <label>Size</label>
             <div>
               {" "}
-              <Field name={"color2"} component="select">
+              <Field name={"color[2]"} component="select">
                 <option value="black">Black</option>
                 <option value="blue">Blue</option>
                 <option value="red">Red</option>
@@ -214,17 +214,11 @@ let SimpleEditForm = (props, ownProps) => {
             </div>
           </div>
         </div>
-      </div>;
+      </div>
+    );
   } else if (order.length === 4) {
-         user.size0 = order[0].size;
-         user.color0 = order[0].color;
-         user.size1 = order[1].size;
-         user.color1 = order[1].color;
-         user.size2 = order[2].size;
-         user.color2 = order[2].color;
-                  user.size3 = order[3].size;
-                  user.color3 = order[3].color;
-    orderComponent = <div>
+    orderComponent = (
+      <div>
         <div>
           <div>
             <label>Order #{order.length - 3}:</label>
@@ -232,7 +226,7 @@ let SimpleEditForm = (props, ownProps) => {
           <div>
             <label>Color</label>
             <div>
-              <Field name={"size0"} component="select">
+              <Field name={"size[0]"} component="select">
                 <option value="small">Small</option>
                 <option value="medium">Medium</option>
                 <option value="large">Large</option>
@@ -244,7 +238,7 @@ let SimpleEditForm = (props, ownProps) => {
             <label>Size</label>
             <div>
               {" "}
-              <Field name={"color0"} component="select">
+              <Field name={"color[0]"} component="select">
                 <option value="black">Black</option>
                 <option value="blue">Blue</option>
                 <option value="red">Red</option>
@@ -260,7 +254,7 @@ let SimpleEditForm = (props, ownProps) => {
           <div>
             <label>Color</label>
             <div>
-              <Field name={"size1"} component="select">
+              <Field name={"size[1]"} component="select">
                 <option value="small">Small</option>
                 <option value="medium">Medium</option>
                 <option value="large">Large</option>
@@ -272,7 +266,7 @@ let SimpleEditForm = (props, ownProps) => {
             <label>Size</label>
             <div>
               {" "}
-              <Field name={"color1"} component="select">
+              <Field name={"color[1]"} component="select">
                 <option value="black">Black</option>
                 <option value="blue">Blue</option>
                 <option value="red">Red</option>
@@ -288,7 +282,7 @@ let SimpleEditForm = (props, ownProps) => {
           <div>
             <label>Color</label>
             <div>
-              <Field name={"size2"} component="select">
+              <Field name={"size[2]"} component="select">
                 <option value="small">Small</option>
                 <option value="medium">Medium</option>
                 <option value="large">Large</option>
@@ -300,7 +294,7 @@ let SimpleEditForm = (props, ownProps) => {
             <label>Size</label>
             <div>
               {" "}
-              <Field name={"color2"} component="select">
+              <Field name={"color[2]"} component="select">
                 <option value="black">Black</option>
                 <option value="blue">Blue</option>
                 <option value="red">Red</option>
@@ -316,7 +310,7 @@ let SimpleEditForm = (props, ownProps) => {
           <div>
             <label>Color</label>
             <div>
-              <Field name={"size3"} component="select">
+              <Field name={"size[3]"} component="select">
                 <option value="small">Small</option>
                 <option value="medium">Medium</option>
                 <option value="large">Large</option>
@@ -328,7 +322,7 @@ let SimpleEditForm = (props, ownProps) => {
             <label>Size</label>
             <div>
               {" "}
-              <Field name={"color3"} component="select">
+              <Field name={"color[3]"} component="select">
                 <option value="black">Black</option>
                 <option value="blue">Blue</option>
                 <option value="red">Red</option>
@@ -337,19 +331,11 @@ let SimpleEditForm = (props, ownProps) => {
             </div>
           </div>
         </div>
-      </div>;
+      </div>
+    );
   } else if (order.length === 5) {
-             user.size0 = order[0].size;
-             user.color0 = order[0].color;
-             user.size1 = order[1].size;
-             user.color1 = order[1].color;
-             user.size2 = order[2].size;
-             user.color2 = order[2].color;
-             user.size3 = order[3].size;
-             user.color3 = order[3].color;
-                          user.size4 = order[4].size;
-                          user.color4 = order[4].color;
-    orderComponent = <div>
+    orderComponent = (
+      <div>
         <div>
           <div>
             <label>Order #{order.length - 4}:</label>
@@ -357,7 +343,7 @@ let SimpleEditForm = (props, ownProps) => {
           <div>
             <label>Color</label>
             <div>
-              <Field name={"size0"} component="select">
+              <Field name={"size[0]"} component="select">
                 <option value="small">Small</option>
                 <option value="medium">Medium</option>
                 <option value="large">Large</option>
@@ -369,7 +355,7 @@ let SimpleEditForm = (props, ownProps) => {
             <label>Size</label>
             <div>
               {" "}
-              <Field name={"color0"} component="select">
+              <Field name={"color[0]"} component="select">
                 <option value="black">Black</option>
                 <option value="blue">Blue</option>
                 <option value="red">Red</option>
@@ -385,7 +371,7 @@ let SimpleEditForm = (props, ownProps) => {
           <div>
             <label>Color</label>
             <div>
-              <Field name={"size1"} component="select">
+              <Field name={"size[1]"} component="select">
                 <option value="small">Small</option>
                 <option value="medium">Medium</option>
                 <option value="large">Large</option>
@@ -397,7 +383,7 @@ let SimpleEditForm = (props, ownProps) => {
             <label>Size</label>
             <div>
               {" "}
-              <Field name={"color1"} component="select">
+              <Field name={"color[1]"} component="select">
                 <option value="black">Black</option>
                 <option value="blue">Blue</option>
                 <option value="red">Red</option>
@@ -413,7 +399,7 @@ let SimpleEditForm = (props, ownProps) => {
           <div>
             <label>Color</label>
             <div>
-              <Field name={"size2"} component="select">
+              <Field name={"size[2]"} component="select">
                 <option value="small">Small</option>
                 <option value="medium">Medium</option>
                 <option value="large">Large</option>
@@ -425,7 +411,7 @@ let SimpleEditForm = (props, ownProps) => {
             <label>Size</label>
             <div>
               {" "}
-              <Field name={"color2"} component="select">
+              <Field name={"color[2]"} component="select">
                 <option value="black">Black</option>
                 <option value="blue">Blue</option>
                 <option value="red">Red</option>
@@ -441,7 +427,7 @@ let SimpleEditForm = (props, ownProps) => {
           <div>
             <label>Color</label>
             <div>
-              <Field name={"size3"} component="select">
+              <Field name={"size[3]"} component="select">
                 <option value="small">Small</option>
                 <option value="medium">Medium</option>
                 <option value="large">Large</option>
@@ -453,7 +439,7 @@ let SimpleEditForm = (props, ownProps) => {
             <label>Size</label>
             <div>
               {" "}
-              <Field name={"color3"} component="select">
+              <Field name={"color[3]"} component="select">
                 <option value="black">Black</option>
                 <option value="blue">Blue</option>
                 <option value="red">Red</option>
@@ -469,7 +455,7 @@ let SimpleEditForm = (props, ownProps) => {
           <div>
             <label>Color</label>
             <div>
-              <Field name={"size4"} component="select">
+              <Field name={"size[4]"} component="select">
                 <option value="small">Small</option>
                 <option value="medium">Medium</option>
                 <option value="large">Large</option>
@@ -481,7 +467,7 @@ let SimpleEditForm = (props, ownProps) => {
             <label>Size</label>
             <div>
               {" "}
-              <Field name={"color4"} component="select">
+              <Field name={"color[4]"} component="select">
                 <option value="black">Black</option>
                 <option value="blue">Blue</option>
                 <option value="red">Red</option>
@@ -490,7 +476,16 @@ let SimpleEditForm = (props, ownProps) => {
             </div>
           </div>
         </div>
-      </div>;
+      </div>
+    );
+  }
+
+  function changeQuantity(e) {
+    console.log(e.target.value);
+    user.quantity = e.target.value;
+    SimpleEditForm = connect(state => ({ initialValues: user }))(
+      SimpleEditForm
+    );
   }
 
   return (
@@ -542,7 +537,11 @@ let SimpleEditForm = (props, ownProps) => {
       <div>
         <label>Pairs Purchased</label>
         <div>
-          <Field name="quantity" component="select">
+          <Field
+            name="quantity"
+            component="select"
+            onChange={e => changeQuantity(e)}
+          >
             <option value={1}>1</option>
             <option value={2}>2</option>
             <option value={3}>3</option>
@@ -558,7 +557,9 @@ let SimpleEditForm = (props, ownProps) => {
           <Field name="notes" component="textarea" />
         </div>
       </div>
+
       {orderComponent}
+
       <div>
         <button type="submit" disabled={pristine || submitting}>
           Update

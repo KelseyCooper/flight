@@ -1,4 +1,4 @@
-import axios from 'axios';
+import axios from "axios";
 export const CUSTOMERS_FETCHED = "CUSTOMERS_FETCHED";
 export const NEW_CUSTOMER = "NEW_CUSTOMER";
 export const EDIT_CUSTOMER = "EDIT_CUSTOMER";
@@ -31,17 +31,16 @@ export function fetchCustomer(id) {
 }
 
 export function addCustomer(data) {
-  
   let bought = [];
   let finalData = {};
-  
+
   finalData.name = data.name || null;
   finalData.email = data.email || null;
   finalData.gender = data.gender || null;
   finalData.age = data.age || null;
   finalData.notes = data.notes || null;
   finalData.bought = bought;
-  
+
   for (let x = 1; x <= data.quantity; x++) {
     bought.push({ color: data.color[x], size: data.size[x], ordernum: x });
   }
@@ -52,10 +51,26 @@ export function addCustomer(data) {
 }
 
 export function editCustomer(data) {
-  console.log(data);
+  let bought = [];
+  let finalData = {};
+
+  finalData.name = data.name || null;
+  finalData.email = data.email || null;
+  finalData.gender = data.gender || null;
+  finalData.age = data.age || null;
+  finalData.notes = data.notes || null;
+  finalData.id = data.id
+  finalData.bought = bought;
+
+  for (let x = 0; x < data.quantity; x++) {
+    bought.push({ color: data.color[x], size: data.size[x], ordernum: x + 1 });
+  }
+
+  console.log(finalData);
   
+
   return dispatch => {
-    return axios.post("http://localhost:3001/edit-customer", data)
+    return axios.post("http://localhost:3001/edit-customer", finalData);
   };
 }
 
