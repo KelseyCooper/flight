@@ -8,7 +8,7 @@ function getRedCustomerColorData() {
   return knex
     .select("*")
     .from("purchased")
-    .where({ color: "Red" })
+    .where({ color: "red" })
     .then(results => {
   return results.length
   })
@@ -18,7 +18,7 @@ function getGreyCustomerColorData() {
   return knex
     .select("*")
     .from("purchased")
-    .where({ color: "Grey" })
+    .where({ color: "grey" })
     .then(results => {
       return results.length;
     });
@@ -28,7 +28,7 @@ function getBlueCustomerColorData() {
   return knex
     .select("*")
     .from("purchased")
-    .where({ color: "Blue" })
+    .where({ color: "blue" })
     .then(results => {
       return results.length;
     });
@@ -38,7 +38,7 @@ function getBlackCustomerColorData() {
   return knex
     .select("*")
     .from("purchased")
-    .where({ color: "Black" })
+    .where({ color: "black" })
     .then(results => {
       return results.length;
     });
