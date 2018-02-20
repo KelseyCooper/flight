@@ -9,6 +9,9 @@ class EditCustomerComponent extends Component {
       })
   }
 
+  
+  
+
   submitEdit = values => {
     values.id = this.props.customer.id;
     console.log(values);
@@ -22,7 +25,8 @@ class EditCustomerComponent extends Component {
   };
 
   render() {
-    let quantity = this.props.customer.purchased || [0, 1, 2];
+    let quantity = this.props.customer.purchased || [0, 1, 2, 4, 5];
+    console.log(this.props.amount);
     
     return (
       <div className="container">
@@ -36,6 +40,8 @@ class EditCustomerComponent extends Component {
           notes={this.props.customer.reason_to_buy}
           orderLength={quantity.length}
           order={quantity}
+          orderAmount={this.props.amount}
+          ChangeEditOrderNum={this.props.ChangeEditOrderNum}
         />
       </div>
     );

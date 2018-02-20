@@ -4,6 +4,7 @@ export const NEW_CUSTOMER = "NEW_CUSTOMER";
 export const EDIT_CUSTOMER = "EDIT_CUSTOMER";
 export const CUSTOMER_FETCHED = "CUSTOMER_FETCHED";
 export const CUSTOMER_PURCHASE_FETCHED = "CUSTOMER_PURCHASE_FETCHED";
+export const ORDER_AMOUNT = "ORDER_AMOUNT";
 
 export function fetchCustomers() {
   const headers = { "Content-Type": "application/json" };
@@ -25,6 +26,7 @@ export function fetchCustomer(id) {
       .then(res => {
         dispatch(loadCustomer(res.data[0]));
         dispatch(loadCustomerPurchase(res.data));
+        dispatch(editOrderAmount(res.data[0].purchased.length));
       })
       .catch(error => console.log(error));
   };
@@ -72,6 +74,10 @@ export function editCustomer(data) {
   return dispatch => {
     return axios.post("http://localhost:3001/edit-customer", finalData);
   };
+}
+
+export function editOrderAmount(data) {
+  return { type: ORDER_AMOUNT, payload: data };
 }
 
 export function loadCustomers(results) {

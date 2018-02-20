@@ -1,10 +1,13 @@
 import { connect } from "react-redux";
 import EditCustomerComponent from "../components/EditCustomer";
 import { editCustomer, fetchCustomer } from "../actions/actions_customers";
+import { ChangeEditOrderNum } from "../actions/actions_editorders";
 
 const mapStateToProps = (state, ownProps) => {
+  
   return {
-    customer: state.customer
+    customer: state.customer,
+    amount: state.orderAmount.amount
   };
 };
 
@@ -15,7 +18,10 @@ const mapDispatchToProps = (dispatch, ownProps) => {
     },
     fetchCustomer: id => {
       return dispatch(fetchCustomer({ id: ownProps.match.params.id} ));
+    }, ChangeEditOrderNum: data => {
+      return dispatch(ChangeEditOrderNum(data));
     }
+
   };
 };
 
