@@ -4,40 +4,53 @@ const ENV = process.env.ENV || "development";
 const knexConfig = require("../knexfile");
 const knex = require("knex")(knexConfig[ENV]);
 
-function getRedCustomerColorData() {
+function getMaleData() {
   return knex
     .select("*")
-    .from("purchased")
-    .where({ color: "red" })
+    .from("customers")
+    .where({ gender: "male" })
     .then(results => {
       return results.length;
     });
 }
 
-function getGreyCustomerColorData() {
+function getFemaleData() {
   return knex
     .select("*")
-    .from("purchased")
-    .where({ color: "grey" })
+    .from("customers")
+    .where({ gender: "female" })
     .then(results => {
       return results.length;
     });
 }
 
-function getBlueCustomerColorData() {
+function getOtherData() {
   return knex
     .select("*")
-    .from("purchased")
-    .where({ color: "blue" })
+    .from("customers")
+    .where({ gender: "other" })
     .then(results => {
       return results.length;
     });
 }
 
-// return finalTable;
-/* GET home page. */
 router.get("/", function(req, res, next) {
-console.log('hello from gender data route');
+  const finalTable = [
+    { name: "Male", value: 300, fill: "#3f75cc" },
+    { name: "Female", value: 200, fill: "#cc3f80" },
+    { name: "Other", value: 100, fill: "#3fc2cc" }
+  ];
+  getMaleData().then(maleData => {
+    finalTable[0].value = maleData;
+    getFemaleData().then(femaleData => {
+      finalTable[1].value = femaleData;
+      getOtherData().then(otherData => {
+        finalTable[2].value = otherData;
+          res.json(finalTable);
+      });
+    });
+  });
+  
 });
 
 
