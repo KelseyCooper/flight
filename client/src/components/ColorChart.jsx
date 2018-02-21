@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { PieChart, Pie, Cell, LabelList, ResponsiveContainer } from "recharts";
+import { Table } from "react-bootstrap";
 
 class ColroChartComponent extends Component {
   constructor(props) {
@@ -36,12 +37,24 @@ class ColroChartComponent extends Component {
             </Pie>
           </PieChart>
         </ResponsiveContainer>
-        {this.state.data.map((item, index) => {
-          return <div key={index}>
-              {" "}
-              {item.name} {item.value}
-            </div>;
-        })}
+
+        <Table responsive striped bordered condensed hover>
+          <thead>
+            <tr>
+              <th>Age</th>
+              <th>Value</th>
+            </tr>
+          </thead>
+          <tbody>
+            {this.state.data.map((item, index) => {
+              return <tr key={index}>
+                  {" "}
+                  <td>{item.name}</td>
+                  <td>{item.value}</td>
+                </tr>;
+            })}
+          </tbody>
+        </Table>
       </div>;
   }
 }

@@ -9,6 +9,7 @@ import auth from './reducers_authenticate';
 import orderNum from './reducers_orderNum';
 import orderAmount from './reducers_orderAmount';
 import editOrderError from './reducers_editOrderError';
+import ageData from './reducers_customAgeData'
 
 const rootReducers = combineReducers({
   customers,
@@ -19,7 +20,9 @@ const rootReducers = combineReducers({
   form: formReducer,
   orderNum,
   orderAmount,
-  editOrderError
+  editOrderError,
+  ageData
+
 });
 
 export default rootReducers;

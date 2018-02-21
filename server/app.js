@@ -12,6 +12,7 @@ var colorCount = require('./routes/color-count');
 var newCustomer = require('./routes/new-customer');
 var editCustomer = require('./routes/edit-customer');
 var fetchCustomer = require("./routes/fetch-customer");
+var ageData = require("./routes/age-data");
 
 var cookieSession = require("cookie-session");
 const environment = process.env.NODE_ENV || "development";
@@ -43,6 +44,7 @@ app.use("/color-count", colorCount);
 app.use("/new-customer", newCustomer);
 app.use('/edit-customer', editCustomer)
 app.use("/fetch-customer", fetchCustomer);
+app.use("/age-data", ageData);
 
 app.use(
   cookieSession({

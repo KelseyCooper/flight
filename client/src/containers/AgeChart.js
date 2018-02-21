@@ -1,17 +1,15 @@
 import { connect } from "react-redux";
 import AgeChartComponent from "../components/AgeChart";
-import { fetchCustomers } from "../actions/actions_customers";
+import { fetchCustomerAgeData } from "../actions/actions_customerAgeData";
 
 const mapStateToProps = state => {
-  return {
-    customers: state.customers
-  };
+  return { data: state.ageData };
 };
 
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
-    fetchCustomers: () => {
-      dispatch(fetchCustomers());
+    fetchCustomerAgeData: () => {
+      dispatch(fetchCustomerAgeData());
     }
   };
 };
