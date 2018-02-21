@@ -1,6 +1,6 @@
 import React from 'react';
 import { Navbar, Nav, NavItem } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
 import { LinkContainer } from "react-router-bootstrap";
 import { connect } from 'react-redux';
 import { logout } from '../actions/actions_authenticate';
@@ -62,4 +62,4 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect(mapStateToProps,{ logout } )(NavComponent);
+export default withRouter(connect(mapStateToProps,{ logout } )(NavComponent));

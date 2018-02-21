@@ -29,7 +29,7 @@ class AllDataComponent extends Component {
                 <td> {item.purchased.length} </td>
                 <td> {item.reason_to_buy} </td>
                 <td>
-                  <Link to={{ pathname: `/customer/${item.id}` }}>
+                  <Link to={{ pathname: `/customer/:${item.id}` }}>
                     Edit
                   </Link>
                 </td>
