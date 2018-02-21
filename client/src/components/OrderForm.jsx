@@ -7,7 +7,7 @@ let OrderForm = (props, ownProps) => {
         <label>Order #{props.order}:</label>
       </div>
       <div>
-        <label>Color</label>
+        <label>Size</label>
         <div>
           <Field name={"size.[" + props.order + "]"} component="select">
             <option />
@@ -19,7 +19,7 @@ let OrderForm = (props, ownProps) => {
         </div>
       </div>
       <div>
-        <label>Size</label>
+        <label>Color</label>
         <div>
           {" "}
           <Field name={"color.[" + props.order + "]"} component="select">

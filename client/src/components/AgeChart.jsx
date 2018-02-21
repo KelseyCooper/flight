@@ -41,7 +41,6 @@ class AgeChartComponent extends Component {
           <tbody>
         {this.state.data.map((item, index) => {
           return <tr key={index}>
-              {" "}
               <td>{item.name}</td>
               <td>{item.value}</td>
             </tr>

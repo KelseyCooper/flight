@@ -23,7 +23,7 @@ class ColroChartComponent extends Component {
   }
 
   render() {
-    return <div>
+    return <div className="container">
         <ResponsiveContainer width="100%" height={400}>
           <PieChart onMouseEnter={this.onPieEnter}>
             <Pie data={this.state.data} dataKey="value" innerRadius={60} outerRadius={80} fill="#8884d8" paddingAngle={5}>
@@ -48,7 +48,6 @@ class ColroChartComponent extends Component {
           <tbody>
             {this.state.data.map((item, index) => {
               return <tr key={index}>
-                  {" "}
                   <td>{item.name}</td>
                   <td>{item.value}</td>
                 </tr>;
