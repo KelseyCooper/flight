@@ -1,6 +1,6 @@
 import { connect } from "react-redux";
 import GenderChartComponent from "../components/GenderChart";
-import { fetchCustomers } from "../actions/actions_customers";
+import { fetchCustomersGenderData } from "../actions/actions_customerGenderData";
 
 const mapStateToProps = state => {
   return {
@@ -10,8 +10,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
-    fetchCustomers: () => {
-      dispatch(fetchCustomers());
+    fetchCustomersGenderData: () => {
+      dispatch(fetchCustomersGenderData());
     }
   };
 };

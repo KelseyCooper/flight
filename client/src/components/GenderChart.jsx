@@ -1,41 +1,35 @@
 import React, { Component } from "react";
 import {
+  BarChart,
+  Bar,
   XAxis,
-  XYPlot,
   YAxis,
-  VerticalBarSeries
-} from "react-vis";
+  CartesianGrid,
+  Tooltip,
+  Legend,
+  ResponsiveContainer
+} from 'recharts'
+
+const data = [
+  { name: "Page A", uv: 4000, fill: "#8884d8" },
+  { name: "Page B", uv: 3000, fill: "#000" },
+  { name: "Page C", uv: 2000, fill: "#eee" }
+];
 
 class GenderChartComponent extends Component {
   componentDidMount() {
-    this.props.fetchCustomers();
+    this.props.fetchCustomersGenderData();
   }
-
-  isMen(customer) {
-    return customer.gender === "male";
-  }
-  isWomen(customer) {
-    return customer.gender === "female";
-  }
-  isOther(customer) {
-    return customer.gender === "other";
-  }
-  isGrey(customer) {
-    return customer.color === "grey";
-  }
-
+  
   render() {
-    const men = this.props.customers.filter(this.isMen);
-    const women = this.props.customers.filter(this.isWomen);
-    const other = this.props.customers.filter(this.isOther);
-
-    const data = [{ x: "Men", y: men.length, color: "#798eaf" }, { x: "Women", y: women.length, color: "#d88fb6" }, { x: "Other", y: other.length, color: "#8fd8b3" }];
-    return <div>
-        <XYPlot xType="ordinal" width={400} height={400} colorType="literal">
-          <XAxis />
-          <YAxis />
-          <VerticalBarSeries data={data} />
-        </XYPlot>
+    return <div className="container">
+        <ResponsiveContainer maxWidth="100%" height={500}>
+          <BarChart data={data} margin={{ top: 100, right: 50, left: 50, bottom: 0 }}>
+            <XAxis dataKey="name" />
+            <YAxis />
+            <Bar dataKey="uv" label={'fude'}/>
+          </BarChart>
+        </ResponsiveContainer>
       </div>;
   }
 }

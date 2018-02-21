@@ -16,9 +16,9 @@ class SliderComponent extends Component {
         };
         return (
             <Slider {...settings}>
+            <div><GenderChart /></div>
             <div><AgeChart /></div>
             <div><ColorChart /></div>
-            <div><GenderChart /></div>
         </Slider>
         );
     }
