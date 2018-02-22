@@ -3,6 +3,7 @@ import Slider from 'react-slick';
 import ColorChart from '../containers/ColorChart';
 import GenderChart from '../containers/GenderChart';
 import AgeChart from "../containers/AgeChart";
+import SizeChart from "../containers/SizeChart";
 
 class SliderComponent extends Component {
     render () {
@@ -16,6 +17,7 @@ class SliderComponent extends Component {
         };
         return (
             <Slider {...settings}>
+            <div><SizeChart /></div>
             <div><AgeChart /></div>
             <div><ColorChart /></div>
             <div><GenderChart /></div>

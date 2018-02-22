@@ -9,8 +9,9 @@ import auth from './reducers_authenticate';
 import orderNum from './reducers_orderNum';
 import orderAmount from './reducers_orderAmount';
 import editOrderError from './reducers_editOrderError';
-import ageData from './reducers_customAgeData'
-import genderData from './reducers_customerGenderData'
+import ageData from './reducers_customAgeData';
+import genderData from './reducers_customerGenderData';
+import sizeData from './reducers_customerSizeData';
 
 const rootReducers = combineReducers({
   customers,
@@ -23,7 +24,8 @@ const rootReducers = combineReducers({
   orderAmount,
   editOrderError,
   ageData,
-  genderData
+  genderData,
+  sizeData
 
 });
 

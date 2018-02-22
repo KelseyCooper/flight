@@ -36,16 +36,16 @@ function getOtherData() {
 
 router.get("/", function(req, res, next) {
   const finalTable = [
-    { name: "Male", value: 300, fill: "#3f75cc" },
-    { name: "Female", value: 200, fill: "#cc3f80" },
-    { name: "Other", value: 100, fill: "#3fc2cc" }
+    { name: "Male", uv: 300, fill: "#3f75cc" },
+    { name: "Female", uv: 200, fill: "#cc3f80" },
+    { name: "Other", uv: 100, fill: "#3fc2cc" }
   ];
   getMaleData().then(maleData => {
-    finalTable[0].value = maleData;
+    finalTable[0].uv = maleData;
     getFemaleData().then(femaleData => {
-      finalTable[1].value = femaleData;
+      finalTable[1].uv = femaleData;
       getOtherData().then(otherData => {
-        finalTable[2].value = otherData;
+        finalTable[2].uv = otherData;
           res.json(finalTable);
       });
     });
