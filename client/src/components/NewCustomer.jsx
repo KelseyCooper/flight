@@ -10,7 +10,6 @@ class NewCustomerComponent extends Component {
   }
 
   submit = values => {
-    console.log(values);
     
     return this.props.addCustomer(values).then(
       () => {

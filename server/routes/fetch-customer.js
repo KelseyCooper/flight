@@ -50,7 +50,6 @@ router.post("/", function(req, res, next) {
         purchased: item.purchased
       });
     });
-    console.log(customerObject);
     
     res.json(customerObject);
   })

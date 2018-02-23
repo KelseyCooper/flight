@@ -1,6 +1,7 @@
 export const CUSTOMERS_SIZE_DATA_FETCHED = "CUSTOMERS_SIZE_DATA_FETCHED";
 
 export function fetchCustomerSizeData() {
+  
   return dispatch => {
     return fetch("http://localhost:3001/size-data", {
       method: "GET",

@@ -6,7 +6,6 @@ let user = {};
 
 let SimpleEditForm = (props, ownProps) => {
   const { handleSubmit, pristine, submitting, order, orderLength, email, gender, age, notes, name, orderAmount } = props;
-  // console.log(orderAmount);
   
   user.name = name;
   user.email = email;
@@ -26,7 +25,7 @@ let SimpleEditForm = (props, ownProps) => {
 
   let orderComponent = null;
 
-  if (orderAmount == '1') {
+  if (orderAmount === 1) {
     orderComponent = <div>
         <div>
           <label>Order #{orderAmount}:</label>
@@ -56,7 +55,7 @@ let SimpleEditForm = (props, ownProps) => {
           </div>
         </div>
       </div>;
-  } else if (orderAmount == '2') {
+  } else if (orderAmount === 2) {
     orderComponent = <div>
         <div>
           <div>
@@ -117,7 +116,7 @@ let SimpleEditForm = (props, ownProps) => {
           </div>
         </div>
       </div>;
-  } else if (orderAmount == '3') {
+  } else if (orderAmount === 3) {
     orderComponent = <div>
         <div>
           <div>
@@ -207,7 +206,7 @@ let SimpleEditForm = (props, ownProps) => {
           </div>
         </div>
       </div>;
-  } else if (orderAmount == '4') {
+  } else if (orderAmount === 4) {
     orderComponent = <div>
         <div>
           <div>
@@ -326,7 +325,7 @@ let SimpleEditForm = (props, ownProps) => {
           </div>
         </div>
       </div>;
-  } else if (orderAmount == '5') {
+  } else if (orderAmount === 5) {
     orderComponent = <div>
         <div>
           <div>

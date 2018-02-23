@@ -4,21 +4,16 @@ import {
   Bar,
   XAxis,
   YAxis,
-  CartesianGrid,
-  Tooltip,
-  Legend,
   ResponsiveContainer
 } from 'recharts';
 import { Table } from "react-bootstrap";
 
 class GenderChartComponent extends Component {
-
   componentDidMount() {
     this.props.fetchCustomersGenderData();
     }
   
   render() {
-    console.log(this.props.data);
     
     return <div className="container">
         <ResponsiveContainer maxWidth="100%" height={550}>

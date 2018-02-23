@@ -2,7 +2,7 @@ import { ORDER_AMOUNT } from "../actions/actions_customers";
 import { EDIT_ORDER_NUMBER } from '../actions/actions_editorders'
 
 const initialState = {
-  amount: '0'
+  amount: 0
 };
 
 const orderAmount = (state = initialState, action) => {

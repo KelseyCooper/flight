@@ -59,7 +59,6 @@ router.get("/", function(req, res, next) {
         finalTable[2].value = largeData;
         getXLargeData().then(xLargeData => {
           finalTable[3].value = xLargeData;
-          console.log(finalTable);
 
           res.json(finalTable);
         });

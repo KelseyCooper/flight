@@ -17,7 +17,6 @@ function editUser(data) {
       reason_to_buy: data.notes
     })
     .then(users => {
-      console.log(data);
       return knex("purchased")
       .where('user_id', data.id)
       .del()
