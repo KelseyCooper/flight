@@ -10,6 +10,8 @@ export function fetchCustomerColorData() {
     })
       .then(response => response.json())
       .then(json => {
+        console.log(json);
+        
         dispatch(loadCustomerColorData(json));
       })
       .catch(error => console.log(error));

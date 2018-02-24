@@ -4,7 +4,7 @@ import { fetchCustomerColorData } from "../actions/actions_customerColorData";
 
 const mapStateToProps = state => {
   return {
-    data: state.customersColorData.data
+    data: state.customersColorData
   };
 };
 

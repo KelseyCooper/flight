@@ -1,6 +1,18 @@
 import React, { Component } from "react";
 import { PieChart, Pie, Cell, LabelList, ResponsiveContainer } from "recharts";
 import { Table } from "react-bootstrap";
+import { Doughnut } from "react-chartjs-2";
+
+const data = {
+  labels: ["Red", "Green", "Yellow"],
+  datasets: [
+    {
+      data: [300, 50, 100],
+      backgroundColor: ["#FF6384", "#36A2EB", "#FFCE56"],
+      hoverBackgroundColor: ["#FF6384", "#36A2EB", "#FFCE56"]
+    }
+  ]
+};
 
 class ColroChartComponent extends Component {
   constructor(props) {
@@ -23,21 +35,14 @@ class ColroChartComponent extends Component {
   }
 
   render() {
-    return <div className="container">
-        <ResponsiveContainer width="100%" height={400}>
-          <PieChart onMouseEnter={this.onPieEnter}>
-            <Pie data={this.state.data} dataKey="value" innerRadius={60} outerRadius={80} fill="#8884d8" paddingAngle={5}>
-              {this.state.data.map((entry, index) => (
-                <Cell
-                  key={index}
-                  fill={this.state.colors[index % this.state.colors.length]}
-                />
-              ))}
-              <LabelList stroke="none" offset={15} dataKey="value" position="outside" />
-            </Pie>
-          </PieChart>
-        </ResponsiveContainer>
+    console.log(this.props);
 
+    return (
+      <div className="container">
+        <Doughnut
+          data={this.props.data}
+          options={{   }}
+        />
         <Table responsive striped bordered condensed hover>
           <thead>
             <tr>
@@ -46,15 +51,18 @@ class ColroChartComponent extends Component {
             </tr>
           </thead>
           <tbody>
-            {this.state.data.map((item, index) => {
-              return <tr key={index}>
+            {this.props.data.info.map((item, index) => {
+              return (
+                <tr key={index}>
                   <td>{item.name}</td>
                   <td>{item.value}</td>
-                </tr>;
+                </tr>
+              );
             })}
           </tbody>
         </Table>
-      </div>;
+      </div>
+    );
   }
 }
 
