@@ -8,6 +8,7 @@ const orderNum = (state = initialState, action) => {
   switch (action.type) {
     case ORDER_NUMBER:
       return {
+        ...state,
         order: action.payload
       }
     default:

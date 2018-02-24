@@ -27,8 +27,8 @@ class AllDataComponent extends Component {
             </tr>
           </thead>
           <tbody>
-            {this.props.customers
-            .reverse()
+            {[...this.props.customers]
+              .reverse()
               .map(item => (
                 <tr key={item.id}>
                   <td> {item.name} </td>
