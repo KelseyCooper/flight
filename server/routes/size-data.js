@@ -51,16 +51,36 @@ router.get("/", function(req, res, next) {
     { name: "Large", value: 100, fill: "#3fc2cc" },
     { name: "X-Large", value: 100, fill: "#3fc2cc" }
   ];
+  const data = {
+    labels: ["Small", "Medium", "Large", "X-Large"],
+    datasets: [
+      {
+        data: [],
+        backgroundColor: ["#FF6384", "#36A2EB", "#FFCE56", "#48E8B6"],
+        hoverBackgroundColor: ["#FF6384", "#36A2EB", "#FFCE56", "#48E8B6"]
+      }
+    ],
+    info: [
+      { name: "Small", value: 0 },
+      { name: "Medium", value: 0 },
+      { name: "Large", value: 0 },
+      { name: "X-Large", value: 0 }
+    ]
+  };
   getSmallData().then(smallData => {
-    finalTable[0].value = smallData;
+    data.datasets[0].data.push(smallData);
+    data.info[0].value = smallData;
     getMediumData().then(mediumData => {
-      finalTable[1].value = mediumData;
+      data.datasets[0].data.push(mediumData);
+      data.info[1].value = mediumData;
       getLargeData().then(largeData => {
-        finalTable[2].value = largeData;
+        data.datasets[0].data.push(largeData);
+        data.info[2].value = largeData;
         getXLargeData().then(xLargeData => {
-          finalTable[3].value = xLargeData;
+          data.datasets[0].data.push(xLargeData);
+          data.info[3].value = xLargeData;
 
-          res.json(finalTable);
+          res.json(data);
         });
       });
     });

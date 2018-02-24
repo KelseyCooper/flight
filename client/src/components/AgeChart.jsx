@@ -6,26 +6,14 @@ class AgeChartComponent extends Component {
   componentDidMount() {
     this.props.fetchCustomerAgeData();
   }
-
-  generateLabels(chart) {
-    chart.legend.afterFit = function () {
-      var width = this.width; // guess you can play with this value to achieve needed layout
-      this.lineWidths = this.lineWidths.map(function(){return width;});
-
-    };
-    // here goes original or customized code of your generateLabels callback
-}
   render() {
     return (
       <div className="container">
         <Polar
           data={this.props.data}
           options={{
-            legendCallback: function(chart) {
-              <div>hello</div>
-          },
             legend: {
-              "position": "bottom"
+              "position": "left"
             },
             layout: {
               padding: {

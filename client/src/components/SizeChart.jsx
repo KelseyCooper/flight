@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Table } from "react-bootstrap";
-import { PieChart, Pie, ResponsiveContainer } from "recharts";
+import {Doughnut} from 'react-chartjs-2';
+
 
 class SizeChartComponent extends Component {
 
@@ -9,13 +10,10 @@ class SizeChartComponent extends Component {
   }
 
   render() {
-
+    console.log(this.props.data);
+    
     return <div className="container">
-        <ResponsiveContainer width="100%" height={400}>
-          <PieChart margin={{ top: 100, right: 0, left: 0, bottom: 0 }}>
-            <Pie startAngle={180} endAngle={0} dataKey="value" data={this.props.data} label />
-          </PieChart>
-        </ResponsiveContainer>
+    <Doughnut data={this.props.data} />
         <br />
         <Table responsive striped bordered condensed hover>
           <thead>
@@ -25,7 +23,7 @@ class SizeChartComponent extends Component {
             </tr>
           </thead>
           <tbody>
-            {this.props.data.map((item, index) => {
+            {this.props.data.info.map((item, index) => {
               return <tr key={index}>
                   <td>{item.name}</td>
                   <td>{item.value}</td>

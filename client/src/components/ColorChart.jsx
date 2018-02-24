@@ -1,33 +1,22 @@
 import React, { Component } from "react";
 import { Table } from "react-bootstrap";
-import { Doughnut } from "react-chartjs-2";
+import { Pie } from "react-chartjs-2";
 
 class ColroChartComponent extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      data: [],
-      colors: []
-    };
-  }
-
   componentDidMount() {
     this.props.fetchCustomerColorData();
-  }
-
-  componentWillReceiveProps(nextProps) {
-    this.setState({
-      data: this.props.data,
-      colors: ["#f44162", "#65686d", "#6c8ce2", "#3a3e47"]
-    });
   }
 
   render() {
     return (
       <div className="container">
-        <Doughnut
+        <Pie
           data={this.props.data}
-          options={{   }}
+          options={{ 
+            legend: {
+              "position": "left"
+            }
+          }} 
         />
         <Table responsive striped bordered condensed hover>
           <thead>

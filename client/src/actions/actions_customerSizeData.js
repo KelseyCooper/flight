@@ -20,6 +20,10 @@ export function fetchCustomerSizeData() {
 export function loadCustomerSizeData(results) {
   return {
     type: CUSTOMERS_SIZE_DATA_FETCHED,
-    payload: results
+    data: results.datasets[0].data,
+    background: results.datasets[0].backgroundColor,
+    hoverBackground: results.datasets[0].hoverBackgroundColor,
+    labels: results.labels,
+    info: results.info
   };
 }
