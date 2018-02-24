@@ -40,18 +40,36 @@ router.get("/", function(req, res, next) {
     { name: "Female", uv: 200, fill: "#cc3f80" },
     { name: "Other", uv: 100, fill: "#3fc2cc" }
   ];
+  const data = {
+    info: [
+      { name: "Male", value: 300 },
+      { name: "Female", value: 200 },
+      { name: "Other", value: 100 }
+    ],
+    labels: ['Men', 'Women', 'Other'],
+    datasets: [{
+      data: [],
+      backgroundColor: [ "rgba(63, 117, 204, .5)", "rgba(204, 63, 128, .5)", "rgba(63, 194, 204, .5)" ],
+      hoverBackgroundColor: [ "rgba(63, 117, 204, .3)", "rgba(204, 63, 128, .3)", "rgba(63, 194, 204, .3)" ]
+    }]
+  }
   getMaleData().then(maleData => {
-    finalTable[0].uv = maleData;
+    data.datasets[0].data.push(maleData);
+    data.info[0].value = maleData;
     getFemaleData().then(femaleData => {
-      finalTable[1].uv = femaleData;
+      data.datasets[0].data.push(femaleData);
+      data.info[1].value = femaleData;
       getOtherData().then(otherData => {
-        finalTable[2].uv = otherData;
-          res.json(finalTable);
+        data.datasets[0].data.push(otherData);
+        data.info[2].value = otherData;
+          res.json(data);
       });
     });
   });
   
 });
+
+
 
 
 module.exports = router;

@@ -12,9 +12,6 @@ class AgeChartComponent extends Component {
         <Polar
           data={this.props.data}
           options={{
-            legend: {
-              "position": "left"
-            },
             layout: {
               padding: {
                 top: 5,

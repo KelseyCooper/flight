@@ -14,7 +14,7 @@ class ColroChartComponent extends Component {
           data={this.props.data}
           options={{ 
             legend: {
-              "position": "left"
+              "display": false
             }
           }} 
         />

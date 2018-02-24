@@ -1,7 +1,9 @@
 import { CUSTOMERS_GENDER_DATA_FETCHED } from "../actions/actions_customerGenderData";
 
 const initialState = {
-  data: []
+  datasets: [],
+  info: [],
+  labels: []
 }
 
 const customersGenderData = (state = initialState, action) => {
@@ -9,7 +11,9 @@ const customersGenderData = (state = initialState, action) => {
     case CUSTOMERS_GENDER_DATA_FETCHED:
       return {
         ...state,
-        data: action.payload
+        datasets: action.payload.datasets,
+        info: action.payload.info,
+        labels: action.payload.labels
       };
     default:
       return state;

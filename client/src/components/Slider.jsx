@@ -18,8 +18,8 @@ class SliderComponent extends Component {
         return (
             <Slider {...settings}>
             <div><SizeChart /></div>
-            <div><AgeChart /></div>
             <div><ColorChart /></div>
+            <div><AgeChart /></div>
             <div><GenderChart /></div>
         </Slider>
         );
