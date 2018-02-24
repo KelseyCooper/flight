@@ -4,7 +4,7 @@ import { fetchCustomers, deleteCustomer } from "../actions/actions_customers";
 
 const mapStateToProps = state => {
   return {
-    customers: state.customers
+    customers: state.customers.customers
   };
 };
 

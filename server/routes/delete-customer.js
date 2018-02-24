@@ -21,7 +21,7 @@ router.post("/", (req, res) => {
     console.log(req.body);
     
   deleteCustomer(req.body);
-  res.json({ success: true });
+  res.json({ id: req.body.id });
 });
 
 module.exports = router;

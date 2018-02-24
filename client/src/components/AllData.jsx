@@ -6,6 +6,11 @@ class AllDataComponent extends Component {
   componentDidMount() {
     this.props.fetchCustomers();
   }
+
+  handleClick(id) {
+    this.props.deleteCustomer(id);
+  }
+
   render() {
     return <div className="container">
         <Table responsive striped bordered condensed hover>
@@ -22,8 +27,8 @@ class AllDataComponent extends Component {
             </tr>
           </thead>
           <tbody>
-            {[...this.props.customers]
-              .reverse()
+            {this.props.customers
+            .reverse()
               .map(item => (
                 <tr key={item.id}>
                   <td> {item.name} </td>
@@ -38,7 +43,7 @@ class AllDataComponent extends Component {
                     </Link>
                   </td>
                   <td>
-                    <a className="" onClick={() =>  {if(window.confirm('Delete this customer?')) {this.props.deleteCustomer(item.id)};}}>Delete</a>
+                    <a className="" onClick={() =>  {if(window.confirm('Delete this customer?')) {this.handleClick(item.id)};}}>Delete</a>
                   </td>
                 </tr>
               ))}

@@ -1,10 +1,12 @@
 import axios from "axios";
+export const CUSTOMERS_BEING_FETCHED = "CUSTOMERS_BEING_FETCHED";
 export const CUSTOMERS_FETCHED = "CUSTOMERS_FETCHED";
 export const NEW_CUSTOMER = "NEW_CUSTOMER";
 export const EDIT_CUSTOMER = "EDIT_CUSTOMER";
 export const CUSTOMER_FETCHED = "CUSTOMER_FETCHED";
 export const CUSTOMER_PURCHASE_FETCHED = "CUSTOMER_PURCHASE_FETCHED";
 export const ORDER_AMOUNT = "ORDER_AMOUNT";
+export const CUSTOMER_DELETED = "CUSTOMER_DELETED";
 
 export function fetchCustomers() {
   const headers = { "Content-Type": "application/json" };
@@ -19,9 +21,12 @@ export function fetchCustomers() {
 }
 
 export function fetchCustomer(id) {
-  const headers = { "Content-Type": "application/json" };
-  return dispatch => {
-    return axios
+  return function (dispatch) {
+
+    dispatch({type: "CUSTOMERS_BEING_FETCHED"})
+    const headers = { "Content-Type": "application/json" };
+    return dispatch => {
+      return axios
       .post("http://localhost:3001/fetch-customer", id, headers)
       .then(res => {
         dispatch(loadCustomer(res.data[0]));
@@ -29,7 +34,8 @@ export function fetchCustomer(id) {
         dispatch(editOrderAmount(res.data[0].purchased.length));
       })
       .catch(error => console.log(error));
-  };
+    };
+  }
 }
 
 export function addCustomer(data) {
@@ -80,8 +86,13 @@ export function deleteCustomer(id) {
   const data = {id}
   return dispatch => {
     return axios.post("http://localhost:3001/delete-customer", data)
+    .then(res => {
+      dispatch(deleteCustomerSuccess(res.data.id));
+    })
+    .catch(error => console.log(error));
   }
 }
+
 
 export function editOrderAmount(data) {
   return { type: ORDER_AMOUNT, payload: data };
@@ -106,4 +117,8 @@ export function loadCustomerPurchase(results) {
     type: CUSTOMER_PURCHASE_FETCHED,
     payload: results
   };
+}
+
+export function deleteCustomerSuccess(id) {
+  return { type: CUSTOMER_DELETED, payload: id };
 }

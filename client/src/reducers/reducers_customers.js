@@ -1,12 +1,37 @@
-import { CUSTOMERS_FETCHED } from "../actions/actions_customers";
+import {
+  CUSTOMERS_FETCHED,
+  CUSTOMERS_BEING_FETCHED,
+  CUSTOMER_DELETED
+} from "../actions/actions_customers";
 
-const customers = (state = {}, action) => {
+const initialState = {
+  fetching: false,
+  fetched: false,
+  customers: [],
+  error: null
+};
+
+const customers = (state = initialState, action) => {
   switch (action.type) {
-    case CUSTOMERS_FETCHED:
-      return Object.assign({}, state, action.payload)
+    case CUSTOMERS_BEING_FETCHED: {
+      return { ...state, fetching: true };
+    }
+    case CUSTOMERS_FETCHED: {
+      return {
+        ...state,
+        fetching: false,
+        fetched: true,
+        customers: action.payload
+      };
+    }
+    case CUSTOMER_DELETED: {
+      return {
+        customers: [
+          ...state.customers.filter((item => item.id !== action.payload))
+        ]
+      }
+    }
     default:
-    console.log('returning state');
-    
       return state;
   }
 };
