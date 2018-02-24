@@ -7,8 +7,7 @@ import {
 const initialState = {
   fetching: false,
   fetched: false,
-  customers: [],
-  error: null
+  customers: []
 };
 
 const customers = (state = initialState, action) => {
@@ -26,10 +25,11 @@ const customers = (state = initialState, action) => {
     }
     case CUSTOMER_DELETED: {
       return {
+        ...state,
         customers: [
-          ...state.customers.filter((item => item.id !== action.payload))
+          ...state.customers.filter(item => item.id !== action.payload)
         ]
-      }
+      };
     }
     default:
       return state;

@@ -3,7 +3,7 @@ import AgeChartComponent from "../components/AgeChart";
 import { fetchCustomerAgeData } from "../actions/actions_customerAgeData";
 
 const mapStateToProps = state => {
-  return { data: state.ageData };
+  return { data: state.ageData.data };
 };
 
 const mapDispatchToProps = (dispatch, ownProps) => {
