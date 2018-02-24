@@ -1,18 +1,6 @@
 import React, { Component } from "react";
-import { PieChart, Pie, Cell, LabelList, ResponsiveContainer } from "recharts";
 import { Table } from "react-bootstrap";
 import { Doughnut } from "react-chartjs-2";
-
-const data = {
-  labels: ["Red", "Green", "Yellow"],
-  datasets: [
-    {
-      data: [300, 50, 100],
-      backgroundColor: ["#FF6384", "#36A2EB", "#FFCE56"],
-      hoverBackgroundColor: ["#FF6384", "#36A2EB", "#FFCE56"]
-    }
-  ]
-};
 
 class ColroChartComponent extends Component {
   constructor(props) {
@@ -35,8 +23,6 @@ class ColroChartComponent extends Component {
   }
 
   render() {
-    console.log(this.props);
-
     return (
       <div className="container">
         <Doughnut

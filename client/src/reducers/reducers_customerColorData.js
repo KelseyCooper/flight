@@ -11,8 +11,6 @@ const customersColorData = (state = initialState, action) => {
   
   switch (action.type) {
     case CUSTOMERS_COLOR_DATA_FETCHED:
-    {console.log(action.payload.labels);
-    }
       return {
         ...state,
         info: action.payload.info,

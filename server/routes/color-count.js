@@ -53,7 +53,22 @@ router.get("/", function(req, res, next) {
     { name: "Blue Customers", value: 100 },
     { name: "Black Customers", value: 300 }
   ];
-  const data = { info: [{ name: "Red Customers", value: 300 }, { name: "Grey Customers", value: 200 }, { name: "Blue Customers", value: 100 }, { name: "Black Customers", value: 300 }], labels: ["Red", "Grey", "Blue", "Black"], datasets: [{ data: [300, 200, 100, 300], backgroundColor: ["#e01f5f", "#abb7cc", "#514ad6", "#565656"], hoverBackgroundColor: ["#ba1a4f", "#8b96a8", "#413baf", "#444444"] }] };
+  const data = {
+    info: [
+      { name: "Red Customers", value: 300 },
+      { name: "Grey Customers", value: 200 },
+      { name: "Blue Customers", value: 100 },
+      { name: "Black Customers", value: 300 }
+    ],
+    labels: ["Red", "Grey", "Blue", "Black"],
+    datasets: [
+      {
+        data: [300, 200, 100, 300],
+        backgroundColor: ["#e01f5f", "#abb7cc", "#514ad6", "#565656"],
+        hoverBackgroundColor: ["#ba1a4f", "#8b96a8", "#413baf", "#444444"]
+      }
+    ]
+  };
   getRedCustomerColorData().then(redData => {
     data.datasets[0].data[0] = redData;
     data.info[0].value = redData;

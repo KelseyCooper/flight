@@ -19,6 +19,9 @@ export function fetchCustomerAgeData() {
 export function loadCustomerAgeData(results) {
   return {
     type: CUSTOMERS_AGE_DATA_FETCHED,
-    payload: results
+    data: results.datasets[0].data,
+    background: results.datasets[0].backgroundColor,
+    labels: results.labels,
+    info: results.info
   };
 }

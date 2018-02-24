@@ -1,24 +1,40 @@
 import React, { Component } from "react";
 import { Table } from "react-bootstrap";
-import {
-  RadialBarChart,
-  RadialBar,
-  Legend,
-  ResponsiveContainer
-} from "recharts";
+import { Polar } from "react-chartjs-2";
 
 class AgeChartComponent extends Component {
   componentDidMount() {
     this.props.fetchCustomerAgeData();
   }
+
+  generateLabels(chart) {
+    chart.legend.afterFit = function () {
+      var width = this.width; // guess you can play with this value to achieve needed layout
+      this.lineWidths = this.lineWidths.map(function(){return width;});
+
+    };
+    // here goes original or customized code of your generateLabels callback
+}
   render() {
-    return <div className="container">
-        <ResponsiveContainer width="100%" height={400}>
-          <RadialBarChart innerRadius={20} outerRadius={140} barSize={10} data={this.props.data}>
-            <RadialBar minAngle={15} label={{ fill: "#000", position: "insideStart" }} background clockWise={true} dataKey="value" />
-            <Legend iconSize={10} layout="horizontal" />
-          </RadialBarChart>
-        </ResponsiveContainer>
+    return (
+      <div className="container">
+        <Polar
+          data={this.props.data}
+          options={{
+            legendCallback: function(chart) {
+              <div>hello</div>
+          },
+            legend: {
+              "position": "bottom"
+            },
+            layout: {
+              padding: {
+                top: 5,
+                bottom: 5
+              }
+            }
+          }}
+        />
         <br />
         <Table responsive striped bordered condensed hover>
           <thead>
@@ -28,16 +44,20 @@ class AgeChartComponent extends Component {
             </tr>
           </thead>
           <tbody>
-        {this.props.data.map((item, index) => {
-          return <tr key={index}>
-              <td>{item.name}</td>
-              <td>{item.value}</td>
-            </tr>
-        })}
-        </tbody>
-      </Table>
-      </div>;
+            {this.props.data.info.map((item, index) => {
+              return (
+                <tr key={index}>
+                  <td>{item.name}</td>
+                  <td>{item.value}</td>
+                </tr>
+              );
+            })}
+          </tbody>
+        </Table>
+      </div>
+    );
   }
 }
 
 export default AgeChartComponent;
+

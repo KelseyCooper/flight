@@ -9,9 +9,7 @@ export function fetchCustomerColorData() {
       }
     })
       .then(response => response.json())
-      .then(json => {
-        console.log(json);
-        
+      .then(json => {    
         dispatch(loadCustomerColorData(json));
       })
       .catch(error => console.log(error));
