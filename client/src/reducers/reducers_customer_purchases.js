@@ -1,9 +1,13 @@
 import { CUSTOMER_PURCHASE_FETCHED } from "../actions/actions_customers";
 
-const customerPurchases = (state = {}, action) => {
+const initialState = {
+  customerData: []
+}
+
+const customerPurchases = (state = initialState, action) => {
   switch (action.type) {
     case CUSTOMER_PURCHASE_FETCHED:
-      return action.payload;
+      return { ...state, customerData: action.payload };
     default:
       return state;
   }

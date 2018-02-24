@@ -21,9 +21,6 @@ export function fetchCustomers() {
 }
 
 export function fetchCustomer(id) {
-  return function (dispatch) {
-
-    dispatch({type: "CUSTOMERS_BEING_FETCHED"})
     const headers = { "Content-Type": "application/json" };
     return dispatch => {
       return axios
@@ -35,7 +32,6 @@ export function fetchCustomer(id) {
       })
       .catch(error => console.log(error));
     };
-  }
 }
 
 export function addCustomer(data) {
