@@ -1,19 +1,28 @@
 import React, { Component } from "react";
 import { Table } from "react-bootstrap";
-import {Doughnut} from 'react-chartjs-2';
+import { Doughnut } from "react-chartjs-2";
 
+const options = {
+  maintainAspectRatio: false,
+  legend: {
+    position: "top",
+    labels: {
+      boxWidth: 10
+    }
+  }
+};
 
 class SizeChartComponent extends Component {
-
   componentDidMount() {
-      this.props.fetchCustomerSizeData();
+    this.props.fetchCustomerSizeData();
   }
 
   render() {
-    console.log(this.props.data);
-    
-    return <div className="container">
-    <Doughnut data={this.props.data} />
+    return (
+      <div className="container">
+        <div className="chart-container">
+          <Doughnut data={this.props.data} options={options} />
+        </div>
         <br />
         <Table responsive striped bordered condensed hover>
           <thead>
@@ -24,14 +33,17 @@ class SizeChartComponent extends Component {
           </thead>
           <tbody>
             {this.props.data.info.map((item, index) => {
-              return <tr key={index}>
+              return (
+                <tr key={index}>
                   <td>{item.name}</td>
                   <td>{item.value}</td>
-                </tr>;
+                </tr>
+              );
             })}
           </tbody>
         </Table>
-      </div>;
+      </div>
+    );
   }
 }
 

@@ -2,6 +2,16 @@ import React, { Component } from "react";
 import { Table } from "react-bootstrap";
 import { Pie } from "react-chartjs-2";
 
+const options = {
+  maintainAspectRatio: false,
+  legend: {
+    display: false,
+    labels: {
+      boxWidth: 10
+    }
+  }
+};
+
 class ColroChartComponent extends Component {
   componentDidMount() {
     this.props.fetchCustomerColorData();
@@ -10,14 +20,9 @@ class ColroChartComponent extends Component {
   render() {
     return (
       <div className="container">
-        <Pie
-          data={this.props.data}
-          options={{ 
-            legend: {
-              "display": false
-            }
-          }} 
-        />
+        <div className="chart-container">
+          <Pie data={this.props.data} options={options} />
+        </div>
         <Table responsive striped bordered condensed hover>
           <thead>
             <tr>
