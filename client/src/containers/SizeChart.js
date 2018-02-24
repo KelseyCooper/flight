@@ -3,7 +3,7 @@ import SizeChartComponent from "../components/SizeChart";
 import { fetchCustomerSizeData } from "../actions/actions_customerSizeData";
 
 const mapStateToProps = state => {
-  return { data: state.sizeData };
+  return { data: state.sizeData.data };
 };
 
 const mapDispatchToProps = (dispatch, ownProps) => {
