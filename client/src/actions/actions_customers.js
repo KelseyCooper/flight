@@ -4,7 +4,6 @@ export const CUSTOMERS_FETCHED = "CUSTOMERS_FETCHED";
 export const NEW_CUSTOMER = "NEW_CUSTOMER";
 export const EDIT_CUSTOMER = "EDIT_CUSTOMER";
 export const CUSTOMER_FETCHED = "CUSTOMER_FETCHED";
-export const CUSTOMER_PURCHASE_FETCHED = "CUSTOMER_PURCHASE_FETCHED";
 export const ORDER_AMOUNT = "ORDER_AMOUNT";
 export const CUSTOMER_DELETED = "CUSTOMER_DELETED";
 
@@ -27,7 +26,6 @@ export function fetchCustomer(id) {
       .post("http://localhost:3001/fetch-customer", id, headers)
       .then(res => {
         dispatch(loadCustomer(res.data[0]));
-        dispatch(loadCustomerPurchase(res.data));
         dispatch(editOrderAmount(res.data[0].purchased.length));
       })
       .catch(error => console.log(error));
@@ -104,13 +102,6 @@ export function loadCustomers(results) {
 export function loadCustomer(results) {
   return {
     type: CUSTOMER_FETCHED,
-    payload: results
-  };
-}
-
-export function loadCustomerPurchase(results) {
-  return {
-    type: CUSTOMER_PURCHASE_FETCHED,
     payload: results
   };
 }
