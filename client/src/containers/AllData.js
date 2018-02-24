@@ -1,6 +1,6 @@
 import { connect } from "react-redux";
 import AllDataComponent from "../components/AllData";
-import { fetchCustomers } from "../actions/actions_customers";
+import { fetchCustomers, deleteCustomer } from "../actions/actions_customers";
 
 const mapStateToProps = state => {
   return {
@@ -12,6 +12,9 @@ const mapDispatchToProps = (dispatch, ownProps) => {
   return {
     fetchCustomers: () => {
       dispatch(fetchCustomers());
+    },
+    deleteCustomer: (id) => {
+      dispatch(deleteCustomer(id));
     }
   };
 };

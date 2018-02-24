@@ -18,22 +18,30 @@ class AllDataComponent extends Component {
               <th>Bought</th>
               <th>Note</th>
               <th>Edit</th>
+              <th>Delete</th>
             </tr>
           </thead>
           <tbody>
-            {[...this.props.customers].reverse().map(item => <tr key={item.id}>
-                <td> {item.name} </td>
-                <td> {item.email} </td>
-                <td> {item.gender} </td>
-                <td> {item.age} </td>
-                <td> {item.purchased.length} </td>
-                <td> {item.reason_to_buy} </td>
-                <td>
-                  <Link to={{ pathname: `/customer/${item.id}` }}>
-                    Edit
-                  </Link>
-                </td>
-              </tr>)}
+            {[...this.props.customers]
+              .reverse()
+              .map(item => (
+                <tr key={item.id}>
+                  <td> {item.name} </td>
+                  <td> {item.email} </td>
+                  <td> {item.gender} </td>
+                  <td> {item.age} </td>
+                  <td> {item.purchased.length} </td>
+                  <td> {item.reason_to_buy} </td>
+                  <td>
+                    <Link to={{ pathname: `/customer/${item.id}` }}>
+                      Edit
+                    </Link>
+                  </td>
+                  <td>
+                    <a className="" onClick={() =>  {if(window.confirm('Delete this customer?')) {this.props.deleteCustomer(item.id)};}}>Delete</a>
+                  </td>
+                </tr>
+              ))}
           </tbody>
         </Table>
       </div>;

@@ -15,6 +15,7 @@ var fetchCustomer = require("./routes/fetch-customer");
 var ageData = require("./routes/age-data");
 var genderData = require("./routes/gender-data");
 var sizeData = require("./routes/size-data");
+var deleteCustomer = require("./routes/delete-customer");
 
 var cookieSession = require("cookie-session");
 const environment = process.env.NODE_ENV || "development";
@@ -48,7 +49,8 @@ app.use('/edit-customer', editCustomer)
 app.use("/fetch-customer", fetchCustomer);
 app.use("/age-data", ageData);
 app.use("/gender-data", genderData);
-app.use("/size-data", sizeData);;
+app.use("/size-data", sizeData);
+app.use("/delete-customer", deleteCustomer);
 
 app.use(
   cookieSession({

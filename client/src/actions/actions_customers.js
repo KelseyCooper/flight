@@ -76,6 +76,13 @@ export function editCustomer(data) {
   };
 }
 
+export function deleteCustomer(id) {
+  const data = {id}
+  return dispatch => {
+    return axios.post("http://localhost:3001/delete-customer", data)
+  }
+}
+
 export function editOrderAmount(data) {
   return { type: ORDER_AMOUNT, payload: data };
 }
