@@ -4,7 +4,7 @@ import { fetchCustomersGenderData } from "../actions/actions_customerGenderData"
 
 const mapStateToProps = state => {
   return {
-    data: state.genderData
+    data: state.genderData.data
   };
 };
 
