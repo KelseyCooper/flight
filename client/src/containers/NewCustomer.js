@@ -2,11 +2,12 @@ import { connect } from "react-redux";
 import NewCustomerComponent from "../components/NewCustomer";
 import { addCustomer } from "../actions/actions_customers";
 import { ChangeOrderNum } from "../actions/actions_newcustomer";
-import { newCustomerErrorTrue } from "../actions/actions_errors"
+import { newCustomerErrorTrue, newCustomerErrorFalse } from "../actions/actions_errors"
 
 const mapStateToProps = (state) => {
   return {
-    purchasing: state.orderNum.order
+    purchasing: state.orderNum.order,
+    errors: state.errors
   }
 }
 
@@ -17,6 +18,8 @@ const mapDispatchToProps = (dispatch, ownProps) => {
       return dispatch(ChangeOrderNum(data));
     }, newCustomerErrorTrue: () => {
       return dispatch(newCustomerErrorTrue());
+    }, newCustomerErrorFalse: ()=> {
+      return dispatch(newCustomerErrorFalse());
     }
      
   };

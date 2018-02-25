@@ -1,4 +1,4 @@
-import { NEW_CUSTOMER_ERROR_TRUE } from "../actions/actions_errors";
+import { NEW_CUSTOMER_ERROR_TRUE, NEW_CUSTOMER_ERROR_FALSE } from "../actions/actions_errors";
 
 const initialState = {
   newCustomerError: false
@@ -11,6 +11,11 @@ const error = (state = initialState, action) => {
           ...state,
         newCustomerError: true            
        };
+    case NEW_CUSTOMER_ERROR_FALSE:
+       return {
+           ...state,
+        newCustomerError: false
+       }
     default:
       return state;
   }

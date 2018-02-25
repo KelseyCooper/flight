@@ -81,3 +81,15 @@ body {
   padding: 7px 14px;
   width: 200px;
 }
+
+.form-error {
+  background-color: lightcoral;
+  padding: 10px 0;
+  width: 100%;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.none {
+  display: none;
+}

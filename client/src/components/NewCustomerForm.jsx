@@ -7,7 +7,9 @@ import { Form, FormControl, FormGroup, ControlLabel, Col, Button, Tooltip, Overl
 let user = {};
 
 let NewCustomerForm = (props, ownProps) => {
-  const { handleSubmit, pristine, submitting, quantity } = props;
+  const { handleSubmit, pristine, submitting, quantity, formError } = props;
+  console.log(formError);
+  
   user.quantity = quantity
 
   function changeQuantity(e) {
@@ -123,7 +125,9 @@ let NewCustomerForm = (props, ownProps) => {
       </div>
       <hr />
       {order}
-      
+      <div className={props.formError ? 'form-error' : 'none'}>
+        In order to register a new user you must input a size and color for each order.
+      </div>
       <div>
         <button type="submit" disabled={pristine || submitting}>
           Submit

@@ -6,7 +6,6 @@ export const EDIT_CUSTOMER = "EDIT_CUSTOMER";
 export const CUSTOMER_FETCHED = "CUSTOMER_FETCHED";
 export const ORDER_AMOUNT = "ORDER_AMOUNT";
 export const CUSTOMER_DELETED = "CUSTOMER_DELETED";
-export const NEW_CUSTOMER_ERROR_TRUE = "NEW_CUSTOMER_ERROR_TRUE";
 
 export function fetchCustomers() {
   const headers = { "Content-Type": "application/json" };
@@ -34,39 +33,11 @@ export function fetchCustomer(id) {
 }
 
 export function addCustomer(data) {
-  let bought = [];
-  let finalData = {};
 
-  finalData.name = data.name || null;
-  finalData.email = data.email || null;
-  finalData.gender = data.gender || null;
-  finalData.age = data.age || null;
-  finalData.notes = data.notes || null;
-  finalData.bought = bought;
 
-  if (data.color && data.size) {
-    if ( data.color.length === data.size.length ) {
-      for (let x = 1; x <= data.quantity; x++) {
-        bought.push({ color: data.color[x], size: data.size[x], ordernum: x });
-      }
-      return dispatch => {
-        return axios.post("http://localhost:3001/new-customer", finalData);
-      };
-    } else {
-      console.log('not even');
-      return dispatch => {
-        return dispatch(newCustomerErrorTrue());
-      }
-    }
-  } else {
-    console.log('null');
-    return dispatch => {
-        return axios.post("http://localhost:3001/new-customer", finalData)
-        .then(() => {
-          dispatch(newCustomerErrorTrue())
-        })
-      };
-  }
+  return dispatch => {
+    return axios.post("http://localhost:3001/new-customer", data);
+  };
 }
 
 export function editCustomer(data) {
@@ -125,8 +96,4 @@ export function loadCustomer(results) {
 
 export function deleteCustomerSuccess(id) {
   return { type: CUSTOMER_DELETED, payload: id };
-}
-
-export function newCustomerErrorTrue() {
-  return { type: NEW_CUSTOMER_ERROR_TRUE };
 }
