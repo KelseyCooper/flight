@@ -6,18 +6,6 @@ import { Form, FormControl, FormGroup, ControlLabel, Col, Button, Tooltip, Overl
 
 let user = {};
 
-const FieldInput = ({ input, meta, type, placeholder, min, max }) => {
-  return (
-      <FormControl
-          type={type}
-          placeholder={placeholder}
-          min={min}
-          max={max}
-          value={input.value}
-          onChange={input.onChange} />
-  )
-}
-
 let NewCustomerForm = (props, ownProps) => {
   const { handleSubmit, pristine, submitting, quantity } = props;
   user.quantity = quantity
