@@ -1,13 +1,14 @@
 import { connect } from "react-redux";
 import EditCustomerComponent from "../components/EditCustomer";
 import { editCustomer, fetchCustomer } from "../actions/actions_customers";
-import { ChangeEditOrderNum, EditOrderError } from "../actions/actions_editorders";
+import { ChangeEditOrderNum} from "../actions/actions_editorders";
+import { editCustomerErrorTrue, editCustomerErrorFalse } from "../actions/actions_errors"
 
 const mapStateToProps = (state, ownProps) => {
   return {
     customer: state.customer,
     amount: state.orderAmount.amount,
-    error: state.editOrderError.editOrderError
+    errors: state.errors
   };
 };
 
@@ -22,8 +23,11 @@ const mapDispatchToProps = (dispatch, ownProps) => {
     ChangeEditOrderNum: data => {
       return dispatch(ChangeEditOrderNum(data));
     },
-    EditOrderError: val => {
-      return dispatch(EditOrderError(val));
+    editCustomerErrorTrue: () => {
+      return dispatch(editCustomerErrorTrue());
+    },
+    editCustomerErrorFalse: () => {
+      return dispatch(editCustomerErrorFalse());
     }
   };
 };

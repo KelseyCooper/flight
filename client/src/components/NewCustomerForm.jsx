@@ -2,14 +2,11 @@ import React from "react";
 import { Field, reduxForm } from "redux-form";
 import OrderForm from "./OrderForm";
 import { connect } from "react-redux";
-import { Form, FormControl, FormGroup, ControlLabel, Col, Button, Tooltip, OverlayTrigger } from 'react-bootstrap'
 
 let user = {};
 
 let NewCustomerForm = (props, ownProps) => {
   const { handleSubmit, pristine, submitting, quantity, formError } = props;
-  console.log(formError);
-  
   user.quantity = quantity
 
   function changeQuantity(e) {
@@ -125,8 +122,8 @@ let NewCustomerForm = (props, ownProps) => {
       </div>
       <hr />
       {order}
-      <div className={props.formError ? 'form-error' : 'none'}>
-        In order to register a new user you must input a size and color for each order.
+      <div className={formError ? 'form-error' : 'none'}>
+        In order to register a new customer you must input a size and color for each order.
       </div>
       <div>
         <button type="submit" disabled={pristine || submitting}>

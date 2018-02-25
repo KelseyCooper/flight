@@ -27,16 +27,21 @@ class EditCustomerComponent extends Component {
     if (!error) {
       return this.props.editCustomer(values).then(
         () => {
+          this.props.editCustomerErrorFalse();
           this.props.history.push("/all-data");
         },
         ({ data }) => this.setState({ errors: data })
       );
+    } else {
+      console.log("fudge");
+
+      this.props.editCustomerErrorTrue();
     }
   };
 
   render() {
     let quantity = this.props.customer.purchased || [0, 1, 2, 4, 5];
-
+    const error = this.props.errors.editCustomerError;
     return (
       <div className="container">
         <div className="form-container">
@@ -59,6 +64,7 @@ class EditCustomerComponent extends Component {
             order={quantity}
             orderAmount={this.props.amount}
             ChangeEditOrderNum={this.props.ChangeEditOrderNum}
+            formError={error}
           />
         </div>
       </div>

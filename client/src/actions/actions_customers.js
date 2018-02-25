@@ -20,21 +20,21 @@ export function fetchCustomers() {
 }
 
 export function fetchCustomer(id) {
-    const headers = { "Content-Type": "application/json" };
-    return dispatch => {
-      return axios
+  const headers = { "Content-Type": "application/json" };
+  return dispatch => {
+    return axios
       .post("http://localhost:3001/fetch-customer", id, headers)
       .then(res => {
         dispatch(loadCustomer(res.data[0]));
         dispatch(editOrderAmount(res.data[0].purchased.length));
       })
       .catch(error => console.log(error));
-    };
+  };
 }
 
 export function addCustomer(data) {
-
-
+  console.log(data);
+  
   return dispatch => {
     return axios.post("http://localhost:3001/new-customer", data);
   };
@@ -49,15 +49,12 @@ export function editCustomer(data) {
   finalData.gender = data.gender || null;
   finalData.age = data.age || null;
   finalData.notes = data.notes || null;
-  finalData.id = data.id
+  finalData.id = data.id;
   finalData.bought = bought;
 
   for (let x = 0; x < data.quantity; x++) {
     bought.push({ color: data.color[x], size: data.size[x], ordernum: x + 1 });
   }
-
-  console.log(finalData);
-  
 
   return dispatch => {
     return axios.post("http://localhost:3001/edit-customer", finalData);
@@ -65,16 +62,16 @@ export function editCustomer(data) {
 }
 
 export function deleteCustomer(id) {
-  const data = {id}
+  const data = { id };
   return dispatch => {
-    return axios.post("http://localhost:3001/delete-customer", data)
-    .then(res => {
-      dispatch(deleteCustomerSuccess(res.data.id));
-    })
-    .catch(error => console.log(error));
-  }
+    return axios
+      .post("http://localhost:3001/delete-customer", data)
+      .then(res => {
+        dispatch(deleteCustomerSuccess(res.data.id));
+      })
+      .catch(error => console.log(error));
+  };
 }
-
 
 export function editOrderAmount(data) {
   return { type: ORDER_AMOUNT, payload: data };

@@ -5,8 +5,21 @@ import { connect } from "react-redux";
 let user = {};
 
 let SimpleEditForm = (props, ownProps) => {
-  const { handleSubmit, pristine, submitting, order, orderLength, email, gender, age, notes, name, orderAmount } = props;
-  
+  const {
+    handleSubmit,
+    pristine,
+    submitting,
+    order,
+    orderLength,
+    email,
+    gender,
+    age,
+    notes,
+    name,
+    orderAmount,
+    formError
+  } = props;
+
   user.name = name;
   user.email = email;
   user.gender = gender;
@@ -25,8 +38,9 @@ let SimpleEditForm = (props, ownProps) => {
 
   let orderComponent = null;
 
-  if (orderAmount === '1') {
-    orderComponent = <div>
+  if (orderAmount === "1") {
+    orderComponent = (
+      <div>
         <div className="order-number">
           <label>Order #{orderAmount}:</label>
         </div>
@@ -55,9 +69,11 @@ let SimpleEditForm = (props, ownProps) => {
           </div>
         </div>
         <hr />
-      </div>;
-  } else if (orderAmount === '2') {
-    orderComponent = <div>
+      </div>
+    );
+  } else if (orderAmount === "2") {
+    orderComponent = (
+      <div>
         <div>
           <div className="order-number">
             <label>Order #{orderAmount - 1}:</label>
@@ -118,9 +134,11 @@ let SimpleEditForm = (props, ownProps) => {
           </div>
         </div>
         <hr />
-      </div>;
-  } else if (orderAmount === '3') {
-    orderComponent = <div>
+      </div>
+    );
+  } else if (orderAmount === "3") {
+    orderComponent = (
+      <div>
         <div>
           <div className="order-number">
             <label>Order #{orderAmount - 2}:</label>
@@ -210,9 +228,11 @@ let SimpleEditForm = (props, ownProps) => {
             </div>
           </div>
         </div>
-      </div>;
-  } else if (orderAmount === '4') {
-    orderComponent = <div>
+      </div>
+    );
+  } else if (orderAmount === "4") {
+    orderComponent = (
+      <div>
         <div>
           <div className="order-number">
             <label>Order #{orderAmount - 3}:</label>
@@ -337,9 +357,11 @@ let SimpleEditForm = (props, ownProps) => {
           </div>
         </div>
         <hr />
-      </div>;
-  } else if (orderAmount === '5') {
-    orderComponent = <div>
+      </div>
+    );
+  } else if (orderAmount === "5") {
+    orderComponent = (
+      <div>
         <div>
           <div className="order-number">
             <label>Order #{orderAmount - 4}:</label>
@@ -495,7 +517,8 @@ let SimpleEditForm = (props, ownProps) => {
           </div>
         </div>
         <hr />
-      </div>;
+      </div>
+    );
   }
 
   function changeQuantity(e) {
@@ -574,9 +597,11 @@ let SimpleEditForm = (props, ownProps) => {
         <hr />
       </div>
 
-
       {orderComponent}
-
+      <div className={formError ? "form-error" : "none"}>
+         A customer must have a size and color for each order
+        order.
+      </div>
       <div>
         <button type="submit" disabled={pristine || submitting}>
           Update

@@ -40,20 +40,14 @@ authenticate = (req, res, next) => {
   if (authorizationHeader) {
     token = authorizationHeader.split(" ")[1];
   }
-  if (req.body.bought.length === 0 || !req.body.bought.length % 2 ) {
-    res.status(201).json({ error: "error"})
-  }
   if (token) {
     jwt.verify(token, config.jwtSecret, (err, decoded) => {
       if (err) {
         res.status(401).json({ error: "Failed to authenticate" });
       } else {
-        console.log(req.body);
-        
-        // addUser(req.body);
+        addUser(req.body);
 
         res.status(200).json({ success: true });
-
       }
     });
   } else {

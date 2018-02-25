@@ -7,8 +7,6 @@ import customersColorData from './reducers_customerColorData';
 import auth from './reducers_authenticate';
 import orderNum from './reducers_orderNum';
 import orderAmount from './reducers_orderAmount';
-//TODO Remove all the editOrderError 
-import editOrderError from './reducers_editOrderError';
 import ageData from './reducers_customAgeData';
 import genderData from './reducers_customerGenderData';
 import sizeData from './reducers_customerSizeData';
@@ -22,7 +20,6 @@ const rootReducers = combineReducers({
   form: formReducer,
   orderNum,
   orderAmount,
-  editOrderError,
   ageData,
   genderData,
   sizeData,
