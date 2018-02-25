@@ -4,6 +4,7 @@ import { Link, withRouter } from "react-router-dom";
 import { LinkContainer } from "react-router-bootstrap";
 import { connect } from 'react-redux';
 import { logout } from '../actions/actions_authenticate';
+import logo from '../flight-logo.svg'
 
 class NavComponent extends React.Component {
 
@@ -46,7 +47,7 @@ class NavComponent extends React.Component {
       <Navbar inverse collapseOnSelect>
         <Navbar.Header>
           <Navbar.Brand>
-            <Link to={"/"}>Flight Underwear Statistics</Link>
+            <Link to={"/"}><img src={logo} /></Link>
           </Navbar.Brand>
           <Navbar.Toggle />
         </Navbar.Header>

@@ -23,7 +23,6 @@ class SizeChartComponent extends Component {
         <div className="chart-container">
           <Doughnut data={this.props.data} options={options} />
         </div>
-        <br />
         <Table responsive striped bordered condensed hover>
           <thead>
             <tr>
