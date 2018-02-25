@@ -3,12 +3,12 @@ import { Field } from "redux-form";
 
 let OrderForm = (props, ownProps) => {
   return <div>
-      <div>
+      <div className="order-number">
         <label>Order #{props.order}:</label>
       </div>
       <div>
         <label>Size</label>
-        <div>
+        <div className="input-dropdown">
           <Field name={"size.[" + props.order + "]"} component="select">
             <option />
             <option value="small">Small</option>
@@ -20,8 +20,7 @@ let OrderForm = (props, ownProps) => {
       </div>
       <div>
         <label>Color</label>
-        <div>
-          {" "}
+        <div className="input-dropdown">
           <Field name={"color.[" + props.order + "]"} component="select">
             <option />
             <option value="black">Black</option>
@@ -31,6 +30,7 @@ let OrderForm = (props, ownProps) => {
           </Field>
         </div>
       </div>
+      <hr />
     </div>;
 };
 

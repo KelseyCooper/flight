@@ -10,7 +10,6 @@ class NewCustomerComponent extends Component {
   }
 
   submit = values => {
-    
     return this.props.addCustomer(values).then(
       () => {
         this.props.history.push("/all-data");
@@ -22,11 +21,13 @@ class NewCustomerComponent extends Component {
   render() {
     return (
       <div className="container">
-        <NewCustomerForm 
-        onSubmit={this.submit} 
-        quantity={this.props.purchasing}
-        ChangeOrderNum={this.props.ChangeOrderNum}
-        />
+        <div className="form-container">
+          <NewCustomerForm
+            onSubmit={this.submit}
+            quantity={this.props.purchasing}
+            ChangeOrderNum={this.props.ChangeOrderNum}
+          />
+        </div>
       </div>
     );
   }

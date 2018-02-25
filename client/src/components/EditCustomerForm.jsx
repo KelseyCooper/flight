@@ -27,7 +27,7 @@ let SimpleEditForm = (props, ownProps) => {
 
   if (orderAmount === '1') {
     orderComponent = <div>
-        <div>
+        <div className="order-number">
           <label>Order #{orderAmount}:</label>
         </div>
         <div>
@@ -54,11 +54,12 @@ let SimpleEditForm = (props, ownProps) => {
             </Field>
           </div>
         </div>
+        <hr />
       </div>;
   } else if (orderAmount === '2') {
     orderComponent = <div>
         <div>
-          <div>
+          <div className="order-number">
             <label>Order #{orderAmount - 1}:</label>
           </div>
           <div>
@@ -86,8 +87,9 @@ let SimpleEditForm = (props, ownProps) => {
             </div>
           </div>
         </div>
+        <hr />
         <div>
-          <div>
+          <div className="order-number">
             <label>Order #{orderAmount}:</label>
           </div>
           <div>
@@ -115,11 +117,12 @@ let SimpleEditForm = (props, ownProps) => {
             </div>
           </div>
         </div>
+        <hr />
       </div>;
   } else if (orderAmount === '3') {
     orderComponent = <div>
         <div>
-          <div>
+          <div className="order-number">
             <label>Order #{orderAmount - 2}:</label>
           </div>
           <div>
@@ -147,6 +150,7 @@ let SimpleEditForm = (props, ownProps) => {
             </div>
           </div>
         </div>
+        <hr />
         <div>
           <div>
             <label>Order #{orderAmount - 1}:</label>
@@ -176,6 +180,7 @@ let SimpleEditForm = (props, ownProps) => {
             </div>
           </div>
         </div>
+        <hr />
         <div>
           <div>
             <label>Order #{orderAmount}:</label>
@@ -209,7 +214,7 @@ let SimpleEditForm = (props, ownProps) => {
   } else if (orderAmount === '4') {
     orderComponent = <div>
         <div>
-          <div>
+          <div className="order-number">
             <label>Order #{orderAmount - 3}:</label>
           </div>
           <div>
@@ -224,6 +229,7 @@ let SimpleEditForm = (props, ownProps) => {
               </Field>
             </div>
           </div>
+          <hr />
           <div>
             <label>Color</label>
             <div>
@@ -237,6 +243,7 @@ let SimpleEditForm = (props, ownProps) => {
             </div>
           </div>
         </div>
+        <hr />
         <div>
           <div>
             <label>Order #{orderAmount - 2}:</label>
@@ -253,6 +260,7 @@ let SimpleEditForm = (props, ownProps) => {
               </Field>
             </div>
           </div>
+          <hr />
           <div>
             <label>Color</label>
             <div>
@@ -266,6 +274,7 @@ let SimpleEditForm = (props, ownProps) => {
             </div>
           </div>
         </div>
+        <hr />
         <div>
           <div>
             <label>Order #{orderAmount - 1}:</label>
@@ -282,6 +291,7 @@ let SimpleEditForm = (props, ownProps) => {
               </Field>
             </div>
           </div>
+          <hr />
           <div>
             <label>Color</label>
             <div>
@@ -295,6 +305,7 @@ let SimpleEditForm = (props, ownProps) => {
             </div>
           </div>
         </div>
+        <hr />
         <div>
           <div>
             <label>Order #{orderAmount}:</label>
@@ -311,6 +322,7 @@ let SimpleEditForm = (props, ownProps) => {
               </Field>
             </div>
           </div>
+          <hr />
           <div>
             <label>Color</label>
             <div>
@@ -324,11 +336,12 @@ let SimpleEditForm = (props, ownProps) => {
             </div>
           </div>
         </div>
+        <hr />
       </div>;
   } else if (orderAmount === '5') {
     orderComponent = <div>
         <div>
-          <div>
+          <div className="order-number">
             <label>Order #{orderAmount - 4}:</label>
           </div>
           <div>
@@ -343,6 +356,7 @@ let SimpleEditForm = (props, ownProps) => {
               </Field>
             </div>
           </div>
+          <hr />
           <div>
             <label>Color</label>
             <div>
@@ -356,6 +370,7 @@ let SimpleEditForm = (props, ownProps) => {
             </div>
           </div>
         </div>
+        <hr />
         <div>
           <div>
             <label>Order #{orderAmount - 3}:</label>
@@ -372,6 +387,7 @@ let SimpleEditForm = (props, ownProps) => {
               </Field>
             </div>
           </div>
+          <hr />
           <div>
             <label>Color</label>
             <div>
@@ -385,6 +401,7 @@ let SimpleEditForm = (props, ownProps) => {
             </div>
           </div>
         </div>
+        <hr />
         <div>
           <div>
             <label>Order #{orderAmount - 2}:</label>
@@ -401,6 +418,7 @@ let SimpleEditForm = (props, ownProps) => {
               </Field>
             </div>
           </div>
+          <hr />
           <div>
             <label>Color</label>
             <div>
@@ -414,6 +432,7 @@ let SimpleEditForm = (props, ownProps) => {
             </div>
           </div>
         </div>
+        <hr />
         <div>
           <div>
             <label>Order #{orderAmount - 1}:</label>
@@ -430,6 +449,7 @@ let SimpleEditForm = (props, ownProps) => {
               </Field>
             </div>
           </div>
+          <hr />
           <div>
             <label>Color</label>
             <div>
@@ -443,6 +463,7 @@ let SimpleEditForm = (props, ownProps) => {
             </div>
           </div>
         </div>
+        <hr />
         <div>
           <div>
             <label>Order #{orderAmount}:</label>
@@ -459,6 +480,7 @@ let SimpleEditForm = (props, ownProps) => {
               </Field>
             </div>
           </div>
+          <hr />
           <div>
             <label>Color</label>
             <div>
@@ -472,6 +494,7 @@ let SimpleEditForm = (props, ownProps) => {
             </div>
           </div>
         </div>
+        <hr />
       </div>;
   }
 
@@ -548,7 +571,9 @@ let SimpleEditForm = (props, ownProps) => {
             <option value={5}>5</option>
           </Field>
         </div>
+        <hr />
       </div>
+
 
       {orderComponent}
 

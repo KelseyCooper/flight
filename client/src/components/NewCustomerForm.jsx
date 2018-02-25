@@ -2,8 +2,21 @@ import React from "react";
 import { Field, reduxForm } from "redux-form";
 import OrderForm from "./OrderForm";
 import { connect } from "react-redux";
+import { Form, FormControl, FormGroup, ControlLabel, Col, Button, Tooltip, OverlayTrigger } from 'react-bootstrap'
 
 let user = {};
+
+const FieldInput = ({ input, meta, type, placeholder, min, max }) => {
+  return (
+      <FormControl
+          type={type}
+          placeholder={placeholder}
+          min={min}
+          max={max}
+          value={input.value}
+          onChange={input.onChange} />
+  )
+}
 
 let NewCustomerForm = (props, ownProps) => {
   const { handleSubmit, pristine, submitting, quantity } = props;
@@ -57,7 +70,7 @@ let NewCustomerForm = (props, ownProps) => {
       <div>
         <label>First Name</label>
         <div>
-          <Field name="name" component="input" type="text" placeholder="Name" />
+          <Field name="name" component='input' type="text" placeholder="Name" />
         </div>
       </div>
       <div>
@@ -66,8 +79,8 @@ let NewCustomerForm = (props, ownProps) => {
         <div>
           <Field
             name="email"
-            component="input"
-            type="text"
+            component='input'
+            type="email"
             placeholder="Email"
           />
         </div>
@@ -99,6 +112,12 @@ let NewCustomerForm = (props, ownProps) => {
         </div>
       </div>
       <div>
+        <label>Notes</label>
+        <div>
+          <Field name="notes" component="textarea" />
+        </div>
+      </div>
+      <div>
         <label>Quantity</label>
         <div>
           <Field
@@ -114,13 +133,9 @@ let NewCustomerForm = (props, ownProps) => {
           </Field>
         </div>
       </div>
+      <hr />
       {order}
-      <div>
-        <label>Notes</label>
-        <div>
-          <Field name="notes" component="textarea" />
-        </div>
-      </div>
+      
       <div>
         <button type="submit" disabled={pristine || submitting}>
           Submit
