@@ -25,6 +25,7 @@ Flight App was made for the company Flight Underwear to keep track of their cust
 
 !["The charts in action"](https://media.giphy.com/media/TGKmYe8T7NGQlAWK3N/giphy.gif)
 
+!["Color Chart"](https://github.com/Siic19/Flight-App/blob/master/screenshots/Screen%20Shot%202018-02-25%20at%204.56.25%20PM.png?raw=true)
 
 !["Add new customer"](https://github.com/Siic19/Flight-App/blob/master/screenshots/Screen%20Shot%202018-02-25%20at%204.57.30%20PM.png?raw=true)
 
