@@ -54,7 +54,7 @@ router.post("/", function(req, res, next) {
         }
       });
     } else {
-      res.status(401).json({ errors: { form: "Invalid Credentials email not in db" } });
+      res.status(401).json({ errors: { form: "Invalid Credentials email is invalid" } });
       return;
     }
   });
