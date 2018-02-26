@@ -22,10 +22,13 @@ Flight App was made for the company Flight Underwear to keep track of their cust
 - knex
 
 ## Snap Shots
-Charts
-!["The Charts in action"](https://media.giphy.com/media/TGKmYe8T7NGQlAWK3N/giphy.gif)
+
+!["The charts in action"](https://media.giphy.com/media/TGKmYe8T7NGQlAWK3N/giphy.gif)
 
 
-## User Stories
+!["Add new customer"](https://github.com/Siic19/Flight-App/blob/master/screenshots/Screen%20Shot%202018-02-25%20at%204.57.30%20PM.png?raw=true)
 
-## Dependencies and Installation instructions coming...
+!["Full data sheet"](https://github.com/Siic19/Flight-App/blob/master/screenshots/Screen%20Shot%202018-02-25%20at%204.56.46%20PM.png?raw=true)
+
+
+## Installation instructions coming...
