@@ -28,7 +28,7 @@ exports.seed = async function(knex, Promise) {
           name: "John",
           email: "john@hell.com",
           gender: "male",
-          age: 31,
+          age: 11,
           reason_to_buy: "gift"
         });
       })
@@ -46,8 +46,8 @@ exports.seed = async function(knex, Promise) {
           name: "Parker",
           email: "pray@ray.com",
           gender: "male",
-          age: 31,
-          reason_to_buy: "gift"
+          age: 61,
+          reason_to_buy: "gift for husband"
         });
       })
       .then(function() {
@@ -55,14 +55,14 @@ exports.seed = async function(knex, Promise) {
           name: "George",
           email: "George@g.com",
           gender: "male",
-          age: 61,
+          age: 71,
           reason_to_buy: "gift"
         });
       })
       .then(function() {
         return knex("customers").insert({
           name: "Heidi",
-          email: "h@h.com",
+          email: "h@heb.com",
           gender: "female",
           age: 31,
           reason_to_buy: "self"
@@ -73,7 +73,7 @@ exports.seed = async function(knex, Promise) {
           name: "Grace",
           email: "gr@grac.com",
           gender: "female",
-          age: 21,
+          age: 71,
           reason_to_buy: "self"
         });
       })
@@ -91,7 +91,7 @@ exports.seed = async function(knex, Promise) {
           name: "Wayne",
           email: "wau@l.com",
           gender: "male",
-          age: 21,
+          age: 71,
           reason_to_buy: "self"
         });
       })
@@ -101,13 +101,13 @@ exports.seed = async function(knex, Promise) {
           email: "paula@paul.com ",
           gender: "female",
           age: 21,
-          reason_to_buy: "gift"
+          reason_to_buy: "travel"
         });
       })
       .then(function() {
         return knex("customers").insert({
           name: "Harry",
-          email: "harry@dong.com",
+          email: "harry@dog.com",
           gender: "male",
           age: 31,
           reason_to_buy: "self"
@@ -116,16 +116,16 @@ exports.seed = async function(knex, Promise) {
       .then(function() {
         return knex("customers").insert({
           name: "Naomi",
-          email: "i@moan.com",
+          email: "i@mdan.com",
           gender: "female",
           age: 21,
-          reason_to_buy: "self"
+          reason_to_buy: "safety"
         });
       })
       .then(function() {
         return knex("customers").insert({
           name: "Helen",
-          email: "h@moan.com",
+          email: "h@mgranger.com",
           gender: "other",
           age: 21,
           reason_to_buy: "self"
@@ -135,133 +135,133 @@ exports.seed = async function(knex, Promise) {
       .then(() => {
         return knex("purchased").insert({
           color: "blue",
-          size: "Medium",
+          size: "x-large",
           user_id: 1
         });
       })
       .then(() => {
         return knex("purchased").insert({
           color: "black",
-          size: "Medium",
+          size: "small",
           user_id: 1
         });
       })
       .then(() => {
         return knex("purchased").insert({
           color: "red",
-          size: "Medium",
+          size: "large",
           user_id: 2
         });
       })
       .then(() => {
         return knex("purchased").insert({
-          color: "grey",
-          size: "Medium",
+          color: "red",
+          size: "large",
           user_id: 1
         });
       })
       .then(() => {
         return knex("purchased").insert({
-          color: "grey",
-          size: "Medium",
+          color: "blue",
+          size: "small",
           user_id: 1
         });
       })
       .then(() => {
         return knex("purchased").insert({
-          color: "grey",
-          size: "Medium",
+          color: "blue",
+          size: "x-large",
           user_id: 2
         });
       })
       .then(() => {
         return knex("purchased").insert({
-          color: "grey",
-          size: "Medium",
+          color: "red",
+          size: "small",
           user_id: 3
         });
       })
       .then(() => {
         return knex("purchased").insert({
           color: "grey",
-          size: "Medium",
+          size: "medium",
           user_id: 4
         });
       })
       .then(() => {
         return knex("purchased").insert({
-          color: "grey",
-          size: "Medium",
+          color: "black",
+          size: "small",
           user_id: 5
         });
       })
       .then(() => {
         return knex("purchased").insert({
-          color: "grey",
-          size: "Medium",
+          color: "red",
+          size: "small",
           user_id: 6
         });
       })
       .then(() => {
         return knex("purchased").insert({
-          color: "grey",
-          size: "Medium",
+          color: "blue",
+          size: "medium",
           user_id: 7
         });
       })      
       .then(() => {
         return knex("purchased").insert({
           color: "grey",
-          size: "Medium",
+          size: "medium",
           user_id: 8
         });
       })
       .then(() => {
         return knex("purchased").insert({
-          color: "grey",
-          size: "Medium",
+          color: "red",
+          size: "x-large",
           user_id: 9
         });
       })
       .then(() => {
         return knex("purchased").insert({
-          color: "grey",
-          size: "Medium",
+          color: "blue",
+          size: "large",
           user_id: 10
         });
       })
       .then(() => {
         return knex("purchased").insert({
-          color: "grey",
-          size: "Medium",
+          color: "black",
+          size: "small",
           user_id: 11
         });
       })
       .then(() => {
         return knex("purchased").insert({
-          color: "grey",
-          size: "Medium",
+          color: "black",
+          size: "medium",
           user_id: 12
         });
       })
       .then(() => {
         return knex("purchased").insert({
           color: "grey",
-          size: "Medium",
+          size: "small",
           user_id: 13
         });
       })
       .then(() => {
         return knex("purchased").insert({
-          color: "grey",
-          size: "Medium",
+          color: "red",
+          size: "medium",
           user_id: 14
         });
       })
       .then(() => {
         return knex("purchased").insert({
-          color: "grey",
-          size: "Medium",
+          color: "blue",
+          size: "medium",
           user_id: 12
         });
       })                                                                              
