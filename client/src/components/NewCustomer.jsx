@@ -22,8 +22,6 @@ class NewCustomerComponent extends Component {
           ordernum: x
         });
       }
-      console.log(bought);
-
       for (let x = 0; x < bought.length; x++) {
         if (!bought[x].color || !bought[x].size) {
           error = true;

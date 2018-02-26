@@ -48,7 +48,7 @@ class LoginComponent extends Component {
         <FormGroup>
           <ControlLabel>Email</ControlLabel>
           <FormControl
-            type="text"
+            type="email"
             className={
               this.state.error && this.state.userInfo.email === "" ? "red-border" : ""
             }
@@ -58,7 +58,7 @@ class LoginComponent extends Component {
           />
           <ControlLabel>Password</ControlLabel>
           <FormControl
-            type="text"
+            type="password"
             className={
               this.state.error && this.state.userInfo.password === "" ? "red-border" : ""
             }

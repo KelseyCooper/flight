@@ -47,7 +47,7 @@ class NavComponent extends React.Component {
       <Navbar inverse collapseOnSelect>
         <Navbar.Header>
           <Navbar.Brand>
-            <Link to={"/"}><img src={logo} /></Link>
+            <Link to={"/"}><img src={logo} alt="Flight App Logo" /></Link>
           </Navbar.Brand>
           <Navbar.Toggle />
         </Navbar.Header>

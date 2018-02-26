@@ -13,6 +13,7 @@ class AllDataComponent extends Component {
 
   render() {
     return <div className="container">
+    <div className="all-data-container">
         <Table responsive striped bordered condensed hover>
           <thead>
             <tr>
@@ -49,6 +50,7 @@ class AllDataComponent extends Component {
               ))}
           </tbody>
         </Table>
+        </div>
       </div>;
   }
 }

@@ -93,3 +93,7 @@ body {
 .none {
   display: none;
 }
+
+.all-data-container {
+  margin-top: 50px;
+}
