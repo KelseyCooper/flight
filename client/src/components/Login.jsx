@@ -1,51 +1,68 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 
+import LoginForm from "./LoginForm";
+import EditCustomerForm from "./EditCustomerForm";
 import { FormGroup, ControlLabel, FormControl, Button } from "react-bootstrap";
-
+import { Field, reduxForm } from "redux-form";
 
 class LoginComponent extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-        userInfo: {
-            email: "",
-            password: ""
-        },
-        error: false,
-        errors: {}
-    };
-  }
+  // constructor(props) {
+  //   super(props);
+  //   this.state = {
+  //       userInfo: {
+  //           email: "",
+  //           password: ""
+  //       },
+  //       error: false,
+  //       errors: {}
+  //   };
+  // }
 
-  updateValue(type, event) {
-    const userCopy = JSON.parse(JSON.stringify(this.state.userInfo));
-    userCopy[type] = event.target.value;
-    this.setState({ userInfo: userCopy });
-  }
+  // updateValue(type, event) {
+  //   const userCopy = JSON.parse(JSON.stringify(this.state.userInfo));
+  //   userCopy[type] = event.target.value;
+  //   this.setState({ userInfo: userCopy });
+  // }
 
   authenticate() {
-    let error = false;
-    let propertiesToCheck = ["name", "password"];
-    propertiesToCheck.forEach(term => {
-      if (this.state.userInfo[term] === "") {
-        error = true;
-      }
-    });
-    if (!error) {
-      this.setState({errors: {}})
-      return this.props.authenticateUser(this.state.userInfo).then(
-        () => {
-        this.props.history.push("/");
-        },
-        ({ data }) => this.setState({errors: data})
-      )
-    }
-    this.setState({ error });
+    console.log('fudge');
+    
+    // let error = false;
+    // let propertiesToCheck = ["name", "password"];
+    // propertiesToCheck.forEach(term => {
+    //   if (this.state.userInfo[term] === "") {
+    //     error = true;
+    //   }
+    // });
+    // if (!error) {
+    //   this.setState({ errors: {} });
+    //   return this.props.authenticateUser(this.state.userInfo).then(
+    //     () => {
+    //       // this.props.history.push("/");
+    //     },
+    //     ({ data }) => this.setState({ errors: data })
+    //   );
+    // }
+    // this.setState({ error });
   }
+
+  submit = values => {
+    let error = false;
+    if (!error) {
+        return this.props.authenticateUser(values).then(
+          () => {
+            this.props.history.push("/");
+          },
+          ({ data }) => this.setState({ errors: data })
+        );
+      }
+  };
 
   render() {
     return (
       <div className="container">
-        <FormGroup>
+      <div className="form-container">
+        {/* <FormGroup>
           <ControlLabel>Email</ControlLabel>
           <FormControl
             type="email"
@@ -69,7 +86,9 @@ class LoginComponent extends Component {
           <Button bsStyle="info" onClick={this.authenticate.bind(this)}>
             Login
           </Button>
-        </FormGroup>
+        </FormGroup> */}
+       <LoginForm onSubmit={this.submit}/>
+        </div>
       </div>
     );
   }
