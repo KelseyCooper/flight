@@ -13,11 +13,11 @@ class LoginComponent extends Component {
     let error = false;
     if (!values.email || !values.password) {
       error = true;
-      this.props.loginUserErrorTrue();
+      this.props.loginBlankError(true);
     }
     if (!error) {
       return this.props.authenticateUser(values).then(() => {
-        this.props.loginUserErrorFalse();
+        this.props.loginBlankError(false);
         if (
           !this.props.errors.loginUserErrorBlankField &&
           !this.props.errors.loginInvalidUserError &&
