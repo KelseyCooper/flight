@@ -32,11 +32,13 @@ class LoginComponent extends Component {
     let error = false;
     if (!values.email || !values.password ){
       error = true;
+      this.props.loginUserErrorTrue();
       console.log('error true');
     }
     if (!error) {
       return this.props.authenticateUser(values).then(
         () => {
+          this.props.loginUserErrorFalse();
           // this.props.history.push("/");
         }
       );
@@ -47,7 +49,7 @@ class LoginComponent extends Component {
     return (
       <div className="container">
         <div className="form-container">
-          <LoginForm onSubmit={this.submit} />
+          <LoginForm onSubmit={this.submit} formError={this.props.errors.loginUserErrorBlankField}/>
         </div>
       </div>
     );

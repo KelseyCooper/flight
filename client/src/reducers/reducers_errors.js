@@ -3,14 +3,16 @@ import {
   NEW_CUSTOMER_ERROR_FALSE,
   EDIT_CUSTOMER_ERROR_TRUE,
   EDIT_CUSTOMER_ERROR_FALSE,
-  LOGIN_USER_ERROR_TRUE,
-  LOGIN_USER_ERROR_FALSE
+  LOGIN_USER_BLANK_ERROR_TRUE,
+  LOGIN_USER_BLANK_ERROR_FALSE,
+  LOGIN_INVALID_USER_ERROR
 } from "../actions/actions_errors";
 
 const initialState = {
   newCustomerError: false,
   editCustomerError: false,
-  loginUserError: false
+  loginUserErrorBlankField: false,
+  loginInvalidUserError: false
 };
 
 const error = (state = initialState, action) => {
@@ -35,15 +37,20 @@ const error = (state = initialState, action) => {
         ...state,
         editCustomerError: false
       };
-    case LOGIN_USER_ERROR_TRUE:
+    case LOGIN_USER_BLANK_ERROR_TRUE:
       return {
         ...state,
-        loginUserError: true
+        loginUserErrorBlankField: true
       };
-    case LOGIN_USER_ERROR_FALSE:
+    case LOGIN_USER_BLANK_ERROR_FALSE:
       return {
         ...state,
-        loginUserError: false
+        loginUsloginUserErrorBlankFielderError: false
+      };
+    case LOGIN_INVALID_USER_ERROR:
+      return {
+        ...state,
+        loginInvalidUserError: action.payload
       };
     default:
       return state;

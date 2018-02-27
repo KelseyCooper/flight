@@ -37,6 +37,8 @@ function checkLogin(emailreq, password) {
 router.post("/", function(req, res, next) {
   const email = req.body.email;
   const password = req.body.password;
+  console.log(req.body.password);
+  
   
   checkEmailInDB(email, password).then(exists => {
     if (exists) {
@@ -54,7 +56,7 @@ router.post("/", function(req, res, next) {
         }
       });
     } else {
-      res.status(401).json({ errors: { form: "Invalid Credentials email is invalid" } });
+      res.status(402).json({ errors: { form: "Invalid Credentials email is invalid" } });
       return;
     }
   });

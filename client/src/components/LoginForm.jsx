@@ -31,11 +31,11 @@ let LoginForm = (props, ownProps) => {
       </div>
 
       <div className={formError ? 'form-error' : 'none'}>
-        In order to register a new customer you must input a size and color for each order.
+        You must provide an Email and Password to login
       </div>
       <div>
         <button type="submit" disabled={pristine || submitting}>
-          Submit
+          Login
         </button>
       </div>
     </form>

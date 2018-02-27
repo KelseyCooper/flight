@@ -33,8 +33,6 @@ export function fetchCustomer(id) {
 }
 
 export function addCustomer(data) {
-  console.log(data);
-  
   return dispatch => {
     return axios.post("http://localhost:3001/new-customer", data);
   };

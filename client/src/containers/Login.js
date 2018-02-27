@@ -3,6 +3,11 @@ import LoginComponent from "../components/Login";
 import { authenticateUser } from "../actions/actions_authenticate";
 import { loginUserErrorTrue, loginUserErrorFalse } from "../actions/actions_errors"
 
+const mapStateToProps = state => {
+  return {
+    errors: state.errors
+  };
+};
 
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
@@ -18,7 +23,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
   };
 };
 
-const Login = connect(null, mapDispatchToProps)(
+const Login = connect(mapStateToProps, mapDispatchToProps)(
   LoginComponent
 );
 

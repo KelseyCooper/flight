@@ -1,5 +1,7 @@
+import axios from "axios";
 import setAuthorizationToken from "../utils/setAuthorizationToken";
 import jwt from "jsonwebtoken";
+import loginInvalidUserError from "./actions_errors";
 export const SET_CURRENT_USER = "SET_CURRENT_USER";
 
 export function setCurrentUser(user) {
@@ -17,6 +19,13 @@ export function logout() {
   }
 }
 
+function handleErrors(response) {
+  if (!response.ok) {
+      throw response;
+  }
+  return response;
+}
+
 export function authenticateUser(auth) {
   let config = {
     method: "POST",
@@ -26,6 +35,7 @@ export function authenticateUser(auth) {
 
   return dispatch => {
     return fetch("http://localhost:3001/users", config)
+      .then(handleErrors)
       .then(response => response.json())
       .then(json => {
 
@@ -33,6 +43,15 @@ export function authenticateUser(auth) {
         setAuthorizationToken(json.token);
         dispatch(setCurrentUser(jwt.decode(json.token)));
       })
-      .catch(error => console.log(error));
+      .catch(error => {
+      if (error.status === 401) {
+        dispatch(loginInvalidUserError(true));
+      } else if (error.status === 402) {
+        // dispatch()
+        console.log('402');
+        
+      }
+        
+      });
   };
 }
