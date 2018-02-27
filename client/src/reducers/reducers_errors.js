@@ -1,8 +1,7 @@
 import {
   NEW_CUSTOMER_ERROR_TRUE,
   NEW_CUSTOMER_ERROR_FALSE,
-  EDIT_CUSTOMER_ERROR_TRUE,
-  EDIT_CUSTOMER_ERROR_FALSE,
+  EDIT_CUSTOMER_ERROR,
   LOGIN_USER_BLANK_ERROR,
   LOGIN_INVALID_USER_ERROR,
   LOGIN_PASSWORD_ERROR
@@ -28,15 +27,10 @@ const error = (state = initialState, action) => {
         ...state,
         newCustomerError: false
       };
-    case EDIT_CUSTOMER_ERROR_TRUE:
+    case EDIT_CUSTOMER_ERROR:
       return {
         ...state,
-        editCustomerError: true
-      };
-    case EDIT_CUSTOMER_ERROR_FALSE:
-      return {
-        ...state,
-        editCustomerError: false
+        editCustomerError: action.payload
       };
     case LOGIN_USER_BLANK_ERROR:
       return {

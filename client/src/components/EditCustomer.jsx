@@ -27,7 +27,7 @@ class EditCustomerComponent extends Component {
     if (!error) {
       return this.props.editCustomer(values).then(
         () => {
-          this.props.editCustomerErrorFalse();
+          this.props.editCustomerError(false);
           this.props.history.push("/all-data");
         },
         ({ data }) => this.setState({ errors: data })
@@ -35,7 +35,7 @@ class EditCustomerComponent extends Component {
     } else {
       console.log("fudge");
 
-      this.props.editCustomerErrorTrue();
+      this.props.editCustomerError(true);
     }
   };
 

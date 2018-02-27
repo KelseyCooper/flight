@@ -2,7 +2,7 @@ import { connect } from "react-redux";
 import EditCustomerComponent from "../components/EditCustomer";
 import { editCustomer, fetchCustomer } from "../actions/actions_customers";
 import { ChangeEditOrderNum} from "../actions/actions_editorders";
-import { editCustomerErrorTrue, editCustomerErrorFalse } from "../actions/actions_errors"
+import { editCustomerError } from "../actions/actions_errors"
 
 const mapStateToProps = (state, ownProps) => {
   return {
@@ -23,11 +23,8 @@ const mapDispatchToProps = (dispatch, ownProps) => {
     ChangeEditOrderNum: data => {
       return dispatch(ChangeEditOrderNum(data));
     },
-    editCustomerErrorTrue: () => {
-      return dispatch(editCustomerErrorTrue());
-    },
-    editCustomerErrorFalse: () => {
-      return dispatch(editCustomerErrorFalse());
+    editCustomerError: (bool) => {
+      return dispatch(editCustomerError(bool));
     }
   };
 };
