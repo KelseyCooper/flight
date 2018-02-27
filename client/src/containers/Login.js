@@ -1,7 +1,7 @@
 import { connect } from "react-redux";
 import LoginComponent from "../components/Login";
 import { authenticateUser } from "../actions/actions_authenticate";
-import { loginUserErrorTrue, loginUserErrorFalse, loginInvalidUserError } from "../actions/actions_errors"
+import { loginUserErrorTrue, loginUserErrorFalse, loginInvalidUserError, loginPasswordError } from "../actions/actions_errors"
 
 const mapStateToProps = state => {
   return {
@@ -20,8 +20,11 @@ const mapDispatchToProps = (dispatch, ownProps) => {
     loginUserErrorFalse: () => {
       return dispatch(loginUserErrorFalse());
     },
-    loginInvalidUserError: (res) => {
-      return dispatch(loginInvalidUserError(res));
+    loginInvalidUserError: (bool) => {
+      return dispatch(loginInvalidUserError(bool));
+    },
+    loginPasswordError: (bool) => {
+      return dispatch(loginPasswordError(bool));
     }
   };
 };
