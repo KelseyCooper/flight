@@ -1,7 +1,7 @@
 import axios from "axios";
 import setAuthorizationToken from "../utils/setAuthorizationToken";
 import jwt from "jsonwebtoken";
-import loginInvalidUserError from "./actions_errors";
+import { loginInvalidUserError } from "./actions_errors";
 export const SET_CURRENT_USER = "SET_CURRENT_USER";
 
 export function setCurrentUser(user) {
@@ -45,13 +45,10 @@ export function authenticateUser(auth) {
       })
       .catch(error => {
       if (error.status === 401) {
-        dispatch(loginInvalidUserError(true));
+
       } else if (error.status === 402) {
-        // dispatch()
-        console.log('402');
-        
+        dispatch(loginInvalidUserError(true));
       }
-        
       });
   };
 }

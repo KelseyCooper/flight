@@ -45,7 +45,7 @@ const error = (state = initialState, action) => {
     case LOGIN_USER_BLANK_ERROR_FALSE:
       return {
         ...state,
-        loginUsloginUserErrorBlankFielderError: false
+        loginUserErrorBlankField: false
       };
     case LOGIN_INVALID_USER_ERROR:
       return {

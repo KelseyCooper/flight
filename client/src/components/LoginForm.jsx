@@ -6,7 +6,7 @@ import { connect } from "react-redux";
 let user = {};
 
 let LoginForm = (props, ownProps) => {
-  const { handleSubmit, pristine, submitting, quantity, formError } = props;
+  const { handleSubmit, pristine, submitting, quantity, blankFormError, invalidUserFormError } = props;
  
 
   return (
@@ -30,8 +30,11 @@ let LoginForm = (props, ownProps) => {
         </div>
       </div>
 
-      <div className={formError ? 'form-error' : 'none'}>
+      <div className={blankFormError ? 'form-error' : 'none'}>
         You must provide an Email and Password to login
+      </div>
+      <div className={invalidUserFormError ? 'form-error' : 'none'}>
+        Email is invalid
       </div>
       <div>
         <button type="submit" disabled={pristine || submitting}>
