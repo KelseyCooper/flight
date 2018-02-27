@@ -35,13 +35,13 @@ class NewCustomerComponent extends Component {
       return this.props.addCustomer(finalData).then(
         () => {
           error = false;
-          this.props.newCustomerErrorFalse();
+          this.props.newCustomerError(false);
           this.props.history.push("/all-data");
         },
         ({ data }) => this.setState({ errors: data })
       );
     } else {
-      this.props.newCustomerErrorTrue();
+      this.props.newCustomerError(true);
       error = false;
     }
   };

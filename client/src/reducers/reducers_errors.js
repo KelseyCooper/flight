@@ -1,6 +1,5 @@
 import {
-  NEW_CUSTOMER_ERROR_TRUE,
-  NEW_CUSTOMER_ERROR_FALSE,
+  NEW_CUSTOMER_ERROR,
   EDIT_CUSTOMER_ERROR,
   LOGIN_USER_BLANK_ERROR,
   LOGIN_INVALID_USER_ERROR,
@@ -17,15 +16,10 @@ const initialState = {
 
 const error = (state = initialState, action) => {
   switch (action.type) {
-    case NEW_CUSTOMER_ERROR_TRUE:
+    case NEW_CUSTOMER_ERROR:
       return {
         ...state,
-        newCustomerError: true
-      };
-    case NEW_CUSTOMER_ERROR_FALSE:
-      return {
-        ...state,
-        newCustomerError: false
+        newCustomerError: action.payload
       };
     case EDIT_CUSTOMER_ERROR:
       return {
