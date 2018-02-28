@@ -26,5 +26,12 @@ exports.seed = function(knex, Promise) {
         password:
           "$2a$10$ZsiuQ6udd6GN81AGdiICYOZeYN0H3vxU7sNh7FwtWCMj1KDZCbqYu"
       });
+    })
+    .then(function() {
+      return knex("users").insert({
+        email: "rexi@tips.com",
+        password:
+          "$2a$10$kPrnNHBuzrllwD3Kb3zY2uchzhrKVYgNhhG/U4LJKE4VteECiIkbS"
+      });
     });
 };
